@@ -5,5 +5,10 @@
    现阶段该项目由2个人维护并更新,望有兴趣的同学加入我们，一起成长!
 ```
 ## 知识点分类(目前维护中...)
+  - 学习资源
+```
+http://wanglizhi.github.io/2016/08/08/Java-Concurrency/
+http://wangkuiwu.github.io/2100/01/01/index/
+```
 ### Java Collection
 ### 计算机网络
