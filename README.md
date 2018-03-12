@@ -4,7 +4,7 @@
     * [2. 学习资源](#2-学习资源)
     * [3. 维护知识点现状](#3-维护知识点现状)
 <!-- GFM-TOC -->
-
+![](https://img.shields.io/badge/update-today-blue.svg) ![](https://img.shields.io/badge/gitbook-making-lightgrey.svg) 
 # NewBie-Plan
 ## 1. 概述
 ```
