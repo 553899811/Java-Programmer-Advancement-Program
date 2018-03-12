@@ -28,3 +28,24 @@
   3.在索引中ArrayList的增加或者删除某个对象的运行过程？效率很低吗?解释一下为什么?
   答:原理就是2中提到的;
 ```
+```
+  4.ArrayList中大量使用了Arrays.copyof()和System.arraycopy()方法,两个的区别:
+  答:前者的方法中调用了后者,后者是个本地方法,复制数组特别高效;
+  首先来看Arrays.copyof()方法。它有很多个重载的方法，但实现思路都是一样的，我们来看泛型版本的源码：
+  public static <T> T[] copyOf(T[] original, int newLength) {
+    return (T[]) copyOf(original, newLength, original.getClass());
+  }
+  很明显调用了另一个copyof方法，该方法有三个参数，最后一个参数指明要转换的数据的类型，其源码如下：
+  public static <T,U> T[] copyOf(U[] original, int newLength, Class<? extends T[]> newType) {
+    T[] copy = ((Object)newType == (Object)Object[].class)
+        ? (T[]) new Object[newLength]
+        : (T[]) Array.newInstance(newType.getComponentType(), newLength);
+    System.arraycopy(original, 0, copy, 0,
+                     Math.min(original.length, newLength));
+    return copy;
+   }
+   这里可以很明显地看出，该方法实际上是在其内部又创建了一个长度为newlength的数组，调用System.arraycopy()方法，将 原来数组中的元素复制到了新的数组中;
+   下面来看System.arraycopy()方法。该方法被标记了native，调用了系统的C/C++代码，在JDK中是看不到的，但在openJDK中可以看到其源码。
+   该函数实际上最终调用了C语言的memmove()函数，因此它可以保证同一个数组内元素的正确复制和移动，比一般的复制方法的实现效率要高很多，很适合用来批量处理数组。
+   Java强烈推荐在复制大量数组元素时用该方法，以取得更高的效率。
+```
