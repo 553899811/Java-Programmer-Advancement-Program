@@ -24,7 +24,7 @@
    - 已完成知识点
      - 暂时无已完成知识点
    - 正在维护知识点    
-     - Java Collection (已完成5%)
+     - Java Collection
      - 计算机网络
      - Java-IO
      - ZooKeeper系列
