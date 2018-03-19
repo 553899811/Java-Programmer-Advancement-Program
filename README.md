@@ -2,7 +2,7 @@
 * [NewBie-Plan](#NewBie-Plan)
     * [1. 概述](#1-概述)
     * [2. 学习资源](#2-学习资源)
-    * [3. 维护知识点现状](#3-维护知识点现状)
+    * [3. 目录](#3-目录)
 <!-- GFM-TOC -->
 ![](https://img.shields.io/badge/update-today-blue.svg) ![](https://img.shields.io/badge/gitbook-making-lightgrey.svg) 
 # NewBie-Plan
@@ -20,12 +20,10 @@
    http://wangkuiwu.github.io/2100/01/01/index/
    https://github.com/CyC2018/Interview-Notebook
 ```
-## 3. 维护知识点现状
-   - 已完成知识点
-     - 暂时无已完成知识点
-   - 正在维护知识点    
-     - Java Collection
-     - 计算机网络
-     - Java-IO
-     - ZooKeeper系列
-     - JVM系列
+## 3. 目录
+   - [算法和数据结构](https://github.com/553899811/Programming)
+   - [Java基础](https://github.com/553899811/NewBie-Plan/tree/203f0d17b170b543da6f68593a7d45e2c9a77fe9/Java%E5%9F%BA%E7%A1%80)
+     - [Java-Collection](https://github.com/553899811/NewBie-Plan/tree/master/Java%E5%9F%BA%E7%A1%80/Java-Collection%E9%9B%86%E5%90%88/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86)
+     - [Java IO](https://github.com/553899811/NewBie-Plan/tree/master/Java%E5%9F%BA%E7%A1%80/Java-IO/%E5%9F%BA%E7%A1%80)
+   - [计算机网络](https://github.com/553899811/NewBie-Plan/tree/203f0d17b170b543da6f68593a7d45e2c9a77fe9/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86)
+   - [ZooKeeper系列](https://github.com/553899811/NewBie-Plan/tree/master/%E9%AB%98%E7%BA%A7%E9%83%A8%E5%88%86/ZooKeeper%E7%B3%BB%E5%88%97)
