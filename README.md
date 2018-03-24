@@ -18,16 +18,12 @@
   
   - 2.1 技术面总结</br>
    [https://github.com/CyC2018/Interview-Notebook](https://github.com/CyC2018/Interview-Notebook)
-  - 2.2 多线程系列
+  - 2.2 多线程系列</br>
    [https://blog.csdn.net/mingtianhaiyouwo/article/details/51012392](https://blog.csdn.net/mingtianhaiyouwo/article/details/51012392)</br>
    [http://wanglizhi.github.io/2016/08/08/Java-Concurrency/](http://wanglizhi.github.io/2016/08/08/Java-Concurrency/)
   - 2.3 JVM系列</br>
    [http://www.cnblogs.com/leesf456/p/5218594.html](http://www.cnblogs.com/leesf456/p/5218594.html)
-```
-   http://wanglizhi.github.io/2016/08/08/Java-Concurrency/
-   http://wangkuiwu.github.io/2100/01/01/index/
-   https://github.com/CyC2018/Interview-Notebook
-```
+
 ## 3. 目录
    - [算法和数据结构](https://github.com/553899811/Programming)
    - [Java基础](https://github.com/553899811/NewBie-Plan/tree/203f0d17b170b543da6f68593a7d45e2c9a77fe9/Java%E5%9F%BA%E7%A1%80)
