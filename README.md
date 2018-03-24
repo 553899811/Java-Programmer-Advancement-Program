@@ -9,12 +9,20 @@
 ## 1. 概述
 ```
    主要针对于现阶段Java开发工程师开启的学习推荐和辅助，主要会从Java基础(IO,Collection集合,反射,多态),MySQL,多线程,JVM,操作系统，计算机网络及部分高级应用等方面做较为详细的学习探究。
-   现阶段该项目由5个人持续维护,同时也有兴趣的同学加入我们,学习总结,一起成长!
+   现阶段该项目由5个人持续维护,同时也希望有兴趣的同学能够加入我们,学习总结,一起成长!
 ```
 ```
   该项目持续维护周期为半年,请各位尽自己力量维护下知识库!
 ```
-## 2. 学习资源  
+## 2. 学习资源
+  
+  - 2.1 技术面总结</br>
+   [https://github.com/CyC2018/Interview-Notebook](https://github.com/CyC2018/Interview-Notebook)
+  - 2.2 多线程系列
+   [https://blog.csdn.net/mingtianhaiyouwo/article/details/51012392](https://blog.csdn.net/mingtianhaiyouwo/article/details/51012392)</br>
+   [http://wanglizhi.github.io/2016/08/08/Java-Concurrency/](http://wanglizhi.github.io/2016/08/08/Java-Concurrency/)
+  - 2.3 JVM系列</br>
+   [http://www.cnblogs.com/leesf456/p/5218594.html](http://www.cnblogs.com/leesf456/p/5218594.html)
 ```
    http://wanglizhi.github.io/2016/08/08/Java-Concurrency/
    http://wangkuiwu.github.io/2100/01/01/index/
