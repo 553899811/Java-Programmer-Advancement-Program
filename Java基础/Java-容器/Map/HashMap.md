@@ -11,9 +11,12 @@
              * [1.1.2.2.2 基本组成成员](#11222-基本组成成员)
              * [1.1.2.2.3 构造器](#11223-构造器)
            * [1.1.2.3 基本操作](#1123-基本操作)
-             * [1.1.2.3.1 put()方法](#11231-put方法)
-             * [1.1.2.3.2 get()方法](#11232-get方法)
+             * [1.1.2.3.1 如何获取Hash值](#11231-如何获取hash值)
+             * [1.1.2.3.2 获取桶索引位置](#11232-获取桶索引位置)
+             * [1.1.2.3.3 put()方法](#11233-put方法)
+             * [1.1.2.3.4 get()方法](#11234-get方法)
     * [2. HashMap 高级特性](#2-hashmap-高级特性)
+      * [2.1 扩容机制](#21-扩容机制) 
 <!-- GFM-TOC -->
 
 # HashMap介绍
@@ -57,7 +60,11 @@ public class HashMap<K,V> extends AbstractMap<K,V>
 ```
   HashMap采用链地址法,大概长下面的样子
 ```
-![](https://images2015.cnblogs.com/blog/1024555/201611/1024555-20161113235348670-746615111.png)
+ - 横着看
+![](https://github.com/CyC2018/Interview-Notebook/raw/3f1469ab746c2d7a48fce074dc09cf2ecade3152/pics/b9a39d2a-618c-468b-86db-2e851f1a0057.jpg)
+
+ - 竖着看
+![](http://tech.meituan.com/img/java-hashmap/hashMap%E5%86%85%E5%AD%98%E7%BB%93%E6%9E%84%E5%9B%BE.png)
 ```
   简单来说，HashMap由数组+链表组成的，数组是HashMap的主体，链表则是主要为了解决哈希冲突而存在的，
   如果定位到的数组位置不含链表（当前entry的next指向null）,那么对于查找，添加等操作很快，仅需一次寻址即可；如果定位到的数组包含链表，
@@ -66,9 +73,14 @@ public class HashMap<K,V> extends AbstractMap<K,V>
   所以，性能考虑，HashMap中的链表出现越少，性能才会越好；
 ```
 ##### 1.1.2.2.2 基本组成成员
+ - table
+```
+  // 我们称之为 桶(数组),初始化为16个;
+  transient Node<K,V>[] table;
+```
  - Node
 ```
-    //基本节点
+    //基本节点(构成链表的基本元素)
     // hash 当前节点 hash值;
     // key 当前节点的 key;
     // value 当前节点 value;
@@ -108,36 +120,6 @@ public class HashMap<K,V> extends AbstractMap<K,V>
         this.loadFactor = DEFAULT_LOAD_FACTOR; // all other fields defaulted
     }
 ```
- - 传入参数Map
-```
-  没使用过,所以不知道;
-      /**
-     * Constructs a new <tt>HashMap</tt> with the same mappings as the
-     * specified <tt>Map</tt>.  The <tt>HashMap</tt> is created with
-     * default load factor (0.75) and an initial capacity sufficient to
-     * hold the mappings in the specified <tt>Map</tt>.
-     *
-     * @param   m the map whose mappings are to be placed in this map
-     * @throws  NullPointerException if the specified map is null
-     */
-    public HashMap(Map<? extends K, ? extends V> m) {
-        this.loadFactor = DEFAULT_LOAD_FACTOR;
-        putMapEntries(m, false);
-    }
-```
- - 传入参数: 指定数组长度
-```
-   /**
-     * Constructs an empty <tt>HashMap</tt> with the specified initial
-     * capacity and the default load factor (0.75).
-     *
-     * @param  initialCapacity the initial capacity.
-     * @throws IllegalArgumentException if the initial capacity is negative.
-     */
-    public HashMap(int initialCapacity) {
-        this(initialCapacity, DEFAULT_LOAD_FACTOR);
-    }
-```
  - 传入参数: 指定数组长度,指定负载因子
 ```
   /**
@@ -152,7 +134,7 @@ public class HashMap<K,V> extends AbstractMap<K,V>
     public HashMap(int initialCapacity, float loadFactor) {
         if (initialCapacity < 0)
             throw new IllegalArgumentException("Illegal initial capacity: " +
-                                               initialCapacity);
+                                             initialCapacity);
         if (initialCapacity > MAXIMUM_CAPACITY)
             initialCapacity = MAXIMUM_CAPACITY;
         if (loadFactor <= 0 || Float.isNaN(loadFactor))
@@ -161,11 +143,93 @@ public class HashMap<K,V> extends AbstractMap<K,V>
         this.loadFactor = loadFactor;
         this.threshold = tableSizeFor(initialCapacity);
     }
-    在常规构造器中，没有为数组table分配内存空间(有一个入参为指定Map的构造器例外),
-    而是在执行put操作的时候才真正构建table数组;
+    
 ```
+   <font color="red">**tableSizeFor方法**</font>
+```
+    /**
+     * Returns a power of two size for the given target capacity.
+     */
+    static final int tableSizeFor(int cap) {
+        int n = cap - 1;
+        n |= n >>> 1;
+        n |= n >>> 2;
+        n |= n >>> 4;
+        n |= n >>> 8;
+        n |= n >>> 16;
+        return (n < 0) ? 1 : (n >= MAXIMUM_CAPACITY) ? MAXIMUM_CAPACITY : n + 1;
+    }
+    功能: tableSizeFor的功能（不考虑大于最大容量的情况）
+    是返回大于输入参数且最近的2的整数次幂的数;
+    
+    为什么上述的位运算能得到大于参数且最近的2的整数次幂的数呢?
+    
+```
+
+  <font color="red">对于这个构造函数,主要讲两点:</font>
+
+    [1]虽然说是自定义initialCapacity,但是实际上并不是你所想的那样的任意数组长度;
+    经过tableSizeFor方法的处理之后,会得到一个大于输入参数且最近的2的整数次幂的数;
+    比如你输入一个10,得到的是初始化数组长度为16的HashMap;
+    
+    [2]在常规构造器中，没有为数组table分配内存空间(有一个入参为指定Map的构造器例外),
+    而是在执行put操作的时候才真正构建table数组;
+
 #### 1.1.2.3 基本操作
-##### 1.1.2.3.1 put()方法
+##### 1.1.2.3.1 如何获取Hash值
+ - 扰动函数
+```
+  static final int hash(Object key) {
+        int h;
+        return (key == null) ? 0 : (h = key.hashCode()) ^ (h >>> 16);
+  }
+```
+  <font color="red">**扰动函数解析:**</font>
+```
+  上述代码中key.hashCode()函数调用的是超类Object类中的哈希函数,JVM进而调用本地方法,返回一个int值;
+  理论上是一个int类型的值,范围为-2147483648-2147483647,
+  前后加起来大概有40亿的映射空间,的确这么大的空间,映射会很均匀
+  但是这么大的数组,内存中是放不下的。HashMap的初始化数组只有16
+  ,所以这个散列值是无法直接拿来用的;
+  
+  扰动函数的结果是hashCode中高位和地位的复合产物;
+```
+##### 1.1.2.3.2 获取桶索引位置
+```
+  JDK 1.8中是直接通过p = tab[i = (n - 1) & hash 这个方法来确定桶索引位置的;
+  [1]hash为扰动函数的产物;
+  [2]n-1位当前hashmap的数组个数.
+  
+  此时,我们会有诸多疑问,比如:
+  【1】为什么是 n-1 呢? 
+  
+   答: 源头就是HashMap的数组长度为什么要取2的整数幂? 因为这样(n-1)
+   相当于一个"低位掩码"; 
+   这样能结合下面的&运算使散列更为均匀(相对其他数字来说,比如10的话)
+    
+    和15做    和10做      和15做    和10做
+   00100101  00100101    00110001  00110001
+   00001111  00001010    00001111  00001010
+   &-------  --------    --------  --------
+   00000101  00000000    00000001  00000000
+   
+   我们发现两个不同的数00100101 和0011001 分别和15以及10做与运算,
+   和15做&运算会得到两个不同的结果,而和10做与运算得到的是相同的结果,这就会出现冲突!
+  
+  【2】为什么要做&运算呢?
+   答: 与操作的结果就是高位全部归零,只保留低位值,用来做数组下标访问。举一个例子说明,初始化长度为16,16-1=15 . 
+   2进制(4字节,32位)表示就是 00000000 00000000 00000000 00001111 
+   和 某散列值做与操作结果就是
+   00000000 10100101 11000100 00100101
+   00000000 00000000 00000000 00001111
+ & -------------------------------------
+   00000000 00000000 00000000 00000101 //高位全部归零,只保留尾部四位
+   
+   
+  【3】为什么扰动函数是那样子的呢?
+  
+```
+##### 1.1.2.3.3 put()方法
  - put()方法
 ```
     [1]调用put方法放入key-value键值对;
@@ -192,7 +256,7 @@ public class HashMap<K,V> extends AbstractMap<K,V>
     然后根据hash值搜索在table数组中的索引位置，如果table数组在该位置处有元素，循环遍历链表，比较是否存在相同的key，
     若存在则覆盖原来key的value，否则将该元素保存在链头（最先保存的元素放在链尾）。若table在该处没有元素，则直接保存。
 ```
-##### 1.1.2.3.2 get()方法
+##### 1.1.2.3.4 get()方法
 ![](https://static.oschina.net/uploads/img/201612/28165110_Qgbu.png)
  - 过程分析:
    - 根据Key计算出hash值;
@@ -202,4 +266,4 @@ public class HashMap<K,V> extends AbstractMap<K,V>
      - 如果该数组index位置元素非TreeNode类型,则按照链表的方式来进行遍历查询;
        
 ## 2. HashMap 高级特性
-### 2.1 线程安全问题
+### 2.1 扩容机制
