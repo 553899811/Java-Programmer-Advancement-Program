@@ -61,9 +61,11 @@ public class HashMap<K,V> extends AbstractMap<K,V>
   HashMap采用链地址法,大概长下面的样子
 ```
  - 横着看
+ 
 ![](https://github.com/CyC2018/Interview-Notebook/raw/3f1469ab746c2d7a48fce074dc09cf2ecade3152/pics/b9a39d2a-618c-468b-86db-2e851f1a0057.jpg)
 
  - 竖着看
+ 
 ![](http://tech.meituan.com/img/java-hashmap/hashMap%E5%86%85%E5%AD%98%E7%BB%93%E6%9E%84%E5%9B%BE.png)
 ```
   简单来说，HashMap由数组+链表组成的，数组是HashMap的主体，链表则是主要为了解决哈希冲突而存在的，
