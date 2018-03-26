@@ -245,8 +245,8 @@ public class HashMap<K,V> extends AbstractMap<K,V>
 ```
   JDK 1.8中是直接通过p = tab[i = (n - 1) & hash这个方法来确定桶索引位置的;
   
-  [1]hash为扰动函数的产物;
-  [2]n-1位当前hashmap的数组个数;
+  [1]hash 为扰动函数的产物(即从某种意义上代表着key的hashCode);
+  [2]n-1 为当前hashmap的数组个数;
   
   此时,我们会有诸多疑问,比如:
     【1】为什么要做&运算呢?
