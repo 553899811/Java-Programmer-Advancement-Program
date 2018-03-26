@@ -61,9 +61,11 @@ public class HashMap<K,V> extends AbstractMap<K,V>
   HashMap采用链地址法,大概长下面的样子
 ```
  - 横着看
+ 
 ![](https://github.com/CyC2018/Interview-Notebook/raw/3f1469ab746c2d7a48fce074dc09cf2ecade3152/pics/b9a39d2a-618c-468b-86db-2e851f1a0057.jpg)
 
  - 竖着看
+ 
 ![](http://tech.meituan.com/img/java-hashmap/hashMap%E5%86%85%E5%AD%98%E7%BB%93%E6%9E%84%E5%9B%BE.png)
 ```
   简单来说，HashMap由数组+链表组成的，数组是HashMap的主体，链表则是主要为了解决哈希冲突而存在的，
@@ -110,8 +112,52 @@ public class HashMap<K,V> extends AbstractMap<K,V>
   static final int UNTREEIFY_THRESHOLD = 6;
  //阈值，当table == {}时，该值为初始容量（初始容量默认为16）；当table被填充了，也就是为table分配内存空间后，threshold一般为 capacity*loadFactory。HashMap在进行扩容时需要参考threshold，后面会详细谈到
   int threshold;
-
 ```
+<table frame="hsides" rules="groups" cellspacing=0 cellpadding=0>
+<!-- 表头部分 -->
+<thead align=center style="font-weight:bolder; background-color:#cccccc">
+     <tr>
+          <td>变量名</td>
+          <td>变量初始值</td>
+          <td>变量值含义</td>
+     </tr>
+</thead>
+
+<tbody>
+    <tr>
+        <td>DEFAULT_INITIAL_CAPACITY </td>
+        <td>2^4</td>
+        <td>HashMap默认初始化桶(数组)数量</td>
+    </tr>
+    <tr>
+        <td>DEFAULT_INITIAL_CAPACITY </td>
+        <td>2^30</td>
+        <td>HashMap最大桶(数组)数量</td>
+    </tr>
+    <tr>
+        <td>DEFAULT_LOAD_FACTOR</td>
+        <td>0.75</td>
+        <td>负载因子(影响扩容机制)</td>
+    </tr>
+    <tr>
+        <td>size</td>
+        <td>无初始化值</td>
+        <td>实际存储的key-value键值对的个数</td>
+    </tr>
+    <tr>
+        <td>TREEIFY_THRESHOLD</td>
+        <td>8</td>
+        <td>链表长度>8时变化数据结构为红黑树</td>
+    </tr>
+    <tr>
+        <td>UNTREEIFY_THRESHOLD</td>
+        <td>6</td>
+        <td>当桶位置上元素个数<=6时 退化数据结构由红黑树变为链表</td>
+    </tr>
+   
+</tbody>
+</table>
+
 ##### 1.1.2.2.3 构造器
  - 没有传入参数
 ```
