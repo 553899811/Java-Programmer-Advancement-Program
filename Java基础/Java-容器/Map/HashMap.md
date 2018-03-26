@@ -245,8 +245,8 @@ public class HashMap<K,V> extends AbstractMap<K,V>
 ```
   JDK 1.8中是直接通过p = tab[i = (n - 1) & hash这个方法来确定桶索引位置的;
   
-  [1]hash 为扰动函数的产物(即从某种意义上代表着key的hashCode);
-  [2]n-1 为当前hashmap的数组个数;
+  [1]hash为扰动函数的产物;
+  [2]n-1位当前hashmap的数组个数;
   
   此时,我们会有诸多疑问,比如:
     【1】为什么要做&运算呢?
@@ -292,12 +292,12 @@ public class HashMap<K,V> extends AbstractMap<K,V>
 ```
 ![](https://static.oschina.net/uploads/img/201612/28154542_9bV6.png)
   - 分析put过程:
-    - 根据Key值计算Hash值;
-    - 然后计算在数组中的索引位置,index=(n-1) & hash 
-      - 如果该index位置的Node元素不存在,则直接创建一个新的Node; 
-      - 如果该index位置的Node元素是TreeNode类型即是红黑树类型了,则直接按照红黑树的插入方式进行插入;
-      - 如果该index位置的Node元素是非TreeNode类型,则按照链表的形式进行插入操作.链表插入操作完成后,判断是否超过阈值TREEIFY_THRESHOLD(默认是8),超过则要么数组扩容,要么链表转化为红黑树结构;
-    - 判断当前总容量是否超过阈值,如果超过则执行扩容;
+    - [1]首先判断table是否为空或者为null,如果是,则初始化数组table;
+    - [2]根据键值key计算hash值 并得到桶索引位置((n-1)& hash),如果table[i]=null,直接新建节点添加,转向[6],如果table[i]不为空,则转向[3];
+    - [3]判断table的首个元素是否和key相同,如果相同的话直接覆盖value,否则直接转向[4],这里的相同指的是hashCode和equals
+    - [4]判断table[i]是否为treeNode,即table[i]是否为红黑树,如果是红黑树,则直接在树中插入键值对,否则转向[5];
+    - [5]遍历table[i](第i+1个桶),判断链表长度是否大于8,大于8的话将链表转换为红黑树,在红黑树中执行插入操作,否则进行链表的插入操作;遍历过程中若发现key已经存在直接覆盖value即可;
+    - [6]插入成功,判断实际存在的键值对size是否超过了最大容量(阈值),如果超过,进行扩容;
 ```
    [1]这里重点说明下,在JDK1.7中index = hash % (len-1) 做与运算 ,在JDK 1.8中 变为了 i =(n-1) & hash,两者的作用是相同的;
    [2]Put时如果key为null，存储位置为table[0]或table[0]的冲突链上(table为HashMap中存的数组),
@@ -314,6 +314,5 @@ public class HashMap<K,V> extends AbstractMap<K,V>
      - 如果要找的key就是上述数组index位置的元素,直接返回该元素的值;
      - 如果该数组index位置元素是TreeNode类型,则按照红黑树的查询方式来进行查询;
      - 如果该数组index位置元素非TreeNode类型,则按照链表的方式来进行遍历查询;
-       
 ## 2. HashMap 高级特性
 ### 2.1 扩容机制
