@@ -62,7 +62,7 @@ public class HashMap<K,V> extends AbstractMap<K,V>
 ```
  - 横着看
  
-![](https://github.com/CyC2018/Interview-Notebook/raw/3f1469ab746c2d7a48fce074dc09cf2ecade3152/pics/b9a39d2a-618c-468b-86db-2e851f1a0057.jpg)
+![](http://mmbiz.qpic.cn/mmbiz_png/YrLz7nDONjFzg05ibhpwUrWiaI9zCjHQBpuFzhibcOJIl9brZLOxvRvSClj7ialQjYNMUULgV2DcibQia8u9BFULsJVA/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1)
 
  - 竖着看
  
