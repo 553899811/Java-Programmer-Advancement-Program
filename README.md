@@ -13,7 +13,7 @@
 ```
 ## 2. 学习资源
   
-  - 2.1 技术面总结</br>
+  - 2.1 他山之石,可以攻玉</br>
    [https://github.com/CyC2018/Interview-Notebook](https://github.com/CyC2018/Interview-Notebook)
   - 2.2 多线程系列</br>
    [https://blog.csdn.net/mingtianhaiyouwo/article/details/51012392](https://blog.csdn.net/mingtianhaiyouwo/article/details/51012392)</br>
@@ -22,6 +22,8 @@
    [http://www.cnblogs.com/leesf456/p/5218594.html](http://www.cnblogs.com/leesf456/p/5218594.html)
   - 2.4 IO系列</br>
    [http://wangkuiwu.github.io/2100/01/01/index/](http://wangkuiwu.github.io/2100/01/01/index/)
+   - 2.5 面试基础大纲</br>
+   [https://blog.csdn.net/Yan456jie/article/details/52439457](https://blog.csdn.net/Yan456jie/article/details/52439457)
 ## 3. 目录
    - [算法和数据结构](https://github.com/553899811/Programming)
    - [Java基础](https://github.com/553899811/NewBie-Plan/tree/203f0d17b170b543da6f68593a7d45e2c9a77fe9/Java%E5%9F%BA%E7%A1%80)
