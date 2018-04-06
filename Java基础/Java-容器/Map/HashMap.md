@@ -388,5 +388,5 @@ hash2: 1111 1111 1111 1111 0000 1111 0001 0101
   ```
 ### 2.2 线程安全问题
 ```
-  http://www.importnew.com/22011.html
+ http://www.cnblogs.com/dongguacai/p/5599100.html
 ```
