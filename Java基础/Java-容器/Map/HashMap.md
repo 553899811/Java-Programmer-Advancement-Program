@@ -388,10 +388,6 @@ hash2: 1111 1111 1111 1111 0000 1111 0001 0101
   ```
 ### 2.2 线程安全问题
 ```
-<<<<<<< HEAD
-  http://www.importnew.com/22011.html
-```
-=======
  http://www.cnblogs.com/dongguacai/p/5599100.html
 ```
->>>>>>> 45e65a28b764cfcf2cf1f9ea1d9ffbbee6a567dc
+
