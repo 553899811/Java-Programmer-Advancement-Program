@@ -1,5 +1,5 @@
 <!-- GFM-TOC -->
-* [1. HTTP1.1新特性](#1-http1.1新特性)
+* [1. HTTP1.1新特性](#1-http1-1新特性)
 <!-- GFM-TOC -->
 ![](https://github.com/553899811/NewBie-Plan/raw/master/计算机网络/img/面试题-1.jpg)
 ![](https://github.com/553899811/NewBie-Plan/raw/master/计算机网络/img/面试题-2.jpg)
