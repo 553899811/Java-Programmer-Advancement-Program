@@ -5,7 +5,7 @@
 ![](https://github.com/553899811/NewBie-Plan/raw/master/计算机网络/img/面试题-2.jpg)
 ![](https://github.com/553899811/NewBie-Plan/raw/master/计算机网络/img/面试题-3.jpg)
 
-# 1 . HTTP1.1新特性
+# 1 .HTTP1.1新特性
 
    - 默认持久连接节省通信量，只要客户端服务端任意一端没有明确提出断开TCP连接，就一直保持连接，可以发送多次HTTP请求。
 
