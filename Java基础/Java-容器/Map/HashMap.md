@@ -335,6 +335,20 @@ public class HashMap<K,V> extends AbstractMap<K,V>
     然后根据hash值搜索在table数组中的索引位置，如果table数组在该位置处有元素，循环遍历链表，比较是否存在相同的key，
     若存在则覆盖原来key的value，否则将该元素保存在链头（最先保存的元素放在链尾）。若table在该处没有元素，则直接保存。
 ```
+  - 拉链法的工作原理
+```
+    HashMap<String, String> map = new HashMap<>();
+    map.put("K1","V1");
+    map.put("K2","V2");
+    map.put("K3","V3");
+    
+    [1]新建一个HashMap,默认大小为1<<4(16)；
+    [2]插入Node<K1,V1> ,先计算K1的hash值为115,使用和(len-1)做&运算得到所在的桶下标为115&15=3;
+    [3]插入Node<K2,V2>,先计算K2的hash值为118,使用和(len-1)做&y运算得到所在的桶下标为118&15=6;
+    [4]插入Node<K3,V3>,先计算K3的hash值为118,使用和(len-1)做&y运算得到所在的桶下标为118&15=6,插在<K2,V2>后面.
+``` 
+![](../img/hashmap-put.png)
+
 ##### 1.1.2.3.4 get()方法
 ![](https://static.oschina.net/uploads/img/201612/28165110_Qgbu.png)
  - 过程分析:
@@ -388,6 +402,5 @@ hash2: 1111 1111 1111 1111 0000 1111 0001 0101
   ```
 ### 2.2 线程安全问题
 ```
- http://www.cnblogs.com/dongguacai/p/5599100.html
+  http://www.importnew.com/22011.html
 ```
-
