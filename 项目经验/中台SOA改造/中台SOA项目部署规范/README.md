@@ -33,11 +33,35 @@
               * [1.2.2.3.3 文件描述](#12233-文件描述)
               * [1.2.2.3.4 实例Demo](#12234-实例demo)
             * [1.2.2.4 SpringBoot集成Dubbo](#1224-springboot集成dubbo)
-              * [1.2.2.4.1 Maven依赖](#12241-maven依赖) 
-        * [1.2 包名规范](#12-包名规范)
-        * [1.3 类名规范](#13-类名规范)
-        
+              * [1.2.2.4.1 Maven依赖](#12241-maven依赖)
+              * [1.2.2.4.2 配置信息](#12242-配置信息)
+              * [1.2.2.4.3 文件描述](#12243-文件描述)
+              * [1.2.2.4.4 实例Demo](#12244-实例demo)
+            * [1.2.2.5 SpringBoot集成Apache Shiro](#1225-springboot集成apache-shiro)
+            * [1.2.2.6 SpringBoot配置多数据源](#1226-springboot配置多数据源)
+    * [2. 编码](#2-编码)
+       * [2.1 IDE安装Alibaba P3C编码规范插件](#21-ide安装alibaba-p3c编码规范插件)
+            * [2.1.1 IntelliJ IDEA安装教程](#211-intellij-idea安装教程)
+            * [2.1.2 Eclipse安装教程](#212-eclipse安装教程)
+            * [2.1.3 MyEclipse安装教程](#213-myeclipse安装教程)
+       * [2.2 上品开发编码规范](#22-上品开发编码规范)
+    * [3.部署](#3-部署)
+       * [3.1 环境要求](#31-环境要求)
+            * [3.1.1 数据库连接池配置与说明](#311-数据库连接池配置与说明)
+              * [3.1.1.1 单数据源配置](#3111-单数据源配置)
+              * [3.1.1.2 多数据源配置](#3112-多数据源配置)
+            * [3.1.2 日志组件及配置](#312-日志组件及配置)
+       * [3.2 版本发布与维护](#32-版本发布与维护)
+            * [3.2.1 快照版(SNAPSHOP)发布](#321-快照版(snapshot)发布)
+            * [3.2.2 正式版(RELEASE)发布](#322-正式版(release)发布)
+       * [3.3 Git仓库代码规约](#33-git仓库代码规约)
+            * [3.3.1 代码上传规约](#331-代码上传规约)
+              * [3.3.1.1 .gitignore文件的设置](#3311-.gitignore文件的设置)
+            * [3.3.2 项目仓库规约](#332-项目仓库规约)
+       * [3.4 Tomcat部署规约](#34-tomcat部署规约)
+       * [3.5 上线部署规约](#35-上线部署规约)
 <!-- GFM-TOC -->
+
 # 中台SOA部署规范
 ## 1. 构建
 ### 1.1 项目拆分
@@ -112,7 +136,7 @@
   - impl结构图
 <div align=center><img src="https://github.com/bjshopin/Shopin/blob/master/%E6%8A%80%E6%9C%AF%E5%BC%80%E5%8F%91/%E4%B8%AD%E5%8F%B0SOA%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2%E8%A7%84%E8%8C%83/img/2.png"/>
 </div>
- - 后台组件图(聚合项目)
+  - 后台组件图(聚合项目)
 <div align=center><img src="https://github.com/bjshopin/Shopin/blob/master/%E6%8A%80%E6%9C%AF%E5%BC%80%E5%8F%91/%E4%B8%AD%E5%8F%B0SOA%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2%E8%A7%84%E8%8C%83/img/1.png"/>
 </div>
 
@@ -583,21 +607,23 @@
 </div>
 
  - <font color="red">注意</font>
- 
 ```
+
 注意: mpsi-[module]-service-impl不纳入mpsi-parent的聚合项目中,每一个服务实现都是单独的war项目 ,
 但是它需要依赖于mpsi-parent，原因在于mpsi-parent继承与mpsi-dependencies,
 这样就可以将版本依赖和控制集成到项目中.
+补充说明:job任务单独会以war项目部署,因此要继承mpsi-parent聚合项目,实现版本控制及部署;
+
 ```
 #### 1.2.2 SpringBoot集成
 ##### 1.2.2.1 SpringBoot集成RedisTemplate
 ###### 1.2.2.1.1 Maven依赖
 ```
-  <dependency>  
-         <groupId>org.springframework.boot</groupId>  
-         <artifactId>spring-boot-starter-data-redis</artifactId>  
-         <version>1.5.8.RELEASE</version>  
-  </dependency>  
+    <dependency>  
+           <groupId>org.springframework.boot</groupId>  
+           <artifactId>spring-boot-starter-data-redis</artifactId>  
+           <version>1.5.8.RELEASE</version>  
+    </dependency>  
 ```
 ###### 1.2.2.1.2 配置信息
  - 在application.properties中配置:
@@ -621,12 +647,12 @@
 ```
 ```
     串行Job添加类注解  
-  @Component  
-  @EnableScheduling  
-  方法注解  
-  @Scheduled(fixedRate = 3 * 1000)  
-  或者 
-  @Scheduled(cron = 表达式) 
+    @Component  
+    @EnableScheduling  
+    方法注解  
+    @Scheduled(fixedRate = 3 * 1000)  
+    或者 
+    @Scheduled(cron = 表达式) 
 
 ```
 ###### 1.2.2.2.2 并行执行
@@ -634,18 +660,18 @@
  SpringBoot中Job支持并行执行(多个任务同时执行),需手动配置
 ```
 ```
-  并行Job添加类注解  
-  @Component  
-  @EnableScheduling  
-  @EnableAsync(mode = AdviceMode.PROXY, proxyTargetClass = false,  
-          order = Ordered.HIGHEST_PRECEDENCE  
-  )  
-  方法注解  
-  @Scheduled(fixedRate = 3 * 1000)  
-  @Async  
-  或者  
-  @Scheduled(cron = 表达式)   
-  @Async 
+    并行Job添加类注解  
+    @Component  
+    @EnableScheduling  
+    @EnableAsync(mode = AdviceMode.PROXY, proxyTargetClass = false,  
+            order = Ordered.HIGHEST_PRECEDENCE  
+    )  
+    方法注解  
+    @Scheduled(fixedRate = 3 * 1000)  
+    @Async  
+    或者  
+    @Scheduled(cron = 表达式)   
+    @Async 
 ```
 ###### 1.2.2.2.3 实例Demo
 [SpringBoot整合Schedule定时任务](https://github.com/553899811/NewBie-Plan/tree/master/SpringBoot/springboot-schedule)
@@ -661,19 +687,21 @@
   - 服务生产者
 ```
  版本配置:
- 
+     这部分不需要在生产者的pom文件中写入,
+     因为在mpsi-dependencies中已经定义了全部依赖的jar;
+     
  <spring.boot.starter.dubbo.version>1.0.0</spring.boot.starter.dubbo.version 
  <dubbo.version>2.5.7</dubbo.version>  
  <zookeeper.version>3.4.10</zookeeper.version>  
  
  JAR依赖:
  
- <?xml version="1.0" encoding="UTF-8"?>
-
+<?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-
+    
+    <!--parent为mpsi-parent,因为继承其中的组件依赖-->
     <parent>
         <groupId>net.shopin</groupId>
         <artifactId>mpsi-parent</artifactId>
@@ -889,6 +917,665 @@
         </plugins>
     </build>
 </project>
+```
+ - 服务消费者
+```
+  服务消费者依赖的关于
+```
+###### 1.2.2.4.2 配置信息
+
+ - 服务生产者
+```
+   [1] application.properties
+    
+    //应用名称  
+    spring.dubbo.application.name=inventory-query-provider  
+    //注册中心地址 [单机或集群模式] 
+    spring.dubbo.registry.address=zookeeper://172.16.103.145:2181  
+    //传输协议  
+    spring.dubbo.protocol.name=dubbo  
+    //传输端口  
+    spring.dubbo.protocol.port=20881 
+
+    
+   [2]  Service实现层注解改动
+    @Service为Dubbo注解注入，不是Spring的!!!!!!
+    
+    @Service(version = "1.0.0", delay = -1)  
+    public class SysRecordServiceImpl implements ISysRecordService {  
+      
+        @Autowired  
+        SysRecordMapper sysRecordMapper;  
+      
+        @Override  
+        public List<SysRecord> selectRecord() {  
+            return sysRecordMapper.selectRecord();  
+        }  
+    }  
+    
+    [3].启动类添加@DubboComponentScan注解扫描
+
+    @SpringBootApplication  
+    @DubboComponentScan("net.shopin.service.impl")  
+    public class InventoryQueryProviderApplication extends SpringBootServletInitializer {  
+      
+        @Override  
+        protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {  
+            return application.sources(InventoryQueryProviderApplication.class);  
+        }  
+      
+        public static void main(String[] args) {  
+            SpringApplication.run(InventoryQueryProviderApplication.class, args);  
+        }  
+    } 
 
 ```
+
+ - 服务消费者
+```
+   [1]application.properties
+    # Springboot-dubbo 消费者配置信息  
+    spring.dubbo.application.name=ssd-web  
+    spring.dubbo.registry.address=zookeeper://172.16.103.145:2181  
+    spring.dubbo.protocol.name=dubbo  
+    spring.dubbo.protocol.port=20880  
+   [2]Controller层注入DubboService(@Reference)
+    @RestController  
+    public class SysRecordController {  
+      
+        @Reference(version = "1.0.0", check = false)  
+        ISysRecordService sysRecordService;  
+      
+        @RequestMapping(value = "selectRecord")  
+        public List<SysRecord> selectRecord() {  
+            return sysRecordService.selectRecord();  
+        }  
+    } 
+   [3]启动类添加@DubboComponentScan注解扫描
+   扫描Controller包
+   
+    @SpringBootApplication  
+    @DubboComponentScan(basePackages = "net.shopin.controller")  
+    public class ConsumerApplication extends SpringBootServletInitializer {  
+    
+        @Override  
+        protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {  
+            return application.sources(ConsumerApplication.class);  
+        }  
+      
+        public static void main(String[] args) {  
+            SpringApplication.run(ConsumerApplication.class, args);  
+        }  
+    }  
+
+```
+###### 1.2.2.4.3 文件描述
+###### 1.2.2.4.4 实例Demo
+##### 1.2.2.5 SpringBoot集成Apache Shiro
+```
+   TODO
+```
+##### 1.2.2.6 SpringBoot配置多数据源
+```
+   TODO
+```
+## 2.编码
+
+### 2.1 IDE安装Alibaba P3C编码规范插件
+ - <font color="red">P3C插件</font>
+```
+   Alibaba 推出的可以集成到IDE上用于检测代码规范性的插件,检查内容就是《Alibaba Java开发规范》中规约内容;
+```
+#### 2.1.1 IntelliJ IDEA安装教程
+[IntelliJ IDEA 安装P3C教程](https://jingyan.baidu.com/article/17bd8e524df1a185aa2bb87c.html)
+
+#### 2.1.2 Eclipse安装教程
+[Eclipse 安装P3C教程](https://jingyan.baidu.com/article/2d5afd6923e78b85a3e28e5e.html)
+
+#### 2.1.3 MyEclipse安装教程
+
+[MyEclipse 安装P3C教程](https://jingyan.baidu.com/article/72ee561a72cd74e16138df9e.html)
+
+### 2.2 上品开发编码规范
+```
+《上品开发编码规范》结合《Alibaba Java开发规范》正式版以及上品具体业务撰写而成，详情可在《上品开发编码规范》中可见。
+```
+[上品开发编码规范](https://github.com/bjshopin/Shopin/tree/master/%E6%8A%80%E6%9C%AF%E5%BC%80%E5%8F%91/%E4%B8%8A%E5%93%81%E5%BC%80%E5%8F%91%E7%BC%96%E7%A0%81%E8%A7%84%E8%8C%83)
+
+## 3.部署
+### 3.1 环境要求
+#### 3.1.1 数据库连接池配置与说明
+##### 3.1.1.1 单数据源配置
+ - 采用Druid数据源配置
+```
+########################################################
+### 配置druid数据源
+########################################################
+spring.datasource.type=com.alibaba.druid.pool.DruidDataSource
+spring.datasource.url=jdbc:mysql://xxx.xxx.xxx.xxx:3306/{project_name}
+spring.datasource.username=shopin
+spring.datasource.password=shopin
+spring.datasource.driverClassName=com.mysql.jdbc.Driver
+
+# 下面为连接池的补充设置，应用到上面所有数据源中
+# 初始化大小，最小，最大
+spring.datasource.initialSize=5
+spring.datasource.minIdle=5
+spring.datasource.maxActive=20
+# 配置获取连接等待超时的时间
+spring.datasource.maxWait=60000
+# 配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒
+spring.datasource.timeBetweenEvictionRunsMillis=60000
+# 配置一个连接在池中最小生存的时间，单位是毫秒
+spring.datasource.minEvictableIdleTimeMillis=300000
+spring.datasource.validationQuery=SELECT 1 FROMDUAL
+spring.datasource.testWhileIdle=true
+spring.datasource.testOnBorrow=false
+spring.datasource.testOnReturn=false
+# 打开PSCache，并且指定每个连接上PSCache的大小
+spring.datasource.poolPreparedStatements=true
+spring.datasource.maxPoolPreparedStatementPerConnectionSize=20
+# 配置监控统计拦截的filters，去掉后监控界面sql无法统计，'wall'用于防火墙
+spring.datasource.filters=stat,wall,log4j
+# 通过connectProperties属性来打开mergeSql功能；慢SQL记录
+spring.datasource.connectionProperties=druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
+# 合并多个DruidDataSource的监控数据
+#spring.datasource.useGlobalDataSourceStat=true
+
+```
+##### 3.1.1.2 多数据源配置
+```
+ TODO
+```
+#### 3.1.2 日志组件及配置
+ - log4j2.xml配置
+```
+  所有项目采用同一套日志配置,差异点在于log的存放地点;[当然]
+```
+```
+ <?xml version="1.0" encoding="UTF-8"?>
+<!-- status :表示log4j自身日志的打印级别 -->
+<!-- monitorInterval:含义是每隔300秒重新读取配置文件，可以不重启应用的情况下修改配置 -->
+<Configuration status="warn" monitorInterval="300">
+
+    <properties>
+        <property name="INFO_FILE_NAME">info</property>
+        <property name="ERROR_FILE_NAME">error</property>
+    </properties>
+
+    <Appenders>
+        <Console name="Console" target="SYSTEM_OUT">
+            <!-- 左对齐，最小宽度为4；长度>10也可正常显示，不足4用空格补齐 -->
+            <PatternLayout pattern="%d{DEFAULT} [%t] %-4level - %l - %msg%n"/>
+        </Console>
+        <!-- fileName:日志位置以及文件名；filePattern:rolling时新建文件的位置以及命名规则。命名文件名称需要细到时分秒是注意不要这么写
+            HH:mm:ss，文件名称不可以包含特殊字符：使用"-"代替 -->
+        <RollingRandomAccessFile name="INFO_FILE"
+                                 fileName="${sys:user.home}/logs/mpsi-inventory-query/${INFO_FILE_NAME}.log"
+                                 filePattern="${sys:user.home}/logs/mpsi-inventory-query/base/$${date:yyyy-MM}/${INFO_FILE_NAME}-%d{yyyy-MM-dd}-%i.log.gz"
+                                 append="true">
+
+            <Filters>
+                <ThresholdFilter level="WARN" onMatch="DENY" onMismatch="NEUTRAL"/>
+                <ThresholdFilter level="INFO" onMatch="ACCEPT" onMismatch="DENY"/>
+            </Filters>
+            <PatternLayout
+                    pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %-5level %l - %msg%n"/>
+            <Policies>
+                <!-- 下面两个策略：满足一个，即会产生一个文件 -->
+                <!-- 日志文件大于100M,就新建文件 -->
+                <SizeBasedTriggeringPolicy size="100 MB"/>
+                <!-- 结合filePattern:精确到dd(天)，所以表示每天产生一个日志文件 -->
+                <TimeBasedTriggeringPolicy interval="1"/>
+            </Policies>
+            <!-- 作用于filePattern中的i，最大20个文件。 -->
+            <DefaultRolloverStrategy max="20"/>
+        </RollingRandomAccessFile>
+
+        <RollingRandomAccessFile name="ERROR_FILE"
+                                 fileName="${sys:user.home}/logs/mpsi-inventory-query/${ERROR_FILE_NAME}.log"
+                                 filePattern="${sys:user.home}/logs/mpsi-inventory-query/error/$${date:yyyy-MM}/${ERROR_FILE_NAME}-%d{yyyy-MM}-%i.log.gz"
+                                 append="true">
+            <Filters>
+                <ThresholdFilter level="fatal" onMatch="DENY" onMismatch="NEUTRAL"/>
+                <ThresholdFilter level="error" onMatch="ACCEPT" onMismatch="DENY"/>
+            </Filters>
+            <PatternLayout
+                    pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %-5level %l - %msg%n"/>
+            <Policies>
+                <SizeBasedTriggeringPolicy size="100 MB"/>
+                <TimeBasedTriggeringPolicy interval="1"/>
+            </Policies>
+            <DefaultRolloverStrategy max="20"/>
+        </RollingRandomAccessFile>
+
+    </Appenders>
+    <Loggers>
+        <!-- additivity="false"表示在该logger中输出的日志不会再延伸到父层logger。这里如果改为true，则会延伸到Root
+            Logger，遵循Root Logger的配置也输出一次。 -->
+
+        <!-- logger的级别优先于appender的级别，logger为debug,appender为info,debug信息依然可以呈现。即以logger级别为主。 -->
+        <logger name="cn.shopin.supplier.mapper" level="debug" additivity="false">
+            <appender-ref ref="Console"/>
+        </logger>
+
+        <Root level="INFO">
+            <AppenderRef ref="Console"/>
+            <AppenderRef ref="INFO_FILE"/>
+            <AppenderRef ref="ERROR_FILE"/>
+        </Root>
+    </Loggers>
+</Configuration>
+```
+### 3.2 版本发布与维护
+#### 3.2.1 快照版(SNAPSHOT)发布
+```
+  快照版用于测试环境,快照版本均为X.Y.Z.SNAPSHOT 
+  ,X迭代即代表大版本升级或者框架升级,Z迭代即代表需求更新,功能添加,Z满十进一。
+```
+#### 3.2.2 正式版(RELEASE)发布
+```
+  正式版本用于生产环境, 正式版本均为X.Y.Z.RELEASE 
+  ,X迭代即代表大版本升级或者框架升级,Z迭代即代表需求更新，功能添加，Z满十进一.
+```
+### 3.3 Git仓库代码规约
+#### 3.3.1 代码上传规约
+```
+  Git仓库上传代码时只上传src源码文件夹 , 
+  pom文件以及统一版本的.gitignore文件(用于过滤不需要的文件) , 严禁上传其它文件;
+```
+##### 3.3.1.1 .gitignore文件内容的设置
+```
+    统一.gitignore文件内容:
+       排除内容包括: maven打包信息, IDE 生成信息(Eclipse,IDEA) 以及临时文件信息,内容如下:
+```
+```java
+# Created by .ignore support plugin (hsz.mobi)
+### Eclipse template
+
+.metadata
+bin/
+tmp/
+*.tmp
+*.bak
+*.swp
+*~.nib
+local.properties
+.settings/
+.loadpath
+.recommenders
+
+# External tool builders
+.externalToolBuilders/
+
+# Locally stored "Eclipse launch configurations"
+*.launch
+
+# PyDev specific (Python IDE for Eclipse)
+*.pydevproject
+
+# CDT-specific (C/C++ Development Tooling)
+.cproject
+
+# CDT- autotools
+.autotools
+
+# Java annotation processor (APT)
+.factorypath
+
+# PDT-specific (PHP Development Tools)
+.buildpath
+
+# sbteclipse plugin
+.target
+
+# Tern plugin
+.tern-project
+
+# TeXlipse plugin
+.texlipse
+
+# STS (Spring Tool Suite)
+.springBeans
+
+# Code Recommenders
+.recommenders/
+
+# Scala IDE specific (Scala & Java development for Eclipse)
+.cache-main
+.scala_dependencies
+.worksheet
+### JetBrains template
+# Covers JetBrains IDEs: IntelliJ, RubyMine, PhpStorm, AppCode, PyCharm, CLion, Android Studio and WebStorm
+# Reference: https://intellij-support.jetbrains.com/hc/en-us/articles/206544839
+
+# User-specific stuff
+.idea/**/workspace.xml
+.idea/**/tasks.xml
+.idea/**/dictionaries
+.idea/**/shelf
+
+# Sensitive or high-churn files
+.idea/**/dataSources/
+.idea/**/dataSources.ids
+.idea/**/dataSources.local.xml
+.idea/**/sqlDataSources.xml
+.idea/**/dynamic.xml
+.idea/**/uiDesigner.xml
+
+# Gradle
+.idea/**/gradle.xml
+.idea/**/libraries
+
+# CMake
+cmake-build-debug/
+cmake-build-release/
+
+# Mongo Explorer plugin
+.idea/**/mongoSettings.xml
+
+# File-based project format
+*.iws
+
+# IntelliJ
+out/
+
+# mpeltonen/sbt-idea plugin
+.idea_modules/
+
+# JIRA plugin
+atlassian-ide-plugin.xml
+
+# Cursive Clojure plugin
+.idea/replstate.xml
+
+# Crashlytics plugin (for Android Studio and IntelliJ)
+com_crashlytics_export_strings.xml
+crashlytics.properties
+crashlytics-build.properties
+fabric.properties
+
+# Editor-based Rest Client
+.idea/httpRequests
+### macOS template
+# General
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Icon must end with two \r
+Icon
+
+# Thumbnails
+._*
+
+# Files that might appear in the root of a volume
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+
+# Directories potentially created on remote AFP share
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+### Example user template template
+### Example user template
+
+# IntelliJ project files
+.idea
+*.iml
+out
+gen### Java template
+# Compiled class file
+*.class
+
+# Log file
+*.log
+
+# BlueJ files
+*.ctxt
+
+# Mobile Tools for Java (J2ME)
+.mtj.tmp/
+
+# Package Files #
+*.jar
+*.war
+*.nar
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+hs_err_pid*
+
+```
+#### 3.3.2 项目仓库规约
+ - 概述
+```
+   每个项目按照1.2.1.3中 项目组成结构去拆分自己的项目:
+   [1]各层次的impl
+   [2]schedule
+   [3]服务组件(project-parent聚合项目,包括bean,持久化层,service接口)
+
+```
+ - 划分实例
+```
+  以ssd-common项目为例,项目拆分之后,考虑到部署阶段使用JenKins自动化部署过程 , 需要将所有提供服务的项目(service-impl)部署为war包,其余项目分类之后依次打成jar包上传nexus私服;
+```
+<table frame="hsides" rules="groups" cellspacing=0 cellpadding=0>
+<!-- 表头部分 -->
+<thead align=center style="font-weight:bolder; background-color:#cccccc">
+     <tr>
+          <td>项目名称</td>
+          <td>项目类型</td>
+          <td>项目作用</td>
+          <td>仓库地址</td>
+     </tr>
+</thead>
+
+<tbody>
+    <tr>
+        <td>material-query-service-impl</td>
+        <td>war </td>
+        <td>主数据查询服务提供方</td>
+        <td>git@192.168.205.22:materiel-query-service-impl.git</td>
+    </tr>
+    <tr>
+        <td>material-update-service-impl</td>
+        <td>war</td>
+        <td>主数据更新服务提供方</td>
+        <td>git@192.168.205.22:materiel-update-service-impl.git</td>
+    </tr>
+    <tr>
+        <td>price-query-service-impl</td>
+        <td>war </td>
+        <td>价格查询服务提供方</td>
+        <td>git@192.168.205.22:price-query-service-impl.git</td>
+    </tr>
+    <tr>
+        <td>price-update-service-impl</td>
+        <td>war</td>
+        <td>价格更新服务提供方</td>
+        <td>git@192.168.205.22:price-update-service-impl.git</td>
+    </tr>
+    <tr>
+        <td>stock-query-service-impl</td>
+        <td>war </td>
+        <td>库存查询服务提供方</td>
+        <td>git@192.168.205.22:stock-query-service-impl.git</td>
+    </tr>
+    <tr>
+        <td>stock-update-service-impl</td>
+        <td>war </td>
+        <td>库存更新服务提供方</td>
+        <td>git@192.168.205.22:stock-update-service-impl.git</td>
+    </tr>
+     <tr>
+        <td>inventory-query-service-impl</td>
+        <td>war</td>
+        <td>盘点更新服务提供方</td>
+        <td>git@192.168.205.22:inventory-query-service-impl.git</td>
+    </tr>
+     <tr>
+        <td>inventory-update-service-impl</td>
+        <td>war </td>
+        <td>盘点更新服务提供方</td>
+        <td>git@192.168.205.22:inventory-update-service-impl.git</td>
+    </tr>
+    <tr>
+        <td>mpsi-dependencies</td>
+        <td>pom</td>
+        <td>控制项目所有的jar版本</td>
+        <td>git@192.168.205.22:mpsi-dependencies.git</td>
+    </tr>
+    <tr>
+        <td>mpsi-parent</td>
+        <td>pom</td>
+        <td>控制子模块的版本以及部署</td>
+        <td>git@192.168.205.22:mpsi-parent.git</td>
+    </tr>
+    <tr>
+        <td>mpsi-common-bean</td>
+        <td>jar</td>
+        <td>所有实体类</td>
+        <td>NULL</td>
+    </tr>
+    <tr>
+        <td>material-query-persistence</td>
+        <td>jar</td>
+        <td>主数据查询持久化层</td>
+        <td>NULL</td>
+    </tr>
+    <tr>
+        <td>material-query-service</td>
+        <td>jar</td>
+        <td>主数据查询服务接口</td>
+        <td>NULL</td>
+    </tr>
+    <tr>
+        <td>material-update-persistence</td>
+        <td>jar</td>
+        <td>主数据更新持久化层</td>
+        <td>NULL</td>
+    </tr>
+    <tr>
+        <td>material-update-service</td>
+        <td>jar</td>
+        <td>主数据更新服务接口</td>
+        <td>NULL</td>
+    </tr>
+    <tr>
+        <td>price-query-persistence</td>
+        <td>jar</td>
+        <td>价格查询持久化层</td>
+        <td>NULL</td>
+    </tr>
+    <tr>
+        <td>price-query-service</td>
+        <td>jar</td>
+        <td>价格查询服务接口</td>
+        <td>NULL</td>
+    </tr>
+    <tr>
+        <td>price-update-persistence</td>
+        <td>jar</td>
+        <td>价格更新持久化层</td>
+        <td>NULL</td>
+    </tr>
+    <tr>
+        <td>price-update-service</td>
+        <td>jar</td>
+        <td>价格更新服务接口</td>
+        <td>NULL</td>
+    </tr>
+    <tr>
+        <td>stock-query-persistence</td>
+        <td>jar</td>
+        <td>库存查询持久化层</td>
+        <td>NULL</td>
+    </tr>
+     <tr>
+        <td>stock-query-service</td>
+        <td>jar</td>
+        <td>库存查询服务接口</td>
+        <td>NULL</td>
+    </tr> 
+    <tr>
+        <td>stock-update-persistence</td>
+        <td>jar</td>
+        <td>库存更新持久化层</td>
+        <td>NULL</td>
+    </tr> 
+    <tr>
+        <td>stock-update-service</td>
+        <td>jar</td>
+        <td>库存更新持久化层</td>
+        <td>NULL</td>
+    </tr> 
+    <tr>
+        <td>inventory-query-persistence</td>
+        <td>jar</td>
+        <td>盘点查询持久化层</td>
+        <td>NULL</td>
+    </tr>
+    <tr>
+        <td>inventory-query-service</td>
+        <td>jar</td>
+        <td>盘点查询服务接口</td>
+        <td>NULL</td>
+    </tr>
+    <tr>
+        <td>inventory-update-persistence</td>
+        <td>jar</td>
+        <td>盘点更新持久化层</td>
+        <td>NULL</td>
+    </tr>
+    <tr>
+        <td>inventory-update-service</td>
+        <td>jar</td>
+        <td>盘点更新服务接口</td>
+        <td>NULL</td>
+    </tr>
+</tbody>
+</table>
+
+### 3.4 Tomcat部署规约
+
+ - Tomcat命名:
+```
+  部署的项目时要求命名为: apache-tomcat-8.0.33-[project]-[远程停服务端口]-[HTTP端口]-[AJP端口]
+```
+ - Tomcat配置(TODO):
+```
+  默认内存配置512M[需根据实际内存需求分配]
+```
+
+### 3.5 上线部署规约
+  - impl服务实现
+```
+  服务提供方使用JenKins以war包形式部署
+  
+```
+  - 后台组件
+```
+   测试阶段:SNAPSHOT版本上传私服
+   正式阶段:RELEASE版本上传私服
+```
+ 
+
+ 
+
+
+
+  
+
+
     
