@@ -1386,61 +1386,61 @@ hs_err_pid*
         <td>material-query-service-impl</td>
         <td>war </td>
         <td>主数据查询服务提供方</td>
-        <td>git@192.168.205.22:materiel-query-service-impl.git</td>
+        <td>git@xxx.xxx.xxx.xxx:materiel-query-service-impl.git</td>
     </tr>
     <tr>
         <td>material-update-service-impl</td>
         <td>war</td>
         <td>主数据更新服务提供方</td>
-        <td>git@192.168.205.22:materiel-update-service-impl.git</td>
+        <td>git@xxx.xxx.xxx.xxx:materiel-update-service-impl.git</td>
     </tr>
     <tr>
         <td>price-query-service-impl</td>
         <td>war </td>
         <td>价格查询服务提供方</td>
-        <td>git@192.168.205.22:price-query-service-impl.git</td>
+        <td>git@xxx.xxx.xxx.xxx:price-query-service-impl.git</td>
     </tr>
     <tr>
         <td>price-update-service-impl</td>
         <td>war</td>
         <td>价格更新服务提供方</td>
-        <td>git@192.168.205.22:price-update-service-impl.git</td>
+        <td>git@xxx.xxx.xxx.xxx:price-update-service-impl.git</td>
     </tr>
     <tr>
         <td>stock-query-service-impl</td>
         <td>war </td>
         <td>库存查询服务提供方</td>
-        <td>git@192.168.205.22:stock-query-service-impl.git</td>
+        <td>git@xxx.xxx.xxx.xxx:stock-query-service-impl.git</td>
     </tr>
     <tr>
         <td>stock-update-service-impl</td>
         <td>war </td>
         <td>库存更新服务提供方</td>
-        <td>git@192.168.205.22:stock-update-service-impl.git</td>
+        <td>git@xxx.xxx.xxx.xxx:stock-update-service-impl.git</td>
     </tr>
      <tr>
         <td>inventory-query-service-impl</td>
         <td>war</td>
         <td>盘点更新服务提供方</td>
-        <td>git@192.168.205.22:inventory-query-service-impl.git</td>
+        <td>git@xxx.xxx.xxx.xxx:inventory-query-service-impl.git</td>
     </tr>
      <tr>
         <td>inventory-update-service-impl</td>
         <td>war </td>
         <td>盘点更新服务提供方</td>
-        <td>git@192.168.205.22:inventory-update-service-impl.git</td>
+        <td>git@xxx.xxx.xxx.xxx:inventory-update-service-impl.git</td>
     </tr>
     <tr>
         <td>mpsi-dependencies</td>
         <td>pom</td>
         <td>控制项目所有的jar版本</td>
-        <td>git@192.168.205.22:mpsi-dependencies.git</td>
+        <td>git@xxx.xxx.xxx.xxx:mpsi-dependencies.git</td>
     </tr>
     <tr>
         <td>mpsi-parent</td>
         <td>pom</td>
         <td>控制子模块的版本以及部署</td>
-        <td>git@192.168.205.22:mpsi-parent.git</td>
+        <td>git@xxx.xxx.xxx.xxx:mpsi-parent.git</td>
     </tr>
     <tr>
         <td>mpsi-common-bean</td>
