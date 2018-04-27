@@ -45,21 +45,25 @@
             * [2.1.2 Eclipse安装教程](#212-eclipse安装教程)
             * [2.1.3 MyEclipse安装教程](#213-myeclipse安装教程)
        * [2.2 上品开发编码规范](#22-上品开发编码规范)
-    * [3.部署](#3-部署)
-       * [3.1 环境要求](#31-环境要求)
-            * [3.1.1 数据库连接池配置与说明](#311-数据库连接池配置与说明)
-              * [3.1.1.1 单数据源配置](#3111-单数据源配置)
-              * [3.1.1.2 多数据源配置](#3112-多数据源配置)
-            * [3.1.2 日志组件及配置](#312-日志组件及配置)
-       * [3.2 版本发布与维护](#32-版本发布与维护)
-            * [3.2.1 快照版(SNAPSHOP)发布](#321-快照版(snapshot)发布)
-            * [3.2.2 正式版(RELEASE)发布](#322-正式版(release)发布)
-       * [3.3 Git仓库代码规约](#33-git仓库代码规约)
-            * [3.3.1 代码上传规约](#331-代码上传规约)
-              * [3.3.1.1 .gitignore文件的设置](#3311-.gitignore文件的设置)
-            * [3.3.2 项目仓库规约](#332-项目仓库规约)
-       * [3.4 Tomcat部署规约](#34-tomcat部署规约)
-       * [3.5 上线部署规约](#35-上线部署规约)
+    * [3. 环境配置](#3-环境配置)
+       * [3.1 版本兼容说明](#31-版本兼容说明)
+       * [3.2 组件配置](#32-组件配置)
+            * [3.2.1 数据库连接池配置与说明](#321-数据库连接池配置与说明)
+              * [3.2.1.1 单数据源配置](#3211-单数据源配置)
+              * [3.2.1.2 多数据源配置](#3212-多数据源配置)
+            * [3.2.2 日志组件及配置](#322-日志组件及配置)
+            * [3.2.3 缓存组件配置](#323-缓存组件配置)
+            * [3.2.4 MQ组件配置](#324-mq组件配置)
+            * [3.2.5 线程池配置](#325-线程池配置)
+    * [4. 发布与维护](#4-发布与维护)
+       * [4.1 快照版发布](#41-快照版发布)
+       * [4.2 正式版发布](#42-正式版发布)
+       * [4.3 Git仓库代码规约](#43-git仓库代码规约)
+            * [4.3.1 代码上传规约](#431-代码上传规约)
+              * [4.3.1.1 .gitignore文件的设置](#4311-.gitignore文件的设置)
+            * [4.3.2 项目仓库规约](#432-项目仓库规约)
+       * [4.4 Tomcat部署规约](#44-tomcat部署规约)
+       * [4.5 上线部署规约](#45-上线部署规约)
 <!-- GFM-TOC -->
 
 # 中台SOA部署规范
@@ -619,11 +623,11 @@
 ##### 1.2.2.1 SpringBoot集成RedisTemplate
 ###### 1.2.2.1.1 Maven依赖
 ```
-    <dependency>  
-           <groupId>org.springframework.boot</groupId>  
-           <artifactId>spring-boot-starter-data-redis</artifactId>  
-           <version>1.5.8.RELEASE</version>  
-    </dependency>  
+	<dependency>  
+	       <groupId>org.springframework.boot</groupId>  
+	       <artifactId>spring-boot-starter-data-redis</artifactId>  
+	       <version>1.5.8.RELEASE</version>  
+	</dependency>  
 ```
 ###### 1.2.2.1.2 配置信息
  - 在application.properties中配置:
@@ -646,13 +650,13 @@
   也就是说无论多少个Task,都是一个线程串行执行;
 ```
 ```
-    串行Job添加类注解  
-    @Component  
-    @EnableScheduling  
-    方法注解  
-    @Scheduled(fixedRate = 3 * 1000)  
-    或者 
-    @Scheduled(cron = 表达式) 
+  	串行Job添加类注解  
+	@Component  
+	@EnableScheduling  
+	方法注解  
+	@Scheduled(fixedRate = 3 * 1000)  
+	或者 
+	@Scheduled(cron = 表达式) 
 
 ```
 ###### 1.2.2.2.2 并行执行
@@ -660,18 +664,18 @@
  SpringBoot中Job支持并行执行(多个任务同时执行),需手动配置
 ```
 ```
-    并行Job添加类注解  
-    @Component  
-    @EnableScheduling  
-    @EnableAsync(mode = AdviceMode.PROXY, proxyTargetClass = false,  
-            order = Ordered.HIGHEST_PRECEDENCE  
-    )  
-    方法注解  
-    @Scheduled(fixedRate = 3 * 1000)  
-    @Async  
-    或者  
-    @Scheduled(cron = 表达式)   
-    @Async 
+ 	并行Job添加类注解  
+	@Component  
+	@EnableScheduling  
+	@EnableAsync(mode = AdviceMode.PROXY, proxyTargetClass = false,  
+	        order = Ordered.HIGHEST_PRECEDENCE  
+	)  
+	方法注解  
+	@Scheduled(fixedRate = 3 * 1000)  
+	@Async  
+	或者  
+	@Scheduled(cron = 表达式)   
+	@Async 
 ```
 ###### 1.2.2.2.3 实例Demo
 [SpringBoot整合Schedule定时任务](https://github.com/553899811/NewBie-Plan/tree/master/SpringBoot/springboot-schedule)
@@ -927,86 +931,86 @@
  - 服务生产者
 ```
    [1] application.properties
-    
-    //应用名称  
-    spring.dubbo.application.name=inventory-query-provider  
-    //注册中心地址 [单机或集群模式] 
-    spring.dubbo.registry.address=zookeeper://172.16.103.145:2181  
-    //传输协议  
-    spring.dubbo.protocol.name=dubbo  
-    //传输端口  
-    spring.dubbo.protocol.port=20881 
+   	
+   	//应用名称  
+	spring.dubbo.application.name=inventory-query-provider  
+	//注册中心地址 [单机或集群模式] 
+	spring.dubbo.registry.address=zookeeper://172.16.103.145:2181  
+	//传输协议  
+	spring.dubbo.protocol.name=dubbo  
+	//传输端口  
+	spring.dubbo.protocol.port=20881 
 
-    
-   [2]  Service实现层注解改动
+	
+   [2]	Service实现层注解改动
     @Service为Dubbo注解注入，不是Spring的!!!!!!
-    
-    @Service(version = "1.0.0", delay = -1)  
-    public class SysRecordServiceImpl implements ISysRecordService {  
-      
-        @Autowired  
-        SysRecordMapper sysRecordMapper;  
-      
-        @Override  
-        public List<SysRecord> selectRecord() {  
-            return sysRecordMapper.selectRecord();  
-        }  
-    }  
-    
-    [3].启动类添加@DubboComponentScan注解扫描
+  	
+  	@Service(version = "1.0.0", delay = -1)  
+	public class SysRecordServiceImpl implements ISysRecordService {  
+	  
+	    @Autowired  
+	    SysRecordMapper sysRecordMapper;  
+	  
+	    @Override  
+	    public List<SysRecord> selectRecord() {  
+	        return sysRecordMapper.selectRecord();  
+	    }  
+	}  
+	
+	[3].启动类添加@DubboComponentScan注解扫描
 
-    @SpringBootApplication  
-    @DubboComponentScan("net.shopin.service.impl")  
-    public class InventoryQueryProviderApplication extends SpringBootServletInitializer {  
-      
-        @Override  
-        protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {  
-            return application.sources(InventoryQueryProviderApplication.class);  
-        }  
-      
-        public static void main(String[] args) {  
-            SpringApplication.run(InventoryQueryProviderApplication.class, args);  
-        }  
-    } 
+	@SpringBootApplication  
+	@DubboComponentScan("net.shopin.service.impl")  
+	public class InventoryQueryProviderApplication extends SpringBootServletInitializer {  
+	  
+	    @Override  
+	    protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {  
+	        return application.sources(InventoryQueryProviderApplication.class);  
+	    }  
+	  
+	    public static void main(String[] args) {  
+	        SpringApplication.run(InventoryQueryProviderApplication.class, args);  
+	    }  
+	} 
 
 ```
 
  - 服务消费者
 ```
    [1]application.properties
-    # Springboot-dubbo 消费者配置信息  
-    spring.dubbo.application.name=ssd-web  
-    spring.dubbo.registry.address=zookeeper://172.16.103.145:2181  
-    spring.dubbo.protocol.name=dubbo  
-    spring.dubbo.protocol.port=20880  
+   	# Springboot-dubbo 消费者配置信息  
+	spring.dubbo.application.name=ssd-web  
+	spring.dubbo.registry.address=zookeeper://172.16.103.145:2181  
+	spring.dubbo.protocol.name=dubbo  
+	spring.dubbo.protocol.port=20880  
    [2]Controller层注入DubboService(@Reference)
-    @RestController  
-    public class SysRecordController {  
-      
-        @Reference(version = "1.0.0", check = false)  
-        ISysRecordService sysRecordService;  
-      
-        @RequestMapping(value = "selectRecord")  
-        public List<SysRecord> selectRecord() {  
-            return sysRecordService.selectRecord();  
-        }  
-    } 
+   	@RestController  
+	public class SysRecordController {  
+	  
+	    @Reference(version = "1.0.0", check = false)  
+	    ISysRecordService sysRecordService;  
+	  
+	    @RequestMapping(value = "selectRecord")  
+	    public List<SysRecord> selectRecord() {  
+	        return sysRecordService.selectRecord();  
+	    }  
+	} 
    [3]启动类添加@DubboComponentScan注解扫描
    扫描Controller包
    
-    @SpringBootApplication  
-    @DubboComponentScan(basePackages = "net.shopin.controller")  
-    public class ConsumerApplication extends SpringBootServletInitializer {  
-    
-        @Override  
-        protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {  
-            return application.sources(ConsumerApplication.class);  
-        }  
-      
-        public static void main(String[] args) {  
-            SpringApplication.run(ConsumerApplication.class, args);  
-        }  
-    }  
+   	@SpringBootApplication  
+	@DubboComponentScan(basePackages = "net.shopin.controller")  
+	public class ConsumerApplication extends SpringBootServletInitializer {  
+	
+	    @Override  
+	    protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {  
+	        return application.sources(ConsumerApplication.class);  
+	    }  
+	  
+	    public static void main(String[] args) {  
+	        SpringApplication.run(ConsumerApplication.class, args);  
+	    }  
+	}  
 
 ```
 ###### 1.2.2.4.3 文件描述
@@ -1042,10 +1046,48 @@
 ```
 [上品开发编码规范](https://github.com/bjshopin/Shopin/tree/master/%E6%8A%80%E6%9C%AF%E5%BC%80%E5%8F%91/%E4%B8%8A%E5%93%81%E5%BC%80%E5%8F%91%E7%BC%96%E7%A0%81%E8%A7%84%E8%8C%83)
 
-## 3.部署
-### 3.1 环境要求
-#### 3.1.1 数据库连接池配置与说明
-##### 3.1.1.1 单数据源配置
+## 3. 环境配置
+### 3.1 版本兼容说明
+
+<table frame="hsides" rules="groups" cellspacing=0 cellpadding=0>
+<!-- 表头部分 -->
+<thead align=center style="font-weight:bolder; background-color:#cccccc">
+     <tr>
+          <td>容器</td>
+          <td>容器版本</td>
+     </tr>
+</thead>
+
+<tbody>
+    <tr>
+        <td>JDK</td>
+        <td>JDK 1.8(8u144)</td>
+    </tr>
+    <tr>
+        <td>Tomcat</td>
+        <td>8.0.51</td>
+    </tr>
+    <tr>
+        <td>SpringBoot</td>
+        <td><font color="red">1.5.12.RELEASE</font></td>
+    </tr>
+    <tr>
+        <td>Maven</td>
+        <td>3.5.3</td>
+    </tr>
+    <tr>
+        <td>数据库连接池</td>
+        <td>Druid</td>
+    </tr>
+    <tr>
+        <td>日志组件及配置</td>
+        <td>Log4j2</td>
+    </tr>
+</tbody>
+</table>
+
+#### 3.2.1 数据库连接池配置与说明
+##### 3.2.1.1 单数据源配置
  - 采用Druid数据源配置
 ```
 ########################################################
@@ -1083,11 +1125,11 @@ spring.datasource.connectionProperties=druid.stat.mergeSql=true;druid.stat.slowS
 #spring.datasource.useGlobalDataSourceStat=true
 
 ```
-##### 3.1.1.2 多数据源配置
+##### 3.2.1.2 多数据源配置
 ```
  TODO
 ```
-#### 3.1.2 日志组件及配置
+#### 3.2.2 日志组件及配置
  - log4j2.xml配置
 ```
   所有项目采用同一套日志配置,差异点在于log的存放地点;[当然]
@@ -1167,24 +1209,31 @@ spring.datasource.connectionProperties=druid.stat.mergeSql=true;druid.stat.slowS
     </Loggers>
 </Configuration>
 ```
-### 3.2 版本发布与维护
-#### 3.2.1 快照版(SNAPSHOT)发布
+
+#### 3.2.3 缓存组件配置
+
+#### 3.2.4 MQ组件配置
+
+#### 3.2.5 线程池配置
+
+## 4 发布与维护
+### 4.1 快照版发布
 ```
   快照版用于测试环境,快照版本均为X.Y.Z.SNAPSHOT 
   ,X迭代即代表大版本升级或者框架升级,Z迭代即代表需求更新,功能添加,Z满十进一。
 ```
-#### 3.2.2 正式版(RELEASE)发布
+### 4.2 正式版发布
 ```
   正式版本用于生产环境, 正式版本均为X.Y.Z.RELEASE 
   ,X迭代即代表大版本升级或者框架升级,Z迭代即代表需求更新，功能添加，Z满十进一.
 ```
-### 3.3 Git仓库代码规约
-#### 3.3.1 代码上传规约
+### 4.3 Git仓库代码规约
+#### 4.3.1 代码上传规约
 ```
   Git仓库上传代码时只上传src源码文件夹 , 
   pom文件以及统一版本的.gitignore文件(用于过滤不需要的文件) , 严禁上传其它文件;
 ```
-##### 3.3.1.1 .gitignore文件内容的设置
+##### 4.3.1.1 .gitignore文件内容的设置
 ```
     统一.gitignore文件内容:
        排除内容包括: maven打包信息, IDE 生成信息(Eclipse,IDEA) 以及临时文件信息,内容如下:
@@ -1357,7 +1406,7 @@ gen### Java template
 hs_err_pid*
 
 ```
-#### 3.3.2 项目仓库规约
+#### 4.3.2 项目仓库规约
  - 概述
 ```
    每个项目按照1.2.1.3中 项目组成结构去拆分自己的项目:
@@ -1547,7 +1596,7 @@ hs_err_pid*
 </tbody>
 </table>
 
-### 3.4 Tomcat部署规约
+### 4.4 Tomcat部署规约
 
  - Tomcat命名:
 ```
@@ -1558,7 +1607,7 @@ hs_err_pid*
   默认内存配置512M[需根据实际内存需求分配]
 ```
 
-### 3.5 上线部署规约
+### 4.5 上线部署规约
   - impl服务实现
 ```
   服务提供方使用JenKins以war包形式部署
