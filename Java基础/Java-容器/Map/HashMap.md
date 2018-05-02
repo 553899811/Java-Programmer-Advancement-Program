@@ -305,7 +305,7 @@ public class HashMap<K,V> extends AbstractMap<K,V>
    证明两者效果相同,位运算的性能更高在操作系统级别来分析;
   【3】为什么扰动函数是那样子的呢?
    如下图所示,h>>>16 之后和h 做异或运算得到的hash前半部分是h的高8位,
-   后半部分是hash的高8位和低8位的复合产物;
+   后半部分是hash的高16位和低16位的复合产物;
 ```
 ![](https://github.com/553899811/NewBie-Plan/blob/master/Java%E5%9F%BA%E7%A1%80/Java-%E5%AE%B9%E5%99%A8/Map/img/%E6%89%B0%E5%8A%A8%E5%87%BD%E6%95%B0.png)
 ##### 1.1.2.3.3 put()方法
