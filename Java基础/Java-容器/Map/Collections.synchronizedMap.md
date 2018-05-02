@@ -22,5 +22,5 @@
 
 #### 1.1.2 底层实现
 ```
-  
+  Collections.synchronizedMap和HashTable一样,实现了在调用Map所有方法时,对整个map进行同步;
 ```
