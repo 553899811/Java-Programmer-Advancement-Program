@@ -307,7 +307,7 @@ public class HashMap<K,V> extends AbstractMap<K,V>
    如下图所示,h>>>16 之后和h 做异或运算得到的hash前半部分是h的高8位,
    后半部分是hash的高8位和低8位的复合产物;
 ```
-![](https://tech.meituan.com/img/java-hashmap/hashMap%E5%93%88%E5%B8%8C%E7%AE%97%E6%B3%95%E4%BE%8B%E5%9B%BE.png)
+![](https://github.com/553899811/NewBie-Plan/blob/master/Java%E5%9F%BA%E7%A1%80/Java-%E5%AE%B9%E5%99%A8/Map/img/%E6%89%B0%E5%8A%A8%E5%87%BD%E6%95%B0.png)
 ##### 1.1.2.3.3 put()方法
  - put()方法
 ```
@@ -319,7 +319,7 @@ public class HashMap<K,V> extends AbstractMap<K,V>
 ```
    [2] putVal()过程
 ```
-![](https://static.oschina.net/uploads/img/201612/28154542_9bV6.png)
+![](https://github.com/553899811/NewBie-Plan/blob/master/Java%E5%9F%BA%E7%A1%80/Java-%E5%AE%B9%E5%99%A8/Map/img/putVal.png)
   - 分析put过程:
     - [1]首先判断table是否为空或者为null,如果是,则初始化数组table;
     - [2]根据键值key计算hash值 并得到桶索引位置((n-1)& hash),如果table[i]=null,直接新建节点添加,转向[6],如果table[i]不为空,则转向[3];
@@ -350,7 +350,7 @@ public class HashMap<K,V> extends AbstractMap<K,V>
 ![](https://github.com/553899811/NewBie-Plan/blob/master/Java%E5%9F%BA%E7%A1%80/Java-%E5%AE%B9%E5%99%A8/Map/img/hashmap-put.png)
 
 ##### 1.1.2.3.4 get()方法
-![](https://static.oschina.net/uploads/img/201612/28165110_Qgbu.png)
+![](https://github.com/553899811/NewBie-Plan/blob/master/Java%E5%9F%BA%E7%A1%80/Java-%E5%AE%B9%E5%99%A8/Map/img/get.png)
  - 过程分析:
    - 根据Key计算出hash值;
    - 桶位置index =hash & (len-1)
