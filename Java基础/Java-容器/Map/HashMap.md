@@ -64,7 +64,7 @@ public class HashMap<K,V> extends AbstractMap<K,V>
 ```
  - 横着看
  
-![](https://github.com/553899811/NewBie-Plan/blob/master/Java%E5%9F%BA%E7%A1%80/Java-%E5%AE%B9%E5%99%A8/Map/img/hashmap-%E6%A8%AA%E7%9D%80%E7%9C%8B.webp.jpg)
+![](https://github.com/553899811/NewBie-Plan/blob/master/Java%E5%9F%BA%E7%A1%80/Java-%E5%AE%B9%E5%99%A8/Map/img/hashmap-%E6%A8%AA%E7%9D%80%E7%9C%8B.jpg)
 
  - 竖着看
  
