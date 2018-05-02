@@ -132,7 +132,7 @@ public class HashMap<K,V> extends AbstractMap<K,V>
         <td>HashMap默认初始化桶(数组)数量</td>
     </tr>
     <tr>
-        <td>DEFAULT_INITIAL_CAPACITY </td>
+        <td>MAXIMUM_CAPACITY </td>
         <td>2^30</td>
         <td>HashMap最大桶(数组)数量</td>
     </tr>
