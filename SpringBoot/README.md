@@ -10,7 +10,7 @@
 ## 1. 基础知识
 ### 1.1 官方Wiki
 
-[Wiki地址](https://docs.spring.io/spring-boot/docs/current/)
+[https://docs.spring.io/spring-boot/docs/current/](https://docs.spring.io/spring-boot/docs/current/)
 
 ### 1.2 系列学习
-#### 1.2.1 SpringBoot整合Redis
+#### 1.2.1 SpringBoot整合RedisTemplate
