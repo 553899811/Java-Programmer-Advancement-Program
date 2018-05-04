@@ -1219,8 +1219,8 @@ spring.datasource.connectionProperties=druid.stat.mergeSql=true;druid.stat.slowS
 ## 4 发布与维护
 ### 4.1 快照版发布
 ```
-  快照版用于测试环境,快照版本均为X.Y.Z.SNAPSHOT 
-  ,X迭代即代表大版本升级或者框架升级,Z迭代即代表需求更新,功能添加,Z满十进一。
+  快照版用于测试环境,快照版本均为X.Y.Z-SNAPSHOT 
+  ,(字母Z后面为中横线-,不是. 否则上传私服会出现错误)X迭代即代表大版本升级或者框架升级,Z迭代即代表需求更新,功能添加,Z满十进一。
 ```
 ### 4.2 正式版发布
 ```
