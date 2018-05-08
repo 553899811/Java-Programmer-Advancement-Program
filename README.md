@@ -14,15 +14,6 @@
 ```
 ## 2. 目录
   
-| Ⅰ | Ⅱ | Ⅲ | Ⅳ | Ⅴ | Ⅵ | Ⅶ | Ⅷ | Ⅸ | Ⅹ |
-| :----------: | :---------: | :---------: | :---------: | :---------: | :---------:| :---------: | :-------: | :-------:| :------:|
-| Java基础[:pencil2:](#java基础-pencil2)| 操作系统[:computer:](#操作系统-computer)| 计算机网络[:cloud:](#计算机网络-cloud)|   SpringBoot[:couple:](#springboot-couple)| 数据库[:floppy_disk:](#数据库-floppy_disk)| Java虚拟机 [:coffee:](#java虚拟机-coffee)| 分布式[:sweat_drops:](#分布式-sweat_drops)| Java多线程[:hammer:](#java多线程-hammer)| 设计模式[:speak_no_evil:](#设计模式-speak_no_evil)| 面试经验[:memo:](#面试经验-memo)|
-
-
-
-| Ⅰ | Ⅱ | Ⅲ | Ⅳ | Ⅴ | Ⅵ | Ⅶ | Ⅷ | Ⅸ | Ⅹ |
-| :--------: | :---------: | :---------: | :---------: | :---------: | :---------:| :---------: | :-------: | :-------:| :------:|
-| Java基础[:pencil2:](#java基础-pencil2) | 操作系统[:computer:](#操作系统-computer)|网络[:cloud:](#网络-cloud) | SpringBoot[:couple:](#springboot-couple) |数据库[:floppy_disk:](#数据库-floppy_disk)| Java虚拟机[:coffee:](#java虚拟机-coffee)| 分布式[:sweat_drops:](#分布式-sweat_drops)| Java多线程[:hammer:](#java多线程-hammer)| 设计模式[:speak_no_evil:](#设计模式-speak_no_evil)| 项目经验[:memo:](#项目经验-memo) |
 ## Java基础
 > [Java-IO](https://github.com/553899811/NewBie-Plan/tree/master/Java%E5%9F%BA%E7%A1%80/Java-IO)
 
