@@ -16,7 +16,9 @@
              * [1.1.2.3.3 put()方法](#11233-put方法)
              * [1.1.2.3.4 get()方法](#11234-get方法)
     * [2. HashMap 高级特性](#2-hashmap-高级特性)
-      * [2.1 扩容机制](#21-扩容机制) 
+      * [2.1 扩容机制](#21-扩容机制)
+        * [2.1.1 扩容后位置变化](#211-扩容后位置变化)
+      * [2.2 线程安全问题](#22-线程安全问题)
 <!-- GFM-TOC -->
 
 # HashMap介绍
@@ -27,15 +29,15 @@ public class HashMap<K,V> extends AbstractMap<K,V>
     implements Map<K,V>, Cloneable, Serializable 
 ```
 ### 1.1.1 实现和继承关系
-   - **继承** 抽象类**AbstractMap**,提供了 Map 的基本实现，使得我们以后要实现一个 Map 不用从头开始，只需要继承 AbstractMap, 然后按需求实现/重写对应方法即可;
-   - **实现** Map接口,Map是"key-value键值对"接口;
-   - **实现** Cloneable接口,即覆盖了clone()方法,能被克隆;
-   - **实现** java.io.Serializable 接口,支持序列化,能通过序列化去传输;
+   -  **继承**  抽象类**AbstractMap**,提供了 Map 的基本实现，使得我们以后要实现一个 Map 不用从头开始，只需要继承 AbstractMap, 然后按需求实现/重写对应方法即可;
+   -  **实现**  Map接口,Map是"key-value键值对"接口;
+   -  **实现**  Cloneable接口,即覆盖了clone()方法,能被克隆;
+   -  **实现**  java.io.Serializable 接口,支持序列化,能通过序列化去传输;
 
    
 ### 1.1.2 HashMap引入
 #### 1.1.2.1 哈希表原理
- - **哈希表**
+ -  **哈希表** 
 ```
   [1]我们知道在数组中根据下标查找某个元素,一次定位就可以达到,哈希表利用了这个特性,哈希表的主干就是数组;
   [2]比如我们要新增或查找某个元素,我们通过把当前元素的关键字通过某个函数映射到数组的某一个位置,通过数组下标一次定位就可完成操作;
@@ -44,7 +46,7 @@ public class HashMap<K,V> extends AbstractMap<K,V>
     其中这个函数f()一般就称之为【哈希函数】,这个函数的设计好坏会直接影响到哈希表的优劣.举个栗子,比如我们要在哈希表中执行插入操作:
 ![](https://images2015.cnblogs.com/blog/1024555/201611/1024555-20161113180447499-1953916974.png)
     查找操作:同理,先通过哈希函数计算 出实际存储地址,然后从数组中对应位置取出即可;
- - **哈希冲突**
+ -  **哈希冲突** 
 ```
   如果两个不同的元素，通过哈希函数得出的实际存储地址相同怎么办？
   也就是说，当我们对某个元素进行哈希运算，得到一个存储地址，然后要进行插入的时候，发现已经被其他元素占用了，
@@ -62,11 +64,11 @@ public class HashMap<K,V> extends AbstractMap<K,V>
 ```
  - 横着看
  
-![](http://mmbiz.qpic.cn/mmbiz_png/YrLz7nDONjFzg05ibhpwUrWiaI9zCjHQBpuFzhibcOJIl9brZLOxvRvSClj7ialQjYNMUULgV2DcibQia8u9BFULsJVA/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1)
+![](https://github.com/553899811/NewBie-Plan/blob/master/Java%E5%9F%BA%E7%A1%80/Java-%E5%AE%B9%E5%99%A8/Map/img/hashmap-%E6%A8%AA%E7%9D%80%E7%9C%8B.jpg)
 
  - 竖着看
  
-![](http://tech.meituan.com/img/java-hashmap/hashMap%E5%86%85%E5%AD%98%E7%BB%93%E6%9E%84%E5%9B%BE.png)
+![](https://github.com/553899811/NewBie-Plan/blob/master/Java%E5%9F%BA%E7%A1%80/Java-%E5%AE%B9%E5%99%A8/Map/img/hashMap-%E7%AB%96%E7%9D%80%E7%9C%8B.png)
 ```
   简单来说，HashMap由数组+链表组成的，数组是HashMap的主体，链表则是主要为了解决哈希冲突而存在的，
   如果定位到的数组位置不含链表（当前entry的next指向null）,那么对于查找，添加等操作很快，仅需一次寻址即可；如果定位到的数组包含链表，
@@ -130,7 +132,7 @@ public class HashMap<K,V> extends AbstractMap<K,V>
         <td>HashMap默认初始化桶(数组)数量</td>
     </tr>
     <tr>
-        <td>DEFAULT_INITIAL_CAPACITY </td>
+        <td>MAXIMUM_CAPACITY </td>
         <td>2^30</td>
         <td>HashMap最大桶(数组)数量</td>
     </tr>
@@ -191,7 +193,7 @@ public class HashMap<K,V> extends AbstractMap<K,V>
     }
     
 ```
-   <font color="red">**tableSizeFor方法**</font>
+   <font color="red"> **tableSizeFor方法** </font>
 ```
     /**
      * Returns a power of two size for the given target capacity.
@@ -209,7 +211,9 @@ public class HashMap<K,V> extends AbstractMap<K,V>
     是返回大于输入参数且最近的2的整数次幂的数;
     
     为什么上述的位运算能得到大于参数且最近的2的整数次幂的数呢?
-    
+    答:| 即为或操作符,>>>y为无符号右移y位,空位补0,
+       n |= n >>> y会导致它的高n+1位全为1,
+       最终n将为111111..1 加1,即为100000..00,即2的整次幂.
 ```
 
   <font color="red">对于这个构造函数,主要讲两点:</font>
@@ -223,14 +227,22 @@ public class HashMap<K,V> extends AbstractMap<K,V>
 
 #### 1.1.2.3 基本操作
 ##### 1.1.2.3.1 如何获取Hash值
- - 扰动函数
+ - 扰动函数</br>
+   
+  **[1]获取hashCode值** 
+```
+   public final int hashCode() {
+            return Objects.hashCode(key) ^ Objects.hashCode(value);
+        }
+```
+  **[2]获取key的hash值** 
 ```
   static final int hash(Object key) {
         int h;
         return (key == null) ? 0 : (h = key.hashCode()) ^ (h >>> 16);
   }
 ```
-  <font color="red">**扰动函数解析:**</font>
+  <font color="red"> **扰动函数解析:** </font>
 ```
   上述代码中key.hashCode()函数调用的是超类Object类中的哈希函数,JVM进而调用本地方法,返回一个int值;
   理论上是一个int类型的值,范围为-2147483648-2147483647,
@@ -246,10 +258,10 @@ public class HashMap<K,V> extends AbstractMap<K,V>
   JDK 1.8中是直接通过p = tab[i = (n - 1) & hash这个方法来确定桶索引位置的;
   
   [1]hash为扰动函数的产物;
-  [2]n-1位当前hashmap的数组个数;
+  [2]n-1为当前hashmap的数组个数len-1;
   
   此时,我们会有诸多疑问,比如:
-    【1】为什么要做&运算呢?
+  【1】为什么要做&运算呢?
     
    答: 与操作的结果就是高位全部归零,只保留低位值,用来做数组下标访问。举一个例子说明,初始化长度为16,16-1=15 . 
    2进制(4字节,32位)表示就是 00000000 00000000 00000000 00001111 
@@ -261,7 +273,9 @@ public class HashMap<K,V> extends AbstractMap<K,V>
    
   【2】为什么是 n-1 呢? 
   
-   答: 源头就是HashMap的数组长度为什么要取2的整数幂? 因为这样(n-1)
+   答: 源头就是HashMap的数组长度为什么要取2的整数幂?
+   
+   因为这样(n-1)
    相当于一个"低位掩码"; 
    这样能结合下面的&运算使散列更为均匀,减少冲突
    (相对其他数字来说,比如10的话,下面我们以00100101和00110001这两个数做一个例子说明)
@@ -275,10 +289,25 @@ public class HashMap<K,V> extends AbstractMap<K,V>
    我们发现两个不同的数00100101 和0011001 分别和15以及10做与运算,
    和15做&运算会得到两个不同的结果(即会被散列到不同的桶位置上),而和10做与运算得到的是相同的结果(散列到同一个位置上),
    这就会出现冲突!!!!!
-  
+   
+  【3】hash&(len-1) 和 hash%len 的效果是相同的;
+   
+   例如 x=1<<4,即2^4=16;
+   x:   00010000
+   x-1: 00001111
+   我们假设一个数M=01011011 (十进制为:Integer.valueOf("01011011",2) = 91)
+   M :  01011011
+   x-1: 00001111
+   &-------------
+        00001011(十进制数为:11)
+   
+   91 % 16 = 11
+   证明两者效果相同,位运算的性能更高在操作系统级别来分析;
   【3】为什么扰动函数是那样子的呢?
-  
+   如下图所示,h>>>16 之后和h 做异或运算得到的hash前半部分是h的高8位,
+   后半部分是hash的高16位和低16位的复合产物;
 ```
+![](https://github.com/553899811/NewBie-Plan/blob/master/Java%E5%9F%BA%E7%A1%80/Java-%E5%AE%B9%E5%99%A8/Map/img/%E6%89%B0%E5%8A%A8%E5%87%BD%E6%95%B0.png)
 ##### 1.1.2.3.3 put()方法
  - put()方法
 ```
@@ -290,7 +319,7 @@ public class HashMap<K,V> extends AbstractMap<K,V>
 ```
    [2] putVal()过程
 ```
-![](https://static.oschina.net/uploads/img/201612/28154542_9bV6.png)
+![](https://github.com/553899811/NewBie-Plan/blob/master/Java%E5%9F%BA%E7%A1%80/Java-%E5%AE%B9%E5%99%A8/Map/img/putVal.png)
   - 分析put过程:
     - [1]首先判断table是否为空或者为null,如果是,则初始化数组table;
     - [2]根据键值key计算hash值 并得到桶索引位置((n-1)& hash),如果table[i]=null,直接新建节点添加,转向[6],如果table[i]不为空,则转向[3];
@@ -299,15 +328,29 @@ public class HashMap<K,V> extends AbstractMap<K,V>
     - [5]遍历table[i](第i+1个桶),判断链表长度是否大于8,大于8的话将链表转换为红黑树,在红黑树中执行插入操作,否则进行链表的插入操作;遍历过程中若发现key已经存在直接覆盖value即可;
     - [6]插入成功,判断实际存在的键值对size是否超过了最大容量(阈值),如果超过,进行扩容;
 ```
-   [1]这里重点说明下,在JDK1.7中index = hash % (len-1) 做与运算 ,在JDK 1.8中 变为了 i =(n-1) & hash,两者的作用是相同的;
+   [1]这里重点说明下,在JDK1.7中index = hash % len 做与运算 ,在JDK 1.8中 变为了 i =(len-1) & hash,两者的作用是相同的;
    [2]Put时如果key为null，存储位置为table[0]或table[0]的冲突链上(table为HashMap中存的数组),
    如果该对应数据已存在，执行覆盖操作。用新value替换旧value，并返回旧value，如果对应数据不存在,则添加到链表的头上(保证插入O(1));
     put：首先判断key是否为null，若为null，则直接调用putForNullKey方法。若不为空则先计算key的hash值，
     然后根据hash值搜索在table数组中的索引位置，如果table数组在该位置处有元素，循环遍历链表，比较是否存在相同的key，
     若存在则覆盖原来key的value，否则将该元素保存在链头（最先保存的元素放在链尾）。若table在该处没有元素，则直接保存。
 ```
+  - 拉链法的工作原理
+```
+    HashMap<String, String> map = new HashMap<>();
+    map.put("K1","V1");
+    map.put("K2","V2");
+    map.put("K3","V3");
+    
+    [1]新建一个HashMap,默认大小为1<<4(16)；
+    [2]插入Node<K1,V1> ,先计算K1的hash值为115,使用和(len-1)做&运算得到所在的桶下标为115&15=3;
+    [3]插入Node<K2,V2>,先计算K2的hash值为118,使用和(len-1)做&运算得到所在的桶下标为118&15=6;
+    [4]插入Node<K3,V3>,先计算K3的hash值为118,使用和(len-1)做&运算得到所在的桶下标为118&15=6,插在<K2,V2>后面.
+``` 
+![](https://github.com/553899811/NewBie-Plan/blob/master/Java%E5%9F%BA%E7%A1%80/Java-%E5%AE%B9%E5%99%A8/Map/img/hashmap-put.png)
+
 ##### 1.1.2.3.4 get()方法
-![](https://static.oschina.net/uploads/img/201612/28165110_Qgbu.png)
+![](https://github.com/553899811/NewBie-Plan/blob/master/Java%E5%9F%BA%E7%A1%80/Java-%E5%AE%B9%E5%99%A8/Map/img/get.png)
  - 过程分析:
    - 根据Key计算出hash值;
    - 桶位置index =hash & (len-1)
@@ -316,3 +359,48 @@ public class HashMap<K,V> extends AbstractMap<K,V>
      - 如果该数组index位置元素非TreeNode类型,则按照链表的方式来进行遍历查询;
 ## 2. HashMap 高级特性
 ### 2.1 扩容机制
+```
+ resize() 方法用于初始化数组(初始化数组过程由于涉及到类加载过程,将会放到JVM模块中进一步解释)或数组扩容，每次扩容后，容量为原来的 2 倍,并进行数据迁移。
+```
+#### 2.1.1 扩容后位置变化
+```
+  我们使用的2次幂的扩展(指长度扩为之前长度的2倍),元素的位置要么在原来位置上,要么在原位置再移动2^n的位置上;
+```
+ - **解释过程**
+``` 
+hashmap的原来桶数量为16,即n-1=15(二进制表示:1111)
+[1]扩容前
+n-1 :  0000 0000 0000 0000 0000 0000 0000 1111
+hash1: 1111 1111 1111 1111 0000 1111 0000 0101
+     &----------------------------------------
+       0000 0000 0000 0000 0000 0000 0000 0101 (桶位置为5)
+       
+       
+n-1 :  0000 0000 0000 0000 0000 0000 0000 1111       
+hash2: 1111 1111 1111 1111 0000 1111 0001 0101
+     &----------------------------------------
+       0000 0000 0000 0000 0000 0000 0000 0101 (桶位置也是5)
+两个hash值不同的对象,和n-1做&运算之后,得到相同的结果;
+[2]扩容后
+hashmap此时桶的数量变为32,即n-1=31(二进制表示:11111)
+n-1:   0000 0000 0000 0000 0000 0000 0001 1111
+hash1: 1111 1111 1111 1111 0000 1111 0000 0101
+      &---------------------------------------
+       0000 0000 0000 0000 0000 0000 0000 0101 (扩容后,桶位置还TM是5)
+       
+n-1:   0000 0000 0000 0000 0000 0000 0001 1111
+hash2: 1111 1111 1111 1111 0000 1111 0001 0101
+      &---------------------------------------
+       0000 0000 0000 0000 0000 0000 0001 0101 (扩容后,桶位置变为之前5+2^4=21)
+```
+  元素在hashmap扩容之后,会重新计算桶下标,从上面的例子中可以看出来,hash1的桶位置在扩容前后没有发生变化,hash2的桶位置在扩容前后发生了变化;
+  
+  那么如何判断一个key在扩容之后桶位置是否会发生变化呢?
+  ```
+    上述扩容过程中&运算的关键点就在于扩容之后新的长度(n-1)转化为2进制之后新增的bit为1,而key的hash 值所对应位置的bit是1 还是0,,如果是0的话那么桶位置就不会变化,是1 的话桶位置就会变成"原来桶位置+oldCap(原来桶数量)";
+    通过if((e.hash&oldCap)==0)来判断hash的新增判断bit是1还是0;
+  ```
+### 2.2 线程安全问题
+```
+  http://www.importnew.com/22011.html
+```

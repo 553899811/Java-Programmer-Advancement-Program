@@ -17,6 +17,13 @@
 *.zip
 *.tar.gz
 *.rar
+*.idea
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
+.idea/
+SpringBoot/springboot-redis/src/main/java/net/shopin/controller/
+SpringBoot/springboot-redis/src/main/resources/profile-active/dev/
+SpringBoot/springboot-redis/src/main/resources/profile-active/prod/
+SpringBoot/springboot-schedule/src/main/resources/profile-active/dev/
+SpringBoot/springboot-schedule/src/main/resources/profile-active/prod/
