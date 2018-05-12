@@ -42,15 +42,19 @@
 
 
 ## 3. 学习资源
-  
-  - 3.1 他山之石,可以攻玉</br>
+ - 3.1 Java基础</br>
+    [B站视频: Java-300集](https://www.bilibili.com/video/av6749471)
+ - 3.2 Java多线程
+    []
+## 4.谢鉴
+  - 4.1 他山之石,可以攻玉</br>
    [https://github.com/CyC2018/Interview-Notebook](https://github.com/CyC2018/Interview-Notebook)
-  - 3.2 多线程系列</br>
+  - 4.2 多线程系列</br>
    [https://blog.csdn.net/mingtianhaiyouwo/article/details/51012392](https://blog.csdn.net/mingtianhaiyouwo/article/details/51012392)</br>
    [http://wanglizhi.github.io/2016/08/08/Java-Concurrency/](http://wanglizhi.github.io/2016/08/08/Java-Concurrency/)
-  - 3.3 JVM系列</br>
+  - 4.3 JVM系列</br>
    [http://www.cnblogs.com/leesf456/p/5218594.html](http://www.cnblogs.com/leesf456/p/5218594.html)
-  - 3.4 IO系列</br>
+  - 4.4 IO系列</br>
    [http://wangkuiwu.github.io/2100/01/01/index/](http://wangkuiwu.github.io/2100/01/01/index/)
-  - 3.5 面试基础大纲</br>
-   [https://blog.csdn.net/Yan456jie/article/details/52439457](https://blog.csdn.net/Yan456jie/article/details/52439457)   
+  - 4.5 面试基础大纲</br>
+   [https://blog.csdn.net/Yan456jie/article/details/52439457](https://blog.csdn.net/Yan456jie/article/details/52439457) 
