@@ -31,10 +31,12 @@
 ```
 ## 2. 目录
   
-## Java基础
-> [Java-IO](https://github.com/553899811/NewBie-Plan/tree/master/Java%E5%9F%BA%E7%A1%80/Java-IO)
+## 2.1 Java基础
+### 2.1.1 [Java集合](https://github.com/553899811/NewBie-Plan/tree/master/Java%E5%9F%BA%E7%A1%80/Java-%E5%AE%B9%E5%99%A8)
 
-> [Java集合](https://github.com/553899811/NewBie-Plan/tree/master/Java%E5%9F%BA%E7%A1%80/Java-%E5%AE%B9%E5%99%A8)
+### 2.1.2 [Java-IO](https://github.com/553899811/NewBie-Plan/tree/master/Java%E5%9F%BA%E7%A1%80/Java-IO)
+
+
 
 > [Java面向对象](https://github.com/553899811/NewBie-Plan/tree/master/Java%E5%9F%BA%E7%A1%80/Java-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1)
 
@@ -54,6 +56,27 @@
     
     - [Java多线程编程核心技术]()
  - 3.3 JVM虚拟机
+  
+    - [深入理解Java虚拟机 JVM高级特性与最佳实践]()
+    
+    - [实战Java虚拟机  JVM故障诊断与性能优化]()
+     
+    - [深入理解Java内存模型]()
+
+ - 3.4 操作系统
+ 
+   - [深入理解计算机系统(原书第三版)]()
+    
+ - 3.5 计算机网络
+ 
+    - [计算机网络-第五版]()
+ - 3.6 数据库
+    
+    - [MySQL必知必会]()
+    
+    - [高性能MySQL]()
+ 
+
 ## 4.谢鉴
   - 4.1 他山之石,可以攻玉</br>
    [https://github.com/CyC2018/Interview-Notebook](https://github.com/CyC2018/Interview-Notebook)
