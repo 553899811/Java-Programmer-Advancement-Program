@@ -43,9 +43,17 @@
 
 ## 3. 学习资源
  - 3.1 Java基础</br>
-    [B站视频: Java-300集](https://www.bilibili.com/video/av6749471)
- - 3.2 Java多线程
-    []
+    - [B站视频: Java-300集](https://www.bilibili.com/video/av6749471)</br>
+
+    - [牛客网笔试题](https://www.nowcoder.com/intelligentTest)
+ - 3.2 Java多线程</br>
+    
+    - [Java多线程编程实战指南]()
+    
+    - [Java并发编程的艺术]()
+    
+    - [Java多线程编程核心技术]()
+ - 3.3 JVM虚拟机
 ## 4.谢鉴
   - 4.1 他山之石,可以攻玉</br>
    [https://github.com/CyC2018/Interview-Notebook](https://github.com/CyC2018/Interview-Notebook)
