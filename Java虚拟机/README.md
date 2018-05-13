@@ -44,6 +44,8 @@
 ## 4.垃圾回收
  - JVM初探：内存分配、GC原理与垃圾收集器
  [http://www.importnew.com/23035.html](http://www.importnew.com/23035.html)
+ - JAVA四种引用类型
+ [https://www.cnblogs.com/fengbs/p/7019687.html](https://www.cnblogs.com/fengbs/p/7019687.html)
  - JVM类加载以及执行的实战
  [http://www.cnblogs.com/cz123/p/6937212.html](http://www.cnblogs.com/cz123/p/6937212.html)
  - JVM内存堆布局图解分析
