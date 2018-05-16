@@ -10,7 +10,7 @@
     * [3.1 ThreadLocal的弱引用](#31-threadlocal的弱引用)
 <!-- GFM-TOC -->
 # ThreadLocal概述
-## 1.ThreadLocal是什么
+## 1. ThreadLocal是什么
  - JDK描述:
 ```
   This class provides thread-local variables.  These variables differ from
