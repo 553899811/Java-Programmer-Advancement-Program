@@ -30,18 +30,7 @@
   不积跬步,无以至千里.各位,不要让自己发出 书到用时方恨少的感叹.愿每一个有梦想的Coder都能成为引以为豪的人.
 ```
 ## 2. 目录
-  
-## 2.1 Java基础
-### 2.1.1 [Java集合](https://github.com/553899811/NewBie-Plan/tree/master/Java%E5%9F%BA%E7%A1%80/Java-%E5%AE%B9%E5%99%A8)
-
-### 2.1.2 [Java-IO](https://github.com/553899811/NewBie-Plan/tree/master/Java%E5%9F%BA%E7%A1%80/Java-IO)
-
-
-
-> [Java面向对象](https://github.com/553899811/NewBie-Plan/tree/master/Java%E5%9F%BA%E7%A1%80/Java-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1)
-
-> [Java反射]()
-
+  未完,待更新......
 
 ## 3. 学习资源
  - 3.1 Java基础</br>
@@ -50,31 +39,31 @@
     - [牛客网笔试题](https://www.nowcoder.com/intelligentTest)
  - 3.2 Java多线程</br>
     
-    - [Java多线程编程实战指南]()
+    - [Java多线程编程实战指南](https://pan.baidu.com/s/1ACiNLZtaTkwTdz6NHFuSew)
     
-    - [Java并发编程的艺术]()
+    - [Java并发编程的艺术](https://pan.baidu.com/s/1ACiNLZtaTkwTdz6NHFuSew)
     
-    - [Java多线程编程核心技术]()
+    - [Java多线程编程核心技术](https://pan.baidu.com/s/1ACiNLZtaTkwTdz6NHFuSew)
  - 3.3 JVM虚拟机
   
-    - [深入理解Java虚拟机 JVM高级特性与最佳实践]()
+    - [深入理解Java虚拟机 JVM高级特性与最佳实践](https://pan.baidu.com/s/1SNI8io12SGVadz039Uzn7g)
     
-    - [实战Java虚拟机  JVM故障诊断与性能优化]()
+    - [实战Java虚拟机  JVM故障诊断与性能优化](https://pan.baidu.com/s/1SNI8io12SGVadz039Uzn7g)
      
-    - [深入理解Java内存模型]()
+    - [深入理解Java内存模型](https://pan.baidu.com/s/1SNI8io12SGVadz039Uzn7g)
 
  - 3.4 操作系统
  
-   - [深入理解计算机系统(原书第三版)]()
+   - [深入理解计算机系统(原书第三版)](https://pan.baidu.com/s/1LONX7g1rzfzhIvKNp2i-FA)
     
  - 3.5 计算机网络
  
-    - [计算机网络-第五版]()
+    - [计算机网络-第五版](https://pan.baidu.com/s/1e121Ma3_KJu_4X5wL_sHaQ)
  - 3.6 数据库
     
-    - [MySQL必知必会]()
+    - [MySQL必知必会](https://pan.baidu.com/s/1tRmtBjXPvcHvZxa5wyaqlw)
     
-    - [高性能MySQL]()
+    - [高性能MySQL](https://pan.baidu.com/s/1tRmtBjXPvcHvZxa5wyaqlw)
  
 
 ## 4.谢鉴
