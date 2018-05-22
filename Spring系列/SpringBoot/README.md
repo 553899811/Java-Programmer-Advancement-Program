@@ -12,3 +12,7 @@
 [https://docs.spring.io/spring-boot/docs/current/](https://docs.spring.io/spring-boot/docs/current/)
 ### 1.2 系统性学习
 #### 1.2.1 SpringBoot继承关系
+#### 1.2.2 SpringBoot自动化配置
+```
+  https://mp.weixin.qq.com/s/7fMKOCYzGMCM_Jdiegr1rw
+```

@@ -158,6 +158,11 @@
      不过，由于垃圾回收器是一个优先级很低的线程，因此不一定会很快发现那些只具有弱引用的对象;
 ```
 ![](https://pic1.zhimg.com/80/9671b789e1da4f760483456c03e4f4b6_hd.jpg)
-
+```
+http://blog.xiaohansong.com/2016/08/09/ThreadLocal-leak-analyze/
+```
+```
+ https://juejin.im/post/5aeeb22e6fb9a07aa213404a
+```
 
 
