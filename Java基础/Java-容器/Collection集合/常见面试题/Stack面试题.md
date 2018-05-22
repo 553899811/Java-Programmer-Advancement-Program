@@ -30,7 +30,7 @@ public class Solution<T> {
  C:EABCD
  D:EDCBA
  
- 解析: 正确理解题意是关键,在一遍push的时候可以一遍pop();
+ 解析: 正确理解题意是关键,在一边push的时候可以一边pop();
     A:ABCDE (可能的出栈顺序,push进去一个随即pop出来就是这个顺序)
     B:BCDEA (可能的出栈顺序,先push进去A之后,BCDE按照push进去随即pop出来,最后pop出A,就是这个顺序)
     C:EABCD (不可能的出栈顺序)
