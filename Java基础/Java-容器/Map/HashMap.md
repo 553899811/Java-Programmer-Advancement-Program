@@ -362,6 +362,110 @@ public class HashMap<K,V> extends AbstractMap<K,V>
 ```
  resize() 方法用于初始化数组(初始化数组过程由于涉及到类加载过程,将会放到JVM模块中进一步解释)或数组扩容，每次扩容后，容量为原来的 2 倍,并进行数据迁移。
 ```
+ - 代码分析:
+```
+  final Node<K,V>[] resize() {
+      //获取现阶段的桶
+        Node<K,V>[] oldTab = table;
+        // 旧容量
+        int oldCap = (oldTab == null) ? 0 : oldTab.length;
+        // 旧阈值
+        int oldThr = threshold;
+        int newCap, newThr = 0;
+        if (oldCap > 0) {
+            //如果旧容量达到了2^30;
+            if (oldCap >= MAXIMUM_CAPACITY) {
+              //将阈值扩容到Integer的最大值,也就是2^31 - 1;该阈值要大于旧容量。
+                threshold = Integer.MAX_VALUE;
+                return oldTab;
+            }       
+            else if ((newCap = oldCap << 1) < MAXIMUM_CAPACITY &&
+                     oldCap >= DEFAULT_INITIAL_CAPACITY)
+              //正常扩容,新的阈值为之前的2倍;
+                newThr = oldThr << 1; // double threshold
+        }
+        else if (oldThr > 0) // initial capacity was placed in threshold
+        
+            // 如果原来的thredshold大于0 则将容量设为原来的thredshold
+            // TODO 在类加载器启动的时候其实做了很多东西,需要钻研下；
+            // 在第一次带参数初始化时候会有这种情况;
+            newCap = oldThr;
+        else {               // zero initial threshold signifies using defaults
+          // 
+            newCap = DEFAULT_INITIAL_CAPACITY;
+            newThr = (int)(DEFAULT_LOAD_FACTOR * DEFAULT_INITIAL_CAPACITY);
+        }
+        if (newThr == 0) {
+            float ft = (float)newCap * loadFactor;
+            newThr = (newCap < MAXIMUM_CAPACITY && ft < (float)MAXIMUM_CAPACITY ?
+                      (int)ft : Integer.MAX_VALUE);
+        }
+        threshold = newThr;
+        @SuppressWarnings({"rawtypes","unchecked"})
+        //如果原来的table有数据,则将数据复制到新的table中;
+            Node<K,V>[] newTab = (Node<K,V>[])new Node[newCap];
+        table = newTab;
+        if (oldTab != null) {
+          // 根据容量的大小循环整个数组,将非空元素进行复制;
+            for (int j = 0; j < oldCap; ++j) {
+                Node<K,V> e;
+                // 获取数组的第j个元素(即第j个桶元素);
+                if ((e = oldTab[j]) != null) {
+                    oldTab[j] = null;
+                    // 如果桶位置元素只有一个没有next元素了,则进行直接赋值;
+                    if (e.next == null)
+                        newTab[e.hash & (newCap - 1)] = e;
+                    else if (e instanceof TreeNode)
+                        //红黑树部分之后讨论细节部分;
+                        ((TreeNode<K,V>)e).split(this, newTab, j, oldCap);
+                    else { // preserve order
+                      // 原桶位置上定义2个指针,一个指定头,一个指定尾，分别更新;
+                        Node<K,V> loHead = null, loTail = null;
+                        // index+OldCap 桶位置上定义2个指针,一个指定头,一个指定尾,分别更新;
+                        Node<K,V> hiHead = null, hiTail = null;
+                        Node<K,V> next;
+                        do {
+                            next = e.next;
+                            // 通过 if((e.hash&oldCap) == 0) 来判断hash的新增判断bit是1还是0,进而判断扩容之后它的位置是不变还是oldCap + index;
+                            if ((e.hash & oldCap) == 0) {
+                              // 如果位置不变化;
+                                if (loTail == null)
+                                  // 首次向该桶位置放置元素,将loHead指向e;
+                                    loHead = e;
+                                else
+                                  // 非首次添加元素后,将loTail指针指向尾元素;
+                                    loTail.next = e;
+
+                                /**
+                                 * [1]首次在向某一个桶位置放入元素的时候,loHead指向头结点元素,loTail也要指向头结点元素,之后loHead不会变动;
+                                 * [2]每次添加完新节点元素之后,loTail
+                                 */
+                                loTail = e;
+                            }
+                            else {
+                              // 同理
+                                if (hiTail == null)
+                                    hiHead = e;
+                                else
+                                    hiTail.next = e;
+                                hiTail = e;
+                            }
+                        } while ((e = next) != null);
+                        if (loTail != null) {
+                            loTail.next = null;
+                            newTab[j] = loHead;
+                        }
+                        if (hiTail != null) {
+                            hiTail.next = null;
+                            newTab[j + oldCap] = hiHead;
+                        }
+                    }
+                }
+            }
+        }
+        return newTab;
+    }
+```
 #### 2.1.1 扩容后位置变化
 ```
   我们使用的2次幂的扩展(指长度扩为之前长度的2倍),元素的位置要么在原来位置上,要么在原位置再移动2^n的位置上;
