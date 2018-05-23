@@ -1,5 +1,6 @@
 # 该模块分为11部分,分别为：
 ## 1、基本概念
+    [线程底层原理](https://www.cnblogs.com/LeeMengxu/articles/LeeMengxu.html)
 ## 2、实现方式
 ## 3、start()和run()区别
 ## 4、synchronized关键字
