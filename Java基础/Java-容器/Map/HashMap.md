@@ -386,12 +386,10 @@ public class HashMap<K,V> extends AbstractMap<K,V>
         }
         else if (oldThr > 0) // initial capacity was placed in threshold
         
-            // 如果原来的thredshold大于0 则将容量设为原来的thredshold
-            // TODO 在类加载器启动的时候其实做了很多东西,需要钻研下；
-            // 在第一次带参数初始化时候会有这种情况;
+            // 不是很理解 TODO
             newCap = oldThr;
         else {               // zero initial threshold signifies using defaults
-          // 
+          
             newCap = DEFAULT_INITIAL_CAPACITY;
             newThr = (int)(DEFAULT_LOAD_FACTOR * DEFAULT_INITIAL_CAPACITY);
         }
@@ -433,17 +431,18 @@ public class HashMap<K,V> extends AbstractMap<K,V>
                                   // 首次向该桶位置放置元素,将loHead指向e;
                                     loHead = e;
                                 else
-                                  // 非首次添加元素后,将loTail指针指向尾元素;
+                                  // 非首次添加元素后,loTail先是指向上一个被添加的元素节点, 
+                                  // 将上一个元素节点的next指针指向新添加的元素节点,使他们连接起来;(即loTail指针起连接新旧元素节点的作用)
                                     loTail.next = e;
 
                                 /**
                                  * [1]首次在向某一个桶位置放入元素的时候,loHead指向头结点元素,loTail也要指向头结点元素,之后loHead不会变动;
-                                 * [2]每次添加完新节点元素之后,loTail
+                                 * [2]每次添加完新节点元素之后,loTail要指向尾节点元素;
                                  */
                                 loTail = e;
                             }
                             else {
-                              // 同理
+                              // 同上
                                 if (hiTail == null)
                                     hiHead = e;
                                 else
