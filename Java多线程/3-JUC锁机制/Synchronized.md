@@ -1,5 +1,7 @@
 # Synchronized 
 ## 原理分析
+TODO 
 ```
-  https://blog.csdn.net/shandian000/article/details/54927876
+ 分析的很好
+ https://blog.csdn.net/javazejian/article/details/72828483
 ```
