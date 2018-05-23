@@ -6,6 +6,10 @@
 ## 3、start()和run()区别
 ## 4、synchronized关键字
 ## 5、线程等待和唤醒
+### 5.1 、死锁
+```
+ [死锁产生以及如何避免]https://blog.csdn.net/ls5718/article/details/51896159
+```
 ## 6、线程让步
 ## 7、线程休眠
 ## 8、join()方法
