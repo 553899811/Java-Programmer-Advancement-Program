@@ -20,6 +20,7 @@
       * [2.12 项目经验](#212-项目经验)
     * [3. 学习资源](#3-学习资源)
     * [4. 谢鉴](#4-谢鉴)
+    * [5. 贡献](#5-贡献)
 <!-- GFM-TOC -->
 ![](https://img.shields.io/badge/update-today-blue.svg) ![](https://img.shields.io/badge/gitbook-making-lightgrey.svg) 
 # NewBie-Plan
@@ -79,3 +80,12 @@
    [http://wangkuiwu.github.io/2100/01/01/index/](http://wangkuiwu.github.io/2100/01/01/index/)
   - 4.5 面试基础大纲</br>
    [https://blog.csdn.net/Yan456jie/article/details/52439457](https://blog.csdn.net/Yan456jie/article/details/52439457) 
+
+## 5.贡献
+
+ The repo is maintained by
+ 
+ - [pengp](https://github.com/pengp)</br>
+ - [songsir01](https://github.com/songsir01)</br>
+ - [liulukuan](https://github.com/liulukuan)</br>
+ - [mySohGit](https://github.com/mySohGit)
