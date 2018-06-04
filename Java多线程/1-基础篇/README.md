@@ -2,6 +2,7 @@
 ## 1、基本概念
 
 [线程底层原理](https://www.cnblogs.com/LeeMengxu/articles/LeeMengxu.html)
+![](https://images2017.cnblogs.com/blog/1171706/201709/1171706-20170924170925900-1122265371.png)
 ## 2、实现方式
 ## 3、start()和run()区别
 ## 4、synchronized关键字
