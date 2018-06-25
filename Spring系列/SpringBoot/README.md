@@ -11,6 +11,9 @@
 ### 1.1 官方Wiki
 [https://docs.spring.io/spring-boot/docs/current/](https://docs.spring.io/spring-boot/docs/current/)
 ### 1.2 系统性学习
+```
+   推荐系统学习SpringBoot :  https://www.jianshu.com/p/9a08417e4e84
+```
 #### 1.2.1 SpringBoot继承关系
 #### 1.2.2 SpringBoot自动化配置
 ```
