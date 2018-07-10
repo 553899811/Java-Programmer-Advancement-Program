@@ -2,7 +2,6 @@ package net.shopin;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.stereotype.Component;
 
 /**
  * <p>ClassName:Application</p>
@@ -14,7 +13,6 @@ import org.springframework.stereotype.Component;
  * @date 2018/4/9 18:13
  */
 @SpringBootApplication
-@Component
 public class Application {
     public static void main(String[] args) {
         SpringApplication.run(Application.class, args);

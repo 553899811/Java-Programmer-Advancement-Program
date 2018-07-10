@@ -1,6 +1,6 @@
 package net.shopin;
 
-import net.shopin.utils.JxRedisTemplate;
+import net.shopin.utils.ShopinRedisTemplate;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,11 +21,28 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 public class TestRedis {
 
     @Autowired
-    JxRedisTemplate<String> redisTemplate;
+    ShopinRedisTemplate<String> redisTemplate;
 
     @Test
     public void test() {
         redisTemplate.set("2333", "zhang");
         System.out.println(redisTemplate.get("2333"));
+    }
+
+    @Test
+    public void test2() {
+        boolean delete = redisTemplate.delete("2333");
+        System.out.println(delete);
+    }
+
+    @Test
+    public void test3(){
+        Long aLong = redisTemplate.lpush("zhangshopin", "123");
+        System.out.println(aLong);
+    }
+    @Test
+    public void test4(){
+        String s = redisTemplate.rpop("zhangshopin");
+        System.out.println(s);
     }
 }
