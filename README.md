@@ -2,28 +2,16 @@
 * [NewBie-Plan](#NewBie-Plan)
     * [1. 概述](#1-概述)
     * [2. 目录](#2-目录)
-      * [2.1 Java基础](#21-java基础)
-        * [2.1.1 Java集合](#211-java集合)
-        * [2.1.2 JavaIO](#212-javaio)
-        * [2.1.3 Java面向对象](#213-java面向对象)
-        * [2.1.4 Java反射](#214-java反射)
-      * [2.2 Java多线程](#22-java多线程)
-      * [2.3 Java虚拟机](#23-java虚拟机)
-      * [2.4 SpringBoot](#24-springboot)
-      * [2.5 分布式](#25-分布式)
-      * [2.6 操作系统](#26-操作系统)
-      * [2.7 数据库](#27-数据库)
-      * [2.8 算法与数据结构](#28-算法与数据结构)
-      * [2.9 计算机网络](#29-计算机网络)
-      * [2.10 设计模式](#210-设计模式)
-      * [2.11 面试经验](#211-面试经验)
-      * [2.12 项目经验](#212-项目经验)
     * [3. 学习资源](#3-学习资源)
     * [4. 谢鉴](#4-谢鉴)
     * [5. 贡献](#5-贡献)
 <!-- GFM-TOC -->
 ![](https://img.shields.io/badge/update-today-blue.svg) ![](https://img.shields.io/badge/gitbook-making-lightgrey.svg) 
 # NewBie-Plan
+
+| Ⅰ | Ⅱ | Ⅲ | Ⅳ | Ⅴ | Ⅵ | Ⅶ | Ⅷ | Ⅸ | Ⅹ |
+| :--------: | :---------: | :---------: | :---------: | :---------: | :---------:| :---------: | :-------: | :-------:| :------:|
+| 算法[:pencil2:](#算法-pencil2) | 操作系统[:computer:](#操作系统-computer)|网络[:cloud:](#网络-cloud) | 面向对象[:couple:](#面向对象-couple) |数据库[:floppy_disk:](#数据库-floppy_disk)| Java [:coffee:](#java-coffee)| 系统设计[:bulb:](#系统设计-bulb)| 工具[:hammer:](#工具-hammer)| 编码实践[:speak_no_evil:](#编码实践-speak_no_evil)| 后记[:memo:](#后记-memo) |
 ## 1. 概述
 ```
    主要针对于现阶段Java开发工程师开启的学习推荐和辅助，主要会从Java基础(IO,Collection集合,反射,多态),MySQL,多线程,JVM,操作系统，计算机网络及部分高级应用等方面做较为详细的学习探究。
