@@ -63,16 +63,16 @@
    [https://github.com/xingshaocheng/architect-awesome](https://github.com/xingshaocheng/architect-awesome)
   - 4.1.3 Alibaba -阿里大佬分享经历</br>
    [四年努力，梦归阿里，和大家聊聊成长感悟](http://www.cnblogs.com/xrq730/p/9159586.html#!comments)
-   
-### 4.2 多线程系列</br>
+### 4.2 模块资源推荐
+   - 4.2.1 多线程系列</br>
    [https://blog.csdn.net/mingtianhaiyouwo/article/details/51012392](https://blog.csdn.net/mingtianhaiyouwo/article/details/51012392)</br>
    [http://wanglizhi.github.io/2016/08/08/Java-Concurrency/](http://wanglizhi.github.io/2016/08/08/Java-Concurrency/)</br>
    [https://blog.csdn.net/u011116672/article/details/51180166](https://blog.csdn.net/u011116672/article/details/51180166)
-  - 4.3 JVM系列</br>
+  - 4.2.2 JVM系列</br>
    [http://www.cnblogs.com/leesf456/p/5218594.html](http://www.cnblogs.com/leesf456/p/5218594.html)
-  - 4.4 IO系列</br>
+  - 4.2.3 IO系列</br>
    [http://wangkuiwu.github.io/2100/01/01/index/](http://wangkuiwu.github.io/2100/01/01/index/)
-  - 4.5 面试基础大纲</br>
+  - 4.2.4 面试基础大纲</br>
    [https://blog.csdn.net/Yan456jie/article/details/52439457](https://blog.csdn.net/Yan456jie/article/details/52439457) 
 
 ## 5.贡献
