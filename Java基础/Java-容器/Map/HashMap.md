@@ -342,7 +342,7 @@ public class HashMap<K,V> extends AbstractMap<K,V>
     map.put("K2","V2");
     map.put("K3","V3");
     
-    [1]新建一个HashMap,默认大小为1<<4(16)；
+    [1]新建一个HashMap,默认大小为1<<4(16);
     [2]插入Node<K1,V1> ,先计算K1的hash值为115,使用和(len-1)做&运算得到所在的桶下标为115&15=3;
     [3]插入Node<K2,V2>,先计算K2的hash值为118,使用和(len-1)做&运算得到所在的桶下标为118&15=6;
     [4]插入Node<K3,V3>,先计算K3的hash值为118,使用和(len-1)做&运算得到所在的桶下标为118&15=6,插在<K2,V2>后面.
@@ -404,10 +404,11 @@ public class HashMap<K,V> extends AbstractMap<K,V>
             Node<K,V>[] newTab = (Node<K,V>[])new Node[newCap];
         table = newTab;
         if (oldTab != null) {
-          // 根据容量的大小循环整个数组,将非空元素进行复制;
+            // 根据容量的大小循环整个数组,将非空元素进行复制;
             for (int j = 0; j < oldCap; ++j) {
                 Node<K,V> e;
                 // 获取数组的第j个元素(即第j个桶元素);
+                // 辅助GC 将旧表逐步垃圾回收掉[引用];
                 if ((e = oldTab[j]) != null) {
                     oldTab[j] = null;
                     // 如果桶位置元素只有一个没有next元素了,则进行直接赋值;
@@ -450,12 +451,17 @@ public class HashMap<K,V> extends AbstractMap<K,V>
                                 hiTail = e;
                             }
                         } while ((e = next) != null);
+                        
+                        //原桶位置的节点放入Bucket中;
                         if (loTail != null) {
                             loTail.next = null;
+                            //桶位置指向头节点;
                             newTab[j] = loHead;
                         }
+                        //原桶位置+OldCap的节点放入新Bucket中;
                         if (hiTail != null) {
                             hiTail.next = null;
+                            // 新桶位置指向头节点;
                             newTab[j + oldCap] = hiHead;
                         }
                     }
@@ -504,6 +510,58 @@ hash2: 1111 1111 1111 1111 0000 1111 0001 0101
     通过if((e.hash&oldCap)==0)来判断hash的新增判断bit是1还是0;
   ```
 ### 2.2 线程安全问题
+#### 2.2.1 线程不安全的表现
 ```
-  http://www.importnew.com/22011.html
+   
 ```
+#### 2.2.2 源码分析
+```
+   在分析HashMap的线程不安全之前,我们先看一下上面resize()过程中的一段扩容后重新分配bucket的代码:
+```
+``` java
+                    // oldCap原位置上;原桶位置上定义2个指针,一个指定头,一个指定尾，分别更新;
+                    Node<K,V> loHead = null, loTail = null;
+                    // index+OldCap 桶位置上定义2个指针,一个指定头,一个指定尾,分别更新;
+                    Node<K,V> hiHead = null, hiTail = null;
+                    Node<K,V> next;
+                    do {
+                     next = e.next;
+                     // 通过 if((e.hash&oldCap) == 0) 来判断hash的新增判断bit是1还是0,进而判断扩容之后它的位置是不变还是oldCap + index;
+                    if ((e.hash & oldCap) == 0) {
+                    // 如果位置不变化;
+                    if (loTail == null)
+                    // 首次向该桶位置放置元素,将loHead指向e;
+                        loHead = e;
+                    else
+                    // 非首次添加元素后,loTail先是指向上一个被添加的元素节点, 
+                    // 将上一个元素节点的next指针指向新添加的元素节点,使他们连接起来;(即loTail指针起连接新旧元素节点的作用)
+                        loTail.next = e;
+                        /**
+                         * [1]首次在向某一个桶位置放入元素的时候,loHead指向头结点元素,loTail也要指向头结点元素,之后loHead不会变动;
+                         * [2]每次添加完新节点元素之后,loTail要指向尾节点元素;
+                         */
+                        loTail = e;
+                    }else {
+                        // 同上
+                        if (hiTail == null)
+                                hiHead = e;
+                        else
+                                hiTail.next = e;
+                            hiTail = e;
+                            }
+                    } while ((e = next) != null);
+
+                        //原桶位置的节点放入Bucket中;
+                        if (loTail != null) {
+                            loTail.next = null;
+                            //桶位置指向头节点;
+                            newTab[j] = loHead;
+                        }
+                        //原桶位置+OldCap的节点放入新Bucket中;
+                        if (hiTail != null) {
+                            hiTail.next = null;
+                            // 新桶位置指向头节点;
+                            newTab[j + oldCap] = hiHead;
+                        }
+```
+
