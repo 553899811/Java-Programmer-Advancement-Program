@@ -342,7 +342,7 @@ public class HashMap<K,V> extends AbstractMap<K,V>
     map.put("K2","V2");
     map.put("K3","V3");
     
-    [1]新建一个HashMap,默认大小为1<<4(16)；
+    [1]新建一个HashMap,默认大小为1<<4(16);
     [2]插入Node<K1,V1> ,先计算K1的hash值为115,使用和(len-1)做&运算得到所在的桶下标为115&15=3;
     [3]插入Node<K2,V2>,先计算K2的hash值为118,使用和(len-1)做&运算得到所在的桶下标为118&15=6;
     [4]插入Node<K3,V3>,先计算K3的hash值为118,使用和(len-1)做&运算得到所在的桶下标为118&15=6,插在<K2,V2>后面.
