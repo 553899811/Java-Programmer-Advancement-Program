@@ -519,40 +519,38 @@ hash2: 1111 1111 1111 1111 0000 1111 0001 0101
    在分析HashMap的线程不安全之前,我们先看一下上面resize()过程中的一段扩容后重新分配bucket的代码:
 ```
 ``` java
-                            // oldCap原位置上;原桶位置上定义2个指针,一个指定头,一个指定尾，分别更新;
-                            Node<K,V> loHead = null, loTail = null;
-                            // index+OldCap 桶位置上定义2个指针,一个指定头,一个指定尾,分别更新;
-                            Node<K,V> hiHead = null, hiTail = null;
-                            Node<K,V> next;
-                           do {
-                            next = e.next;
-                            // 通过 if((e.hash&oldCap) == 0) 来判断hash的新增判断bit是1还是0,进而判断扩容之后它的位置是不变还是oldCap + index;
-                            if ((e.hash & oldCap) == 0) {
-                              // 如果位置不变化;
-                                if (loTail == null)
-                                  // 首次向该桶位置放置元素,将loHead指向e;
-                                    loHead = e;
-                                else
-                                  // 非首次添加元素后,loTail先是指向上一个被添加的元素节点, 
-                                  // 将上一个元素节点的next指针指向新添加的元素节点,使他们连接起来;(即loTail指针起连接新旧元素节点的作用)
-                                    loTail.next = e;
+                    // oldCap原位置上;原桶位置上定义2个指针,一个指定头,一个指定尾，分别更新;
+                    Node<K,V> loHead = null, loTail = null;
+                    // index+OldCap 桶位置上定义2个指针,一个指定头,一个指定尾,分别更新;
+                    Node<K,V> hiHead = null, hiTail = null;
+                    Node<K,V> next;
+                    do {
+                     next = e.next;
+                     // 通过 if((e.hash&oldCap) == 0) 来判断hash的新增判断bit是1还是0,进而判断扩容之后它的位置是不变还是oldCap + index;
+                    if ((e.hash & oldCap) == 0) {
+                    // 如果位置不变化;
+                    if (loTail == null)
+                    // 首次向该桶位置放置元素,将loHead指向e;
+                        loHead = e;
+                    else
+                    // 非首次添加元素后,loTail先是指向上一个被添加的元素节点, 
+                    // 将上一个元素节点的next指针指向新添加的元素节点,使他们连接起来;(即loTail指针起连接新旧元素节点的作用)
+                        loTail.next = e;
+                        /**
+                         * [1]首次在向某一个桶位置放入元素的时候,loHead指向头结点元素,loTail也要指向头结点元素,之后loHead不会变动;
+                         * [2]每次添加完新节点元素之后,loTail要指向尾节点元素;
+                         */
+                        loTail = e;
+                    }else {
+                        // 同上
+                        if (hiTail == null)
+                                hiHead = e;
+                        else
+                                hiTail.next = e;
+                            hiTail = e;
+                            }
+                    } while ((e = next) != null);
 
-                                /**
-                                 * [1]首次在向某一个桶位置放入元素的时候,loHead指向头结点元素,loTail也要指向头结点元素,之后loHead不会变动;
-                                 * [2]每次添加完新节点元素之后,loTail要指向尾节点元素;
-                                 */
-                                loTail = e;
-                            }
-                            else {
-                              // 同上
-                                if (hiTail == null)
-                                    hiHead = e;
-                                else
-                                    hiTail.next = e;
-                                hiTail = e;
-                            }
-                        } while ((e = next) != null);
-                        
                         //原桶位置的节点放入Bucket中;
                         if (loTail != null) {
                             loTail.next = null;
@@ -565,6 +563,5 @@ hash2: 1111 1111 1111 1111 0000 1111 0001 0101
                             // 新桶位置指向头节点;
                             newTab[j + oldCap] = hiHead;
                         }
-                    }
 ```
 
