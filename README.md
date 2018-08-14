@@ -11,7 +11,7 @@
 
 | Ⅰ | Ⅱ | Ⅲ | Ⅳ | Ⅴ | Ⅵ | Ⅶ | Ⅷ | Ⅸ | Ⅹ |
 | :--------: | :---------: | :---------: | :---------: | :---------: | :---------:| :---------: | :-------: | :-------:| :------:|
-| 算法[:pencil2:](#算法-pencil2) | 操作系统[:computer:](#操作系统-computer)|计算机网络[:cloud:](#计算机网络-cloud) | Java基础[:couple:](#Java基础-couple) |数据库[:floppy_disk:](#数据库-floppy_disk)| Java多线程[:coffee:](#java多线程-coffee)| 分布式[:bulb:](#分布式-bulb)| 工具[:hammer:](#工具-hammer)| 编码实践[:speak_no_evil:](#编码实践-speak_no_evil)| 后记[:memo:](#后记-memo) |
+| Java基础[:couple:](#Java基础-couple) | 操作系统[:computer:](#操作系统-computer)|计算机网络[:cloud:](#计算机网络-cloud) | 算法[:pencil2:](#算法呢-pencil2) |数据库[:floppy_disk:](#数据库-floppy_disk)| Java多线程[:coffee:](#java多线程-coffee)| 分布式[:bulb:](#分布式-bulb)| 工具[:hammer:](#工具-hammer)| 编码实践[:speak_no_evil:](#编码实践-speak_no_evil)| 后记[:memo:](#后记-memo) |
 ## 1. 概述
 ```
    主要针对于现阶段Java开发工程师开启的学习推荐和辅助，主要会从Java基础(IO,Collection集合,反射,多态),MySQL,多线程,JVM,操作系统，计算机网络及部分高级应用等方面做较为详细的学习探究。
