@@ -44,7 +44,7 @@ public class HashMap<K,V> extends AbstractMap<K,V>
 ```
     存储位置 = f(关键字)
     其中这个函数f()一般就称之为【哈希函数】,这个函数的设计好坏会直接影响到哈希表的优劣.举个栗子,比如我们要在哈希表中执行插入操作:
-![](https://images2015.cnblogs.com/blog/1024555/201611/1024555-20161113180447499-1953916974.png)
+![](img/hash.png)
     查找操作:同理,先通过哈希函数计算 出实际存储地址,然后从数组中对应位置取出即可;
  -  **哈希冲突** 
 ```
@@ -64,11 +64,11 @@ public class HashMap<K,V> extends AbstractMap<K,V>
 ```
  - 横着看
  
-![](https://github.com/553899811/NewBie-Plan/blob/master/Java%E5%9F%BA%E7%A1%80/Java-%E5%AE%B9%E5%99%A8/Map/img/hashmap-%E6%A8%AA%E7%9D%80%E7%9C%8B.jpg)
+![](img/hashmap-横着看.jpg)
 
  - 竖着看
  
-![](https://github.com/553899811/NewBie-Plan/blob/master/Java%E5%9F%BA%E7%A1%80/Java-%E5%AE%B9%E5%99%A8/Map/img/hashMap-%E7%AB%96%E7%9D%80%E7%9C%8B.png)
+![](img/hashmap-竖着看.png)
 ```
   简单来说，HashMap由数组+链表组成的，数组是HashMap的主体，链表则是主要为了解决哈希冲突而存在的，
   如果定位到的数组位置不含链表（当前entry的next指向null）,那么对于查找，添加等操作很快，仅需一次寻址即可；如果定位到的数组包含链表，
@@ -307,7 +307,7 @@ public class HashMap<K,V> extends AbstractMap<K,V>
    如下图所示,h>>>16 之后和h 做异或运算得到的hash前半部分是h的高8位,
    后半部分是hash的高16位和低16位的复合产物;
 ```
-![](https://github.com/553899811/NewBie-Plan/blob/master/Java%E5%9F%BA%E7%A1%80/Java-%E5%AE%B9%E5%99%A8/Map/img/%E6%89%B0%E5%8A%A8%E5%87%BD%E6%95%B0.png)
+![](img/扰动函数.png)
 ##### 1.1.2.3.3 put()方法
  - put()方法
 ```
@@ -319,7 +319,7 @@ public class HashMap<K,V> extends AbstractMap<K,V>
 ```
    [2] putVal()过程
 ```
-![](https://github.com/553899811/NewBie-Plan/blob/master/Java%E5%9F%BA%E7%A1%80/Java-%E5%AE%B9%E5%99%A8/Map/img/putVal.png)
+![](img/putVal.png)
   - 分析put过程:
     - [1]首先判断table是否为空或者为null,如果是,则初始化数组table;
     - [2]根据键值key计算hash值 并得到桶索引位置((n-1)& hash),如果table[i]=null,直接新建节点添加,转向[6],如果table[i]不为空,则转向[3];
@@ -347,10 +347,10 @@ public class HashMap<K,V> extends AbstractMap<K,V>
     [3]插入Node<K2,V2>,先计算K2的hash值为118,使用和(len-1)做&运算得到所在的桶下标为118&15=6;
     [4]插入Node<K3,V3>,先计算K3的hash值为118,使用和(len-1)做&运算得到所在的桶下标为118&15=6,插在<K2,V2>后面.
 ``` 
-![](https://github.com/553899811/NewBie-Plan/blob/master/Java%E5%9F%BA%E7%A1%80/Java-%E5%AE%B9%E5%99%A8/Map/img/hashmap-put.png)
+![](img/hashmap-put.png)
 
 ##### 1.1.2.3.4 get()方法
-![](https://github.com/553899811/NewBie-Plan/blob/master/Java%E5%9F%BA%E7%A1%80/Java-%E5%AE%B9%E5%99%A8/Map/img/get.png)
+![](img/get.png)
  - 过程分析:
    - 根据Key计算出hash值;
    - 桶位置index =hash & (len-1)
