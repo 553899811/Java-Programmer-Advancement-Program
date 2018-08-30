@@ -565,6 +565,8 @@ hash2: 1111 1111 1111 1111 0000 1111 0001 0101
                         }
                         https://coolshell.cn/articles/9606.html
 ```
+
+[JDK 1.7 和 JDK 1.8 中HashMap出现死环现象的分析](https://juejin.im/post/5a255bbd6fb9a0450c493f4d)
 ### 2.3 树的特性
 ```
    此篇章需要读者具备 二叉树,二叉搜索树,红黑树的知识体系,具体请查询
