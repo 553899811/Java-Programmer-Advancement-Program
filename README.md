@@ -62,7 +62,7 @@
    [https://github.com/CyC2018/Interview-Notebook](https://github.com/CyC2018/Interview-Notebook)
   - 4.1.2 Java 社招推荐学习系列</br>
    [https://github.com/xingshaocheng/architect-awesome](https://github.com/xingshaocheng/architect-awesome)
-  - 4.1.3 Alibaba -阿里大佬分享经历</br>
+  - 4.1.3 Alibaba -阿里P7大佬分享经历</br>
    [四年努力，梦归阿里，和大家聊聊成长感悟](http://www.cnblogs.com/xrq730/p/9159586.html)
 ### 4.2 模块资源推荐
    - 4.2.1 多线程系列</br>
