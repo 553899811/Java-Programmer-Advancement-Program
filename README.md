@@ -5,8 +5,8 @@
     * [3. 学习资源](#3-学习资源)
     * [4. 谢鉴](#4-谢鉴)
     * [5. 贡献](#5-贡献)
+    * [6. 支持与参与](#6-支持与参与)
 <!-- GFM-TOC -->
-![](https://img.shields.io/badge/update-today-blue.svg) ![](https://img.shields.io/badge/gitbook-making-lightgrey.svg) 
 # NewBie-Plan
 
 | Ⅰ | Ⅱ | Ⅲ | Ⅳ | Ⅴ | Ⅵ | Ⅶ | Ⅷ | Ⅸ | Ⅹ |
@@ -14,10 +14,13 @@
 | Java基础[:couple:](#Java基础-couple) | 操作系统[:computer:](#操作系统-computer)|计算机网络[:cloud:](#计算机网络-cloud) | 算法[:pencil2:](#算法呢-pencil2) |数据库[:floppy_disk:](#数据库-floppy_disk)| Java多线程[:coffee:](#java多线程-coffee)| 分布式[:bulb:](#分布式-bulb)| 工具[:hammer:](#工具-hammer)| 编码实践[:speak_no_evil:](#编码实践-speak_no_evil)| 后记[:memo:](#后记-memo) |
 ## 1. 概述
 ```
-   主要针对于现阶段Java开发工程师开启的学习推荐和辅助，主要会从Java基础(IO,Collection集合,反射,多态),MySQL,多线程,JVM,操作系统，计算机网络及部分高级应用等方面做较为详细的学习探究。
-  希望有兴趣的同学能够加入我们,学习总结,一起成长!
-  不积跬步,无以至千里.学习,是一个拨乱反正的过程,逐步调整学习心态,逐渐发现最合适自己的学习方法和节奏是最关键的;不要想一口吃成一个胖子!
+  主要针对于现阶段Java开发工程师开启的学习推荐和辅助,主要会从Java基础(IO,Collection集合,反射,多态),MySQL,多线程,JVM,操作系统,计算机网络及部分高级应用等方面做较为详细的学习探究.
+```
+```
+  不积跬步,无以至千里.学习,是一个拨乱反正的过程,逐步调整学习心态,逐渐发现最合适自己的学习方法和节奏是最关键的;
+  不要想一口吃成一个胖子!
   各位,不要让自己发出 书到用时方恨少的感叹.愿每一个有梦想的Coder都能成为引以为豪的人.
+  希望有兴趣的同学能够加入我们,学习总结,一起成长!
 ```
 ## 2. 目录
   未完,待更新......
@@ -84,3 +87,11 @@
  - [songsir01](https://github.com/songsir01)</br>
  - [liulukuan](https://github.com/liulukuan)</br>
  - [mySohGit](https://github.com/mySohGit)
+
+## 6. 支持与参与
+### 6.1 我们的圈子
+### 6.1.1 I am David
+<center>
+<img src="面试经验/pic/personal.jpg" width="50%" height="50%"/>
+</center>
+  
