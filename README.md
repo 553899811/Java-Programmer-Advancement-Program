@@ -90,8 +90,8 @@
 
 ## 6. 支持与参与
 ### 6.1 我们的圈子
-### 6.1.1 I am David
+### 6.1.1 We Are Family
 <center>
-<img src="面试经验/pic/personal.jpg" width="50%" height="50%"/>
+<img src="面试经验/pic/conghuajidan.jpg" width="50%" height="50%"/>
 </center>
   

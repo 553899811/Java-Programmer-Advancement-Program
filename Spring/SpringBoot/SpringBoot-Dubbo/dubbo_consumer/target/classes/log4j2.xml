@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- status :表示log4j自身日志的打印级别 ,设置自身log级别为warn -->
+<!-- monitorInterval:含义是每隔300秒重新读取配置文件，可以不重启应用的情况下修改配置 -->
+<Configuration status="warn" monitorInterval="300">
+
+    <!--配置属性别名-->
+    <properties>
+        <property name="INFO_FILE_NAME">info</property>
+        <property name="ERROR_FILE_NAME">error</property>
+    </properties>
+
+    <Appenders>
+        <!--用来定义输出到控制台的 Appender -->
+        <Console name="Console" target="SYSTEM_OUT">
+            <!-- 左对齐，最小宽度为4；长度>10也可正常显示，不足4用空格补齐 -->
+            <PatternLayout pattern="%d{DEFAULT} [%t] %-4level - %l - %msg%n"/>
+        </Console>
+
+        <!-- fileName:日志位置以及文件名；filePattern:rolling时新建文件的位置以及命名规则。命名文件名称需要细到时分秒是注意不要这么写
+            HH:mm:ss，文件名称不可以包含特殊字符：使用"-"代替 -->
+        <RollingRandomAccessFile name="INFO_FILE"
+                                 fileName="${sys:user.home}/logs/inventorymaterielqueryservice/${INFO_FILE_NAME}.log"
+                                 filePattern="${sys:user.home}/logs/inventoryqueryservice/base/$${date:yyyy-MM}/${INFO_FILE_NAME}-%d{yyyy-MM-dd}-%i.log.gz"
+                                 append="true">
+
+            <Filters>
+                <ThresholdFilter level="WARN" onMatch="DENY" onMismatch="NEUTRAL"/>
+                <ThresholdFilter level="INFO" onMatch="ACCEPT" onMismatch="DENY"/>
+            </Filters>
+
+            <PatternLayout
+                    pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %-5level %l - %msg%n"/>
+            <Policies>
+                <!-- 下面两个策略：满足一个，即会产生一个文件 -->
+                <!-- 日志文件大于100M,就新建文件 -->
+                <SizeBasedTriggeringPolicy size="100 MB"/>
+                <!-- 结合filePattern:精确到dd(天)，所以表示每五天产生一个日志文件 -->
+                <TimeBasedTriggeringPolicy interval="5"/>
+            </Policies>
+            <!-- 作用于filePattern中的i，最大20个文件。 -->
+            <DefaultRolloverStrategy max="20"/>
+        </RollingRandomAccessFile>
+
+        <RollingRandomAccessFile name="ERROR_FILE"
+                                 fileName="${sys:user.home}/logs/inventoryqueryservice/${ERROR_FILE_NAME}.log"
+                                 filePattern="${sys:user.home}/logs/inventoryqueryservice/error/$${date:yyyy-MM}/${ERROR_FILE_NAME}-%d{yyyy-MM}-%i.log.gz"
+                                 append="true">
+            <Filters>
+                <ThresholdFilter level="fatal" onMatch="DENY" onMismatch="NEUTRAL"/>
+                <ThresholdFilter level="error" onMatch="ACCEPT" onMismatch="DENY"/>
+            </Filters>
+            <PatternLayout
+                    pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %-5level %l - %msg%n"/>
+            <Policies>
+                <SizeBasedTriggeringPolicy size="100 MB"/>
+                <TimeBasedTriggeringPolicy interval="1"/>
+            </Policies>
+            <DefaultRolloverStrategy max="20"/>
+        </RollingRandomAccessFile>
+
+    </Appenders>
+    <Loggers>
+        <!-- additivity="false"表示在该logger中输出的日志不会再延伸到父层logger。这里如果改为true，则会延伸到Root
+            Logger，遵循Root Logger的配置也输出一次。 -->
+
+        <!-- logger的级别优先于appender的级别，logger为debug,appender为info,debug信息依然可以呈现。即以logger级别为主。 -->
+        <logger name="cn.shopin.supplier.mapper" level="debug" additivity="false">
+            <appender-ref ref="Console"/>
+        </logger>
+
+        <!-- 设置整体  -->
+        <Root level="INFO">
+            <AppenderRef ref="Console"/>
+            <AppenderRef ref="INFO_FILE"/>
+            <AppenderRef ref="ERROR_FILE"/>
+        </Root>
+    </Loggers>
+</Configuration>

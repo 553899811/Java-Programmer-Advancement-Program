@@ -2,9 +2,11 @@
 * [1. HTTP1.1新特性](#1-http11新特性)
 * [2. HTTP和HTTPS相比优缺点](#2-http和https相比优缺点)
 <!-- GFM-TOC -->
+
 ![](https://github.com/553899811/NewBie-Plan/raw/master/计算机网络/img/面试题-1.jpg)
 ![](https://github.com/553899811/NewBie-Plan/raw/master/计算机网络/img/面试题-2.jpg)
 ![](https://github.com/553899811/NewBie-Plan/raw/master/计算机网络/img/面试题-3.jpg)
+[一文读懂一个URL请求的过程是怎样的](https://juejin.im/post/5b83b0bfe51d4538c63131a8)
 
 # 1. HTTP1.1新特性
 
