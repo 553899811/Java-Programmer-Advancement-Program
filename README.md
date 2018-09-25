@@ -92,6 +92,6 @@
 ### 6.1 我们的圈子
 ### 6.1.1 We Are Family
 <center>
-<img src="面试经验/pic/conghuajidan.jpg" width="50%" height="50%"/>
+<img src="面试经验/pic/conghuajidan.jpg" width="20%" height="20%"/>
 </center>
   
