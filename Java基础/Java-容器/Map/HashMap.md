@@ -520,62 +520,33 @@ hash2: 1111 1111 1111 1111 0000 1111 0001 0101
 
 ### 2.3 线程安全问题
 #### 2.3.1 线程不安全的表现
-```
-   
-```
+- 在JDK1.7中并发情况下HashMap在扩容时会出现死环现象(原因在于扩容之后链表会倒置);
+- 在JDK1.8中扩容之后链表顺序保持不变,避免了死环现象的出现;
 #### 2.3.2 源码分析
+##### 2.3.2.1 JDK1.7死环现象分析
 ```
-   在分析HashMap的线程不安全之前,我们先看一下上面resize()过程中的一段扩容后重新分配bucket的代码:
+   说到根本就是扩容之后,链表元素顺序发生变化导致的;
+   在分析HashMap的线程不安全之前,我们先看一下上面扩容重组过程中的一段扩容后重新分配bucket的代码:
 ```
 ``` java
-                    // oldCap原位置上;原桶位置上定义2个指针,一个指定头,一个指定尾，分别更新;
-                    Node<K,V> loHead = null, loTail = null;
-                    // index+OldCap 桶位置上定义2个指针,一个指定头,一个指定尾,分别更新;
-                    Node<K,V> hiHead = null, hiTail = null;
-                    Node<K,V> next;
-                    do {
-                     next = e.next;
-                     // 通过 if((e.hash&oldCap) == 0) 来判断hash的新增判断bit是1还是0,进而判断扩容之后它的位置是不变还是oldCap + index;
-                    if ((e.hash & oldCap) == 0) {
-                    // 如果位置不变化;
-                    if (loTail == null)
-                    // 首次向该桶位置放置元素,将loHead指向e;
-                        loHead = e;
-                    else
-                    // 非首次添加元素后,loTail先是指向上一个被添加的元素节点, 
-                    // 将上一个元素节点的next指针指向新添加的元素节点,使他们连接起来;(即loTail指针起连接新旧元素节点的作用)
-                        loTail.next = e;
-                        /**
-                         * [1]首次在向某一个桶位置放入元素的时候,loHead指向头结点元素,loTail也要指向头结点元素,之后loHead不会移动;
-                         * [2]每次添加完新节点元素之后,loTail要指向尾节点元素;
-                         */
-                        loTail = e;
-                    }else {
-                        // 同上
-                        if (hiTail == null)
-                                hiHead = e;
-                        else
-                                hiTail.next = e;
-                            hiTail = e;
-                            }
-                    } while ((e = next) != null);
-
-                        //原桶位置的节点放入Bucket中;
-                        if (loTail != null) {
-                            loTail.next = null;
-                            //桶位置指向头节点;
-                            newTab[j] = loHead;
-                        }
-                        //原桶位置+OldCap的节点放入新Bucket中;
-                        if (hiTail != null) {
-                            hiTail.next = null;
-                            // 新桶位置指向头节点;
-                            newTab[j + oldCap] = hiHead;
-                        }
-                        https://coolshell.cn/articles/9606.html
+    void transfer(Entry[] newTable, boolean rehash) {
+    int newCapacity = newTable.length;
+    for (Entry<K,V> e : table) {
+        while(null != e) {
+            Entry<K,V> next = e.next;
+            if (rehash) {
+                e.hash = null == e.key ? 0 : hash(e.key);
+            }
+            int i = indexFor(e.hash, newCapacity);
+            e.next = newTable[i];
+            newTable[i] = e;
+            e = next;
+        }
+    }
+}              
 ```
-
-[JDK 1.7 和 JDK 1.8 中HashMap出现死环现象的分析](https://juejin.im/post/5a255bbd6fb9a0450c493f4d)
+[JDK 1.7中HashMap出现死环现象的分析](https://juejin.im/post/5a255bbd6fb9a0450c493f4d)
+##### 2.3.2.2 JDK1.8扩容过程
 ### 2.3 树的特性
 ```
    此篇章需要读者具备 二叉树,二叉搜索树,红黑树的知识体系,具体请查询
