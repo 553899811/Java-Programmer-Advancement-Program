@@ -90,8 +90,19 @@
 
 ## 6. 支持与参与
 ### 6.1 我们的圈子
-### 6.1.1 We Are Family
+#### 6.1.1 We Are Family
 <center>
-<img src="面试经验/pic/conghuajidan.jpg" width="20%" height="20%"/>
+<img src="面试经验/pic/conghuajidan.jpg" width="40%" height="40%"/>
+</center>
+
+### 6.2 你们的支持
+#### 6.2.1 支付宝赞助
+<center>
+<img src="面试经验/pic/alipay.jpg" width="40%" height="40%"/>
+</center>
+
+#### 6.2.2 微信赞助
+<center>
+<img src="面试经验/pic/wechat.jpg" width="40%" height="40%"/>
 </center>
   
