@@ -513,17 +513,60 @@ hash2: 1111 1111 1111 1111 0000 1111 0001 0101
 
 ### 2.2 负载因子为什么是0.75
 ```
-  通俗地说默认负载因子(0.75)在时间和空间成本上提供了很好的折中,
+  通俗地说默认负载因子(0.75)在时间和空间成本上提供了很好的折中;
+```
+```
+   JDK1.8-HashMap注释:
+   * Because TreeNodes are about twice the size of regular nodes, we
+     * use them only when bins contain enough nodes to warrant use
+     * (see TREEIFY_THRESHOLD). And when they become too small (due to
+     * removal or resizing) they are converted back to plain bins.  In
+     * usages with well-distributed user hashCodes, tree bins are
+     * rarely used.  Ideally, under random hashCodes, the frequency of
+     * nodes in bins follows a Poisson distribution
+     * (http://en.wikipedia.org/wiki/Poisson_distribution) with a
+     * parameter of about 0.5 on average for the default resizing
+     * threshold of 0.75, although with a large variance because of
+     * resizing granularity. Ignoring variance, the expected
+     * occurrences of list size k are (exp(-0.5) * pow(0.5, k) /
+     * factorial(k)). The first values are:
+     *
+     * 0:    0.60653066
+     * 1:    0.30326533
+     * 2:    0.07581633
+     * 3:    0.01263606
+     * 4:    0.00157952
+     * 5:    0.00015795
+     * 6:    0.00001316
+     * 7:    0.00000094
+     * 8:    0.00000006
+     * more: less than 1 in ten million
+
 ```
 [负载因子为什么是0.75](https://blog.csdn.net/zz18435842675/article/details/80928805)</br>
 [泊松分布](http://www.ruanyifeng.com/blog/2015/06/poisson-distribution.html#comment-356111)
+![](https://upload-images.jianshu.io/upload_images/9402357-7a38574a79fa9c28.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/700)
+```
+    理想转改下,在随机哈希值的情况，对于loadfactor = 0.75 ,
+  虽然由于粒度调整会产生较大的方差,桶中的Node的分布频率服从参数为0.5的泊松分布;
+
+    一个bucket空和非空的概率为0.5，通过牛顿二项式等数学计算，得到这个loadfactor的值为log（2），约等于0.693.
+  同回答者所说，可能小于0.75 大于等于log（2）的factor都能提供更好的性能，0.75这个数说不定是 pulled out of a hat。
+```
 
 ### 2.3 线程安全问题
 #### 2.3.1 线程不安全的表现
-- 在JDK1.7中并发情况下HashMap在扩容时会出现死环现象(原因在于扩容之后链表会倒置);
+- 在JDK1.7中并发情况下HashMap在扩容时会出现死环现象(原因在于扩容之后链表会倒置呈现);
 - 在JDK1.8中扩容之后链表顺序保持不变,避免了死环现象的出现;
 #### 2.3.2 源码分析
-##### 2.3.2.1 JDK1.7死环现象分析
+##### 2.3.2.1 新增节点顺序
+ - JDK 1.6
+   - 新增节点插入链表头部
+ - JDK 1.8
+   - 新增节点插入链表尾部
+- <b>参考</b>:
+   - [HashMapd到底是插入链表头部还是尾部](https://blog.csdn.net/qq_33256688/article/details/79938886)
+##### 2.3.2.2 JDK1.7死环现象分析
 ```
    说到根本就是扩容之后,链表元素顺序发生变化导致的;
    在分析HashMap的线程不安全之前,我们先看一下上面扩容重组过程中的一段扩容后重新分配bucket的代码:
@@ -545,8 +588,16 @@ hash2: 1111 1111 1111 1111 0000 1111 0001 0101
     }
 }              
 ```
-[JDK 1.7中HashMap出现死环现象的分析](https://juejin.im/post/5a255bbd6fb9a0450c493f4d)
-##### 2.3.2.2 JDK1.8扩容过程
+
+
+
+ - 参考:</br>
+   - [1. JDK 1.7中HashMap出现死环现象的分析](https://juejin.im/post/5a255bbd6fb9a0450c493f4d)
+   - [2. JDK1.7 HashMap扩容：多线程下的死循环和丢失](https://www.jianshu.com/p/61a829fa4e49)
+##### 2.3.2.3 JDK1.8扩容过程
+``` 
+  JDK 1.8扩容时保持链表顺序不变,避免了死环现象的发生;
+```
 ### 2.3 树的特性
 ```
    此篇章需要读者具备 二叉树,二叉搜索树,红黑树的知识体系,具体请查询
