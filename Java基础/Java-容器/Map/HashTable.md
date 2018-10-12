@@ -40,7 +40,7 @@ public class Hashtable<K,V>
 <tbody>
     <tr>
         <td>HashTable()</td>
-        <td>构造函数</td>
+        <td>构造函数,初始化容量为11,负载银子0.75</td>
     </tr>
     <tr>
         <td>clear()</td>
