@@ -1,6 +1,6 @@
 <!-- GFM-TOC -->
 
-* [HashMap介绍](#hashmap介绍)
+* [HashMap](#hashmap)
     * [1. HashMap 简介](#1-hashmap-简介)
        * [1.1 实现细节](#11-实现细节)
          * [1.1.1 实现和继承关系](#111-实现和继承关系) 
@@ -30,7 +30,7 @@
 
 # HashMap介绍
 ## 1. HashMap 简介
-## 1.1 实现细节
+### 1.1 实现细节
 ```
 public class HashMap<K,V> extends AbstractMap<K,V>
     implements Map<K,V>, Cloneable, Serializable 
@@ -310,7 +310,7 @@ public class HashMap<K,V> extends AbstractMap<K,V>
    
    91 % 16 = 11
    证明两者效果相同,位运算的性能更高在操作系统级别来分析;
-  【3】为什么扰动函数是那样子的呢?
+  【4】为什么扰动函数是那样子的呢?
    如下图所示,h>>>16 之后和h 做异或运算得到的hash前半部分是h的高8位,
    后半部分是hash的高16位和低16位的复合产物;
 ```
@@ -550,10 +550,11 @@ hash2: 1111 1111 1111 1111 0000 1111 0001 0101
 
 ```
 [负载因子为什么是0.75](https://blog.csdn.net/zz18435842675/article/details/80928805)</br>
-[泊松分布](http://www.ruanyifeng.com/blog/2015/06/poisson-distribution.html#comment-356111)
+[泊松分布](http://www.ruanyifeng.com/blog/2015/06/poisson-distribution.html#comment-356111)</br>
+[Stackoverflow-老外的牛顿二项式](https://stackoverflow.com/questions/10901752/what-is-the-significance-of-load-factor-in-hashmap)
 ![](https://upload-images.jianshu.io/upload_images/9402357-7a38574a79fa9c28.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/700)
 ```
-    理想转改下,在随机哈希值的情况，对于loadfactor = 0.75 ,
+    理想状态下,在随机哈希值的情况，对于loadfactor = 0.75 ,
   虽然由于粒度调整会产生较大的方差,桶中的Node的分布频率服从参数为0.5的泊松分布;
 
     一个bucket空和非空的概率为0.5，通过牛顿二项式等数学计算，得到这个loadfactor的值为log（2），约等于0.693.
@@ -570,8 +571,8 @@ hash2: 1111 1111 1111 1111 0000 1111 0001 0101
    - 新增节点插入链表头部
  - JDK 1.8
    - 新增节点插入链表尾部
-- <b>参考</b>:
-   - [HashMapd到底是插入链表头部还是尾部](https://blog.csdn.net/qq_33256688/article/details/79938886)
+- <b>源码分析与参考</b>:
+   - [HashMap到底是插入链表头部还是尾部](https://blog.csdn.net/qq_33256688/article/details/79938886)
 ##### 2.3.2.2 JDK1.7死环现象分析
 ```
    说到根本就是扩容之后,链表元素顺序发生变化导致的;
@@ -597,7 +598,7 @@ hash2: 1111 1111 1111 1111 0000 1111 0001 0101
 
 
 
- - 参考:</br>
+ - 源码分析与参考:</br>
    - [1. JDK 1.7中HashMap出现死环现象的分析](https://juejin.im/post/5a255bbd6fb9a0450c493f4d)
    - [2. JDK1.7 HashMap扩容：多线程下的死循环和丢失](https://www.jianshu.com/p/61a829fa4e49)
 ##### 2.3.2.3 JDK1.8扩容过程分析
@@ -605,7 +606,6 @@ hash2: 1111 1111 1111 1111 0000 1111 0001 0101
   JDK 1.8扩容时保持链表顺序不变,避免了死环现象的发生;
 ```
 ### 2.4 树的特性
-```
-   此篇章需要读者具备 二叉树,二叉搜索树,红黑树的知识体系,具体请查询
-```
+#### 2.4.1 红黑树的引入
+ - 1. 可以直接查看我的 [AlgorithmAlgorithm-And-DataStructure](https://github.com/553899811/Algorithm-And-DataStructure)专题中进行树结构的学习。
 

@@ -8,7 +8,8 @@
 # Collections.synchronizedMap介绍
 ## 1. Collections.synchronizedMap简介
 ```
-  一个加锁的HashMap
+  Collections类中的一个静态内部类,本质上 一个加锁的HashMap.
+  对当前实例对象加锁;
 ```
 ### 1.1 实现细节
 ```

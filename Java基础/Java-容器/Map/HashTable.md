@@ -1,5 +1,5 @@
 <!-- GFM-TOC -->
-* [HashTable介绍](#HashTable介绍)
+* [HashTable](#HashTable)
     * [1. HashTable 简介](#1-HashTable-简介)
        * [1.1 实现细节](#11-实现细节)
          * [1.1.1 实现和继承关系](#111-实现和继承关系) 
@@ -7,7 +7,7 @@
     * [2. HashTable 高级特性](#2-HashTable-高级特性)
 <!-- GFM-TOC -->
 
-# HashTable介绍
+# HashTable
 ## 1. HashTable 简介
 ## 1.1 实现细节
 ```
@@ -40,7 +40,7 @@ public class Hashtable<K,V>
 <tbody>
     <tr>
         <td>HashTable()</td>
-        <td>构造函数,初始化容量为11,负载银子0.75</td>
+        <td>构造函数,初始化容量为11,负载因子: 0.75</td>
     </tr>
     <tr>
         <td>clear()</td>
