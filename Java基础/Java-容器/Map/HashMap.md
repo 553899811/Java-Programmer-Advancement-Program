@@ -30,7 +30,7 @@
 
 # HashMap介绍
 ## 1. HashMap 简介
-### 1.1 实现细节
+### 1.1 类定义
 ```
 public class HashMap<K,V> extends AbstractMap<K,V>
     implements Map<K,V>, Cloneable, Serializable 
