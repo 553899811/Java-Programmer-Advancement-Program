@@ -31,7 +31,7 @@
 # HashMap
 ## 1. HashMap 简介
 ### 1.1 类定义
-```
+```java
 public class HashMap<K,V> extends AbstractMap<K,V>
     implements Map<K,V>, Cloneable, Serializable 
 ```
@@ -45,25 +45,25 @@ public class HashMap<K,V> extends AbstractMap<K,V>
 ### 1.1.2 HashMap引入
 #### 1.1.2.1 哈希表原理
  -  **哈希表** 
-```
-  [1]我们知道在数组中根据下标查找某个元素,一次定位就可以达到,哈希表利用了这个特性,哈希表的主干就是数组;
+
+>  [1]我们知道在数组中根据下标查找某个元素,一次定位就可以达到,哈希表利用了这个特性,哈希表的主干就是数组;</br>
   [2]比如我们要新增或查找某个元素,我们通过把当前元素的关键字通过某个函数映射到数组的某一个位置,通过数组下标一次定位就可完成操作;
-```
-    存储位置 = f(关键字)
+
+>    存储位置 = f(关键字)
     其中这个函数f()一般就称之为【哈希函数】,这个函数的设计好坏会直接影响到哈希表的优劣.举个栗子,比如我们要在哈希表中执行插入操作:
 ![](img/hash.png)
     查找操作:同理,先通过哈希函数计算 出实际存储地址,然后从数组中对应位置取出即可;
  -  **哈希冲突** 
-```
-  如果两个不同的元素，通过哈希函数得出的实际存储地址相同怎么办？
+
+> 如果两个不同的元素，通过哈希函数得出的实际存储地址相同怎么办？
   也就是说，当我们对某个元素进行哈希运算，得到一个存储地址，然后要进行插入的时候，发现已经被其他元素占用了，
   其实这就是所谓的哈希冲突，也叫哈希碰撞。
   
-  解决hash冲突的方法:
-  [1]开放地址法(发生冲突，继续寻找下一块未被占用的存储地址)
-  [2]再散列函数法
+ > 解决hash冲突的方法:</br>
+  [1]开放地址法(发生冲突，继续寻找下一块未被占用的存储地址)</br>
+  [2]再散列函数法</br>
   [3]链地址法(HashMap采用的就是这种方法)
-```
+
 #### 1.1.2.2 底层实现
 ##### 1.1.2.2.1 基本面貌
 ```
@@ -76,21 +76,21 @@ public class HashMap<K,V> extends AbstractMap<K,V>
  - 竖着看
  
 ![](img/hashmap-竖着看.png)
-```
-  简单来说，HashMap由数组+链表组成的，数组是HashMap的主体，链表则是主要为了解决哈希冲突而存在的，
+
+ > 简单来说，HashMap由数组+链表组成的，数组是HashMap的主体，链表则是主要为了解决哈希冲突而存在的，
   如果定位到的数组位置不含链表（当前entry的next指向null）,那么对于查找，添加等操作很快，仅需一次寻址即可；如果定位到的数组包含链表，
   对于添加操作，其时间复杂度依然为O(1)，因为最新的Entry会插入链表头部，因为最近被添加的元素被查找的可能性更高，
   而对于查找操作来讲，此时就需要遍历链表，然后通过key对象的equals方法逐一比对查找。
   所以，性能考虑，HashMap中的链表出现越少，性能才会越好；
-```
+
 ##### 1.1.2.2.2 基本组成成员
  - table
-```
+```java
   // 我们称之为 桶(数组),初始化为16个;
   transient Node<K,V>[] table;
 ```
  - Node
-```
+```java
     //基本节点(构成链表的基本元素)
     // hash 当前节点 hash值;
     // key 当前节点的 key;
@@ -104,14 +104,16 @@ public class HashMap<K,V> extends AbstractMap<K,V>
     }
 ```
  - 重要属性:
-```
+```java
  // 初始化HashMap数组的长度
  static final int DEFAULT_INITIAL_CAPACITY = 1 << 4;
  // 最大数组的长度
  static final int MAXIMUM_CAPACITY = 1 << 30;
  // 默认负载因子为0.75,代表了table的填充度有多少;
  static final float DEFAULT_LOAD_FACTOR = 0.75f;
- //用于快速失败，由于HashMap非线程安全，在对HashMap进行迭代时，如果期间其他线程的参与导致HashMap的结构发生变化了（比如put，remove等操作），需要抛出异常ConcurrentModificationException
+ //用于快速失败，由于HashMap非线程安全，在对HashMap进行迭代时，
+ //如果期间其他线程的参与导致HashMap的结构发生变化了（比如put，remove等操作），
+ //需要抛出异常ConcurrentModificationException
  transient int modCount;
  //实际存储的key-value键值对的个数
  transient int size;
@@ -119,7 +121,9 @@ public class HashMap<K,V> extends AbstractMap<K,V>
   static final int TREEIFY_THRESHOLD = 8;
   //当某一个桶位置上的链表长度退减为6时,由红黑树转化为链表;
   static final int UNTREEIFY_THRESHOLD = 6;
- //阈值，当table == {}时，该值为初始容量（初始容量默认为16）；当table被填充了，也就是为table分配内存空间后，threshold一般为 capacity*loadFactory。HashMap在进行扩容时需要参考threshold，后面会详细谈到
+ //阈值，当table == {}时，该值为初始容量（初始容量默认为16）；
+ //当table被填充了，也就是为table分配内存空间后，threshold一般为 capacity*loadFactory。
+ //HashMap在进行扩容时需要参考threshold，后面会详细谈到
   int threshold;
 ```
 <table frame="hsides" rules="groups" cellspacing=0 cellpadding=0>
@@ -169,14 +173,14 @@ public class HashMap<K,V> extends AbstractMap<K,V>
 
 ##### 1.1.2.2.3 构造器
  - 没有传入参数
-```
+```java
     // 默认构造器,负载因子为0.75;
     public HashMap() {
         this.loadFactor = DEFAULT_LOAD_FACTOR; // all other fields defaulted
     }
 ```
  - 传入参数: 指定数组长度,指定负载因子
-```
+```java
   /**
      * Constructs an empty <tt>HashMap</tt> with the specified initial
      * capacity and load factor.
@@ -201,7 +205,7 @@ public class HashMap<K,V> extends AbstractMap<K,V>
     
 ```
    <font color="red"> **tableSizeFor方法** </font>
-```
+```java
     /**
      * Returns a power of two size for the given target capacity.
      */
@@ -237,13 +241,13 @@ public class HashMap<K,V> extends AbstractMap<K,V>
  - 扰动函数</br>
    
   **[1]获取hashCode值** 
-```
+```java
    public final int hashCode() {
             return Objects.hashCode(key) ^ Objects.hashCode(value);
         }
 ```
   **[2]获取key的hash值** 
-```
+```java
   static final int hash(Object key) {
         int h;
         return (key == null) ? 0 : (h = key.hashCode()) ^ (h >>> 16);
@@ -317,7 +321,7 @@ public class HashMap<K,V> extends AbstractMap<K,V>
 ![](img/扰动函数.png)
 ##### 1.1.2.3.3 put()方法
  - put()方法
-```
+```java
     [1]调用put方法放入key-value键值对;
     public V put(K key, V value) {
         return putVal(hash(key), key, value, false, true);
@@ -334,16 +338,16 @@ public class HashMap<K,V> extends AbstractMap<K,V>
     - [4]判断table[i]是否为treeNode,即table[i]是否为红黑树,如果是红黑树,则直接在树中插入键值对,否则转向[5];
     - [5]遍历table[i](第i+1个桶),判断链表长度是否大于8,大于8的话将链表转换为红黑树,在红黑树中执行插入操作,否则进行链表的插入操作;遍历过程中若发现key已经存在直接覆盖value即可;
     - [6]插入成功,判断实际存在的键值对size是否超过了最大容量(阈值),如果超过,进行扩容;
-```
-   [1]这里重点说明下,在JDK1.7中index = hash % len 做与运算 ,在JDK 1.8中 变为了 i =(len-1) & hash,两者的作用是相同的;
-   [2]Put时如果key为null，存储位置为table[0]或table[0]的冲突链上(table为HashMap中存的数组),
+>
+   [1]这里重点说明下,在JDK1.7中index = hash % len 做与运算 ,在JDK 1.8中 变为了 i =(len-1) & hash,两者的作用是相同的;</br>
+   [2]Put时如果key为null，存储位置为table[0]或table[0]的冲突链上(table为HashMap中存的数组),</br>
    如果该对应数据已存在，执行覆盖操作。用新value替换旧value，并返回旧value，如果对应数据不存在,则添加到链表的头上(保证插入O(1));
     put：首先判断key是否为null，若为null，则直接调用putForNullKey方法。若不为空则先计算key的hash值，
     然后根据hash值搜索在table数组中的索引位置，如果table数组在该位置处有元素，循环遍历链表，比较是否存在相同的key，
     若存在则覆盖原来key的value，否则将该元素保存在链头（最先保存的元素放在链尾）。若table在该处没有元素，则直接保存。
-```
+
   - 拉链法的工作原理
-```
+```java
     HashMap<String, String> map = new HashMap<>();
     map.put("K1","V1");
     map.put("K2","V2");
@@ -370,7 +374,7 @@ public class HashMap<K,V> extends AbstractMap<K,V>
  resize() 方法用于初始化数组(初始化数组过程由于涉及到类加载过程,将会放到JVM模块中进一步解释)或数组扩容，每次扩容后，容量为原来的 2 倍,并进行数据迁移。
 ```
  - 代码分析:
-```
+```java
   final Node<K,V>[] resize() {
       //获取现阶段的桶
         Node<K,V>[] oldTab = table;
@@ -512,10 +516,10 @@ hash2: 1111 1111 1111 1111 0000 1111 0001 0101
   元素在hashmap扩容之后,会重新计算桶下标,从上面的例子中可以看出来,hash1的桶位置在扩容前后没有发生变化,hash2的桶位置在扩容前后发生了变化;
   
   那么如何判断一个key在扩容之后桶位置是否会发生变化呢?
-  ```
-    上述扩容过程中&运算的关键点就在于扩容之后新的长度(n-1)转化为2进制之后新增的bit为1,而key的hash 值所对应位置的bit是1 还是0,,如果是0的话那么桶位置就不会变化,是1 的话桶位置就会变成"原来桶位置+oldCap(原来桶数量)";
+ 
+>    上述扩容过程中&运算的关键点就在于扩容之后新的长度(n-1)转化为2进制之后新增的bit为1,而key的hash 值所对应位置的bit是1 还是0,,如果是0的话那么桶位置就不会变化,是1 的话桶位置就会变成"原来桶位置+oldCap(原来桶数量)";</br>
     通过if((e.hash&oldCap)==0)来判断hash的新增判断bit是1还是0;
-  ```
+ 
 
 ### 2.2 负载因子为什么是0.75
 ```
