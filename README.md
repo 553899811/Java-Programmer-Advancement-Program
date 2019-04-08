@@ -14,7 +14,7 @@
   希望有兴趣的同学能够加入我们,学习总结,一起成长!
 ```
 ## 2. 目录
-  [HashMap](https://github.com/553899811/NewBie-Plan/blob/master/notes/Java%E5%9F%BA%E7%A1%80/Java-%E5%AE%B9%E5%99%A8/Map/HashMap.md)
+  [史上最强HashMap解析,强烈推荐!!!](https://github.com/553899811/NewBie-Plan/blob/master/notes/Java%E5%9F%BA%E7%A1%80/Java-%E5%AE%B9%E5%99%A8/Map/HashMap.md)
 
 ## 3. 推荐书单
   [个人推荐书单](https://github.com/553899811/NewBie-Plan/blob/master/BookList.md)
