@@ -14,19 +14,17 @@
   希望有兴趣的同学能够加入我们,学习总结,一起成长!
 ```
 ## 2. 目录
-### 2.1 Collection-集合
+### 2.1 集合-Collection
 #### 2.1 死磕集合系列
   [死磕集合系列-深度剖析HashMap原理](https://github.com/553899811/NewBie-Plan/blob/master/notes/Java%E5%9F%BA%E7%A1%80/Java-%E5%AE%B9%E5%99%A8/Map/HashMap.md)
 
 ## 3. 推荐书单
   [个人推荐书单](https://github.com/553899811/NewBie-Plan/blob/master/BookList.md)
-
-
+  
 ## 4.谢鉴
-### 4.1 仰望星空
-  - 4.1.1 [Java 校招推荐学习系列](https://github.com/CyC2018/Interview-Notebook)
-  - 4.1.2 [Java 社招推荐学习系列](https://github.com/xingshaocheng/architect-awesome)</br>
-  - 4.1.3 [Alibaba -阿里P7大佬经验分享-四年努力，梦归阿里，和大家聊聊成长感悟](http://www.cnblogs.com/xrq730/p/9159586.html)
+  -  [Java 校招推荐学习系列](https://github.com/CyC2018/Interview-Notebook)
+  -  [Java 社招推荐学习系列](https://github.com/xingshaocheng/architect-awesome)</br>
+  -  [Alibaba -阿里P7大佬经验分享-四年努力，梦归阿里，和大家聊聊成长感悟](http://www.cnblogs.com/xrq730/p/9159586.html)
 
 ## 5.贡献
 
