@@ -15,7 +15,8 @@
 ```
 ## 2. 目录
 ### 2.1 Collection-集合
-  [史上最强HashMap解析,强烈推荐!!!](https://github.com/553899811/NewBie-Plan/blob/master/notes/Java%E5%9F%BA%E7%A1%80/Java-%E5%AE%B9%E5%99%A8/Map/HashMap.md)
+#### 2.1 死磕集合系列
+  [死磕集合系列-深度剖析HashMap原理](https://github.com/553899811/NewBie-Plan/blob/master/notes/Java%E5%9F%BA%E7%A1%80/Java-%E5%AE%B9%E5%99%A8/Map/HashMap.md)
 
 ## 3. 推荐书单
   [个人推荐书单](https://github.com/553899811/NewBie-Plan/blob/master/BookList.md)
