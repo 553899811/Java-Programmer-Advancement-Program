@@ -15,9 +15,9 @@
 ## 2. 目录
 ### 2.1 集合-Collection
 #### 2.1 死磕集合系列
-  [深度剖析HashMap原理](https://github.com/553899811/NewBie-Plan/blob/master/notes/Java%E5%9F%BA%E7%A1%80/Java-%E5%AE%B9%E5%99%A8/Map/HashMap.md)
-  [深度剖析ArrayList原理](https://github.com/553899811/NewBie-Plan/blob/master/notes/Java%E5%9F%BA%E7%A1%80/Java-%E5%AE%B9%E5%99%A8/Collection%E9%9B%86%E5%90%88/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/2.ArrayList.md)
-  [深度剖析LinkedList原理](https://github.com/553899811/NewBie-Plan/blob/master/notes/Java%E5%9F%BA%E7%A1%80/Java-%E5%AE%B9%E5%99%A8/Collection%E9%9B%86%E5%90%88/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/3.LinkedList.md)
+  [深度剖析HashMap原理](https://github.com/553899811/NewBie-Plan/blob/master/notes/Java%E5%9F%BA%E7%A1%80/Java-%E5%AE%B9%E5%99%A8/Map/HashMap.md)<br>
+  [深度剖析ArrayList原理](https://github.com/553899811/NewBie-Plan/blob/master/notes/Java%E5%9F%BA%E7%A1%80/Java-%E5%AE%B9%E5%99%A8/Collection%E9%9B%86%E5%90%88/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/2.ArrayList.md)<br>
+  [深度剖析LinkedList原理](https://github.com/553899811/NewBie-Plan/blob/master/notes/Java%E5%9F%BA%E7%A1%80/Java-%E5%AE%B9%E5%99%A8/Collection%E9%9B%86%E5%90%88/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/3.LinkedList.md)<br>
   [深度剖析Stack原理](https://github.com/553899811/NewBie-Plan/blob/master/notes/Java%E5%9F%BA%E7%A1%80/Java-%E5%AE%B9%E5%99%A8/Collection%E9%9B%86%E5%90%88/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/4.Stack.md)
 
 ## 3. 推荐书单
