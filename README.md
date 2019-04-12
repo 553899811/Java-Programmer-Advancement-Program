@@ -20,20 +20,36 @@
   - [深度剖析ArrayList原理](/notes/Java基础/Java-容器/Collection集合/基础知识/ArrayList.md)<br>
   - [深度剖析LinkedList原理](/notes/Java基础/Java-容器/Collection集合/基础知识/LinkedList.md)<br>
   - [深度剖析Stack原理](/notes/Java基础/Java-容器/Collection集合/基础知识/Stack.md)
-
+  - [Java 集合 原理](https://blog.csdn.net/qq_38293564/column/info/23914)
 ### 数据类型
  - [深度剖析String原理](/notes/Java基础/Java-数据类型/引用数据类型/String.md)
 ## :computer: 操作系统
-
+ - [操作系统基础知识总结](https://blog.csdn.net/qq_35564813/article/details/80651259)
+ - [操作系统阶段性学习](https://blog.csdn.net/qq_31278903/article/category/7954154)
 ## :cloud: 计算机网络
+ - [计算机网络基础知识总结](https://blog.csdn.net/qq_34337272/article/details/81776275)
+ - [计算机网络阶段性学习](https://blog.csdn.net/qq_35533401/article/category/7507100/)
 ## :pencil2: 算法
+ - [LeetCode刷题记录](https://github.com/553899811/LeetCode)
+ - [算法与数据结构阶段性学习](https://github.com/553899811/Algorithm-And-DataStructure)
 ## :floppy_disk: 数据库
+ - [MySQL基础教程](http://www.runoob.com/mysql/mysql-tutorial.html)
+ - [MySQL阶段性学习](https://guobinhit.blog.csdn.net/column/info/16138/)
+ - [MySQL优化](http://www.zhenganwen.top/posts/62645e84/)
+ - [MySQL索引原理](https://blog.csdn.net/u013967628/article/details/84305511)
 ## :art: Java虚拟机
+ - [Java虚拟机（JVM）你只要看这一篇就够了！](https://blog.csdn.net/qq_41701956/article/details/81664921)
+ - [Java虚拟机原理图解](https://blog.csdn.net/u010349169/column/info/jvm-principle)
 ## :coffee: Java多线程
+ - [死磕Java并发](http://cmsblogs.com/?p=2611)
+ - [Java并发之AQS详解](https://www.cnblogs.com/waterystone/p/4920797.html) 
 ## :bulb: 分布式
+ - [分布式理论基础](https://github.com/xingshaocheng/architect-awesome/blob/master/README.md#%E5%88%86%E5%B8%83%E5%BC%8F%E4%B8%80%E8%87%B4)
 ## :hammer: 工具
+ - [Git使用](/工具及组件/Git.md)
 ## :speak_no_evil: 编码实践
-  
+### 项目实战
+ - [LeYou商城](https://space.bilibili.com/248011590/video) 
 ## :memo: 后记
 ### 贡献
  The repo is maintained by
