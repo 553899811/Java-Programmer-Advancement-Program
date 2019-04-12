@@ -14,13 +14,17 @@
 ```
 ## 目录
 ## :coffee: Java基础
-#### 集合
-  - [深度剖析HashMap原理](https://github.com/553899811/NewBie-Plan/blob/master/notes/Java%E5%9F%BA%E7%A1%80/Java-%E5%AE%B9%E5%99%A8/Map/HashMap.md)<br>
-  - [深度剖析ArrayList原理](https://github.com/553899811/NewBie-Plan/blob/master/notes/Java%E5%9F%BA%E7%A1%80/Java-%E5%AE%B9%E5%99%A8/Collection%E9%9B%86%E5%90%88/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/2.ArrayList.md)<br>
-  - [深度剖析LinkedList原理](https://github.com/553899811/NewBie-Plan/blob/master/notes/Java%E5%9F%BA%E7%A1%80/Java-%E5%AE%B9%E5%99%A8/Collection%E9%9B%86%E5%90%88/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/3.LinkedList.md)<br>
-  - [深度剖析Stack原理](https://github.com/553899811/NewBie-Plan/blob/master/notes/Java%E5%9F%BA%E7%A1%80/Java-%E5%AE%B9%E5%99%A8/Collection%E9%9B%86%E5%90%88/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/4.Stack.md)
 
+#### 集合
+  - [深度剖析HashMap原理](/notes/Java基础/Java-容器/Map/HashMap.md)<br>
+  - [深度剖析ArrayList原理](/notes/Java基础/Java-容器/Collection集合/基础知识/ArrayList.md)<br>
+  - [深度剖析LinkedList原理](/notes/Java基础/Java-容器/Collection集合/基础知识/LinkedList.md)<br>
+  - [深度剖析Stack原理](/notes/Java基础/Java-容器/Collection集合/基础知识/Stack.md)
+
+### 数据类型
+ - [深度剖析String原理](/notes/Java基础/Java-数据类型/引用数据类型/String.md)
 ## :computer: 操作系统
+
 ## :cloud: 计算机网络
 ## :pencil2: 算法
 ## :floppy_disk: 数据库
@@ -29,13 +33,8 @@
 ## :bulb: 分布式
 ## :hammer: 工具
 ## :speak_no_evil: 编码实践
-##
-## Java虚拟机
-## 推荐书单
-  [个人推荐书单](https://github.com/553899811/NewBie-Plan/blob/master/BookList.md)
   
-
-## 后记
+## :memo: 后记
 ### 贡献
  The repo is maintained by
 
