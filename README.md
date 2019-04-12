@@ -59,6 +59,8 @@
  - [liulukuan](https://github.com/liulukuan)</br>
  - [mySohGit](https://github.com/mySohGit)
 ### 内推信息
+   社区团购:松鼠拼拼 ,广招人才,内推邮箱: zhangyong2415@163.com
+### QQ群
 
 ### 公众号
 ```
@@ -68,6 +70,6 @@
 <img src="about/conghuajidan.jpg" width="20%" height="20%"/>
 </center>
 
-### QQ群
+
 
   
