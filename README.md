@@ -33,7 +33,7 @@
  - [计算机网络阶段性学习](https://blog.csdn.net/qq_35533401/article/category/7507100/)
 ## :pencil2: 算法
  - [LeetCode刷题记录](https://github.com/553899811/LeetCode)
- - [算法与数据结构阶段性学习](https://github.com/553899811/Algorithm-And-DataStructure)
+ - [算法与数据结构阶段性学习](https://www.yuque.com/littledream/algorithm)
 ## :floppy_disk: 数据库
  - [MySQL基础教程](http://www.runoob.com/mysql/mysql-tutorial.html)
  - [MySQL阶段性学习](https://guobinhit.blog.csdn.net/column/info/16138/)
