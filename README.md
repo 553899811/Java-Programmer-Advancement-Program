@@ -32,6 +32,7 @@
  - [计算机网络基础知识总结](https://blog.csdn.net/qq_34337272/article/details/81776275)
  - [计算机网络阶段性学习](https://blog.csdn.net/qq_35533401/article/category/7507100/)
 ## :pencil2: 算法
+ - [剑指Offer](https://github.com/553899811/Algorithm-And-DataStructure/tree/master/Algorithms/Problem%20Solutions/%E5%89%91%E6%8C%87Offer)
  - [LeetCode刷题记录](https://github.com/553899811/LeetCode)
  - [算法与数据结构阶段性学习](https://www.yuque.com/littledream/algorithm)
 ## :floppy_disk: 数据库
