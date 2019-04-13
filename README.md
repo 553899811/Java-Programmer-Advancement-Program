@@ -2,7 +2,7 @@
 
 |           Java基础             |             操作系统                   |             网络               |             算法                     |               数据库                   |          Java虚拟机            |               多线程                 |                分布式                  |              工具              |                  编码实践             |                 后记                  |
 | :----------------------------: | :----------------------------------: | :----------------------------: |     :------------------------------: | :----------------------------------: | :----------------------------: |   :------------------------------: | :----------------------------------: | :----------------------------: | :------------------------------: | :----------------------------------: |
-| [:coffee:](#coffee-Java基础)    | [:computer:](#computer-操作系统)      | [:cloud:](#cloud-计算机网络)     | [:pencil2:](#pencil2-算法)        | [:floppy_disk:](#floppy_disk-数据库)  |[:art:](#art-Java虚拟机)         | [:couple:](#coffee-Java多线程) | [:bulb:](#bulb-分布式) | [:hammer:](#hammer-工具) | [:speak_no_evil:](#speak_no_evil-编码实践) | [:memo:](#memo-后记) |
+| [:coffee:](#coffee-Java基础)    | [:computer:](#computer-操作系统)      | [:cloud:](#cloud-计算机网络)     | [:pencil2:](#pencil2-算法)        | [:floppy_disk:](#floppy_disk-数据库)  |[:art:](#art-Java虚拟机)         | [:couple:](#coffee-Java多线程) | [:bulb:](#bulb-分布式) | [:hammer:](#hammer-工具) | [:speak_no_evil:](#speak_no_evil-项目实战) | [:memo:](#memo-后记) |
 ## 概述
 ```
   主要针对于现阶段Java开发工程师开启的学习推荐和辅助,主要会从Java基础(IO,Collection集合,反射,多态),MySQL,多线程,JVM,操作系统,计算机网络及部分高级应用等方面做较为详细的学习探究.
@@ -50,9 +50,9 @@
  - [分布式理论基础](https://github.com/xingshaocheng/architect-awesome/blob/master/README.md#%E5%88%86%E5%B8%83%E5%BC%8F%E4%B8%80%E8%87%B4)
 ## :hammer: 工具
  - [Git使用](/notes/工具及组件/Git.md)
-## :speak_no_evil: 编码实践
-### 项目实战
+## :speak_no_evil: 项目实战
  - [LeYou商城](https://space.bilibili.com/248011590/video) 
+ 
 ## :memo: 后记
 ### 贡献
  The repo is maintained by
@@ -62,9 +62,9 @@
  - [liulukuan](https://github.com/liulukuan)</br>
  - [mySohGit](https://github.com/mySohGit)
 ### 内推信息
-   社区团购:松鼠拼拼 ,广招人才,内推邮箱: zhangyong2415@163.com
+   社区团购 : 松鼠拼拼 ,广招人才,内推邮箱: zhangyong2415@163.com
 ### QQ群
-
+    
 ### 公众号
 ```
 记录个人成长感悟。
