@@ -61,7 +61,19 @@
  - [liulukuan](https://github.com/liulukuan)</br>
  - [mySohGit](https://github.com/mySohGit)
 ### 内推信息
-   社区团购:松鼠拼拼 ,广招人才,内推邮箱: zhangyong2415@163.com
+   <center>
+    <img src="about/songshu.jpg" width="20%" height="20%"/>
+   </center>
+
+```
+   松鼠拼拼 长期内推： 
+   岗位方向: Java后端,前端,前后端架构师,推荐算法工程师,大数据开发,DBA
+   工作地点: 北京
+   简历或咨询请发: zhaopinyunyingzu@oneship.cc
+   邮件提交格式:内推简历-应聘人姓名-岗位-推荐人姓名
+   推荐人: zhangyong1
+```
+
 ### QQ群
 
 ### 公众号
