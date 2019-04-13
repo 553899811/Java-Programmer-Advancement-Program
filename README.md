@@ -62,7 +62,6 @@
  - [liulukuan](https://github.com/liulukuan)</br>
  - [mySohGit](https://github.com/mySohGit)
 ### 内推信息
-<<<<<<< HEAD
    <center>
     <img src="about/songshu.jpg" width="20%" height="20%"/>
    </center>
@@ -75,10 +74,6 @@
    邮件提交格式:内推简历-应聘人姓名-岗位-推荐人姓名
    推荐人: zhangyong1
 ```
-
-=======
-   社区团购 : 松鼠拼拼 ,广招人才,内推邮箱: zhangyong2415@163.com
->>>>>>> b14501b5b13a4202a3835f9943bd0cdfe4b721a9
 ### QQ群
     
 ### 公众号
