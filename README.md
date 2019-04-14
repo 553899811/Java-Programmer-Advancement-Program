@@ -51,7 +51,7 @@
  - [分布式事务TCC](https://github.com/553899811/NewBie-Plan/blob/master/notes/%E5%88%86%E5%B8%83%E5%BC%8F/%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1/README.md)
 ## :hammer: 工具
  - [Git](/notes/工具及组件/Git.md)
- - [Java-Xmind](https://github.com/553899811/Java-Xmind)
+ - [Java-Xmind 思维脑图](https://github.com/553899811/Java-Xmind)
 ## :speak_no_evil: 项目实战
  - [LeYou商城](https://space.bilibili.com/248011590/video) 
  
@@ -76,11 +76,10 @@
    邮件提交格式:内推简历-应聘人姓名-岗位-推荐人姓名
    推荐人: zhangyong1
 ```
-### QQ群
     
 ### 公众号
 ```
-记录个人成长感悟。
+  记录个人成长感悟：
 ```
 <center>
 <img src="about/conghuajidan.jpg" width="20%" height="20%"/>
