@@ -36,10 +36,13 @@
  - [LeetCode刷题记录](https://github.com/h2pl/leetcode)
  - [算法与数据结构阶段性学习](https://www.geeksforgeeks.org/fundamentals-of-algorithms/)
 ## :floppy_disk: 数据库
- - [MySQL基础教程](http://www.runoob.com/mysql/mysql-tutorial.html)
- - [MySQL阶段性学习](https://guobinhit.blog.csdn.net/column/info/16138/)
- - [MySQL优化](http://www.zhenganwen.top/posts/62645e84/)
- - [MySQL索引原理](https://blog.csdn.net/u013967628/article/details/84305511)
+ - MySQL
+   - [MySQL基础教程](http://www.runoob.com/mysql/mysql-tutorial.html)
+   - [MySQL阶段性学习](https://guobinhit.blog.csdn.net/column/info/16138/)
+   - [MySQL优化](http://www.zhenganwen.top/posts/62645e84/)
+   - [MySQL索引原理](https://blog.csdn.net/u013967628/article/details/84305511)
+ - Redis
+   - [Redis从入门到高可用](https://www.bilibili.com/video/av48611210)
 ## :art: Java虚拟机
  - [Java虚拟机（JVM）你只要看这一篇就够了！](https://blog.csdn.net/qq_41701956/article/details/81664921)
  - [Java虚拟机原理图解](https://blog.csdn.net/u010349169/column/info/jvm-principle)
