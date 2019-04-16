@@ -14,8 +14,7 @@
 ```
 ## 目录
 ## :coffee: Java基础
-
-#### 集合
+#### 容器
   - [深度剖析HashMap原理](/notes/Java基础/Java-容器/Map/HashMap.md)<br>
   - [深度剖析ArrayList原理](/notes/Java基础/Java-容器/Collection集合/基础知识/ArrayList.md)<br>
   - [深度剖析LinkedList原理](/notes/Java基础/Java-容器/Collection集合/基础知识/LinkedList.md)<br>
