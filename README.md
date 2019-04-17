@@ -19,7 +19,8 @@
   - [深度剖析ArrayList原理](/notes/Java基础/Java-容器/Collection集合/基础知识/ArrayList.md)<br>
   - [深度剖析LinkedList原理](/notes/Java基础/Java-容器/Collection集合/基础知识/LinkedList.md)<br>
   - [深度剖析Stack原理](/notes/Java基础/Java-容器/Collection集合/基础知识/Stack.md)
-  - [Java 集合 原理](https://blog.csdn.net/qq_38293564/column/info/23914)
+  - [深度剖析ConcurrentHashMap原理](http://www.importnew.com/28263.html)
+  - [Java 集合原理](https://www.cnblogs.com/skywang12345/p/3323085.html)
 ### 数据类型
  - [深度剖析String原理](/notes/Java基础/Java-数据类型/引用数据类型/String.md)
 ### 设计模式
@@ -52,7 +53,7 @@
  - [Java并发之AQS详解](https://www.cnblogs.com/waterystone/p/4920797.html) 
 ## :bulb: 分布式
  - [分布式理论基础](https://github.com/xingshaocheng/architect-awesome/blob/master/README.md#%E5%88%86%E5%B8%83%E5%BC%8F%E4%B8%80%E8%87%B4)
- - [分布式事务TCC](https://github.com/553899811/NewBie-Plan/blob/master/notes/%E5%88%86%E5%B8%83%E5%BC%8F/%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1/README.md)
+ - [分布式系统理论及进阶](http://www.cnblogs.com/bangerlee/tag/%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F/)
 ## :hammer: 工具
  - [Git](/notes/工具及组件/Git.md)
  - [Java-Xmind 思维脑图](https://github.com/553899811/Java-Xmind)
@@ -66,7 +67,7 @@
      - [SpringCloud学习目录](http://blog.didispace.com/spring-cloud-learning/)
  - 项目
    - [LeYou商城](https://space.bilibili.com/248011590/video) 
- 
+   - []
 ## :memo: 后记
 ### 贡献
  The repo is maintained by
