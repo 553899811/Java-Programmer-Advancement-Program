@@ -45,8 +45,10 @@
 ## :art: Java虚拟机
  - [Java虚拟机（JVM）你只要看这一篇就够了！](https://blog.csdn.net/qq_41701956/article/details/81664921)
  - [Java虚拟机原理图解](https://blog.csdn.net/u010349169/column/info/jvm-principle)
+ - [Java虚拟机系列文章](http://www.ityouknow.com/java.html)
 ## :couple: Java多线程
  - [死磕Java并发](http://cmsblogs.com/?p=2611)
+ - [Java并发性与多线程介绍目录](http://ifeve.com/java-concurrency-thread-directory/)
  - [Java并发之AQS详解](https://www.cnblogs.com/waterystone/p/4920797.html) 
 ## :bulb: 分布式
  - [分布式理论基础](https://github.com/xingshaocheng/architect-awesome/blob/master/README.md#%E5%88%86%E5%B8%83%E5%BC%8F%E4%B8%80%E8%87%B4)
