@@ -67,7 +67,7 @@
      - [SpringCloud学习目录](http://blog.didispace.com/spring-cloud-learning/)
  - 项目
    - [LeYou商城](https://space.bilibili.com/248011590/video) 
-   - []
+   - [Java秒杀系统方案优化](https://pan.baidu.com/s/1Vo1t9tXm9ZAstxuvauQpIw#list/path=%2F)
 ## :memo: 后记
 ### 贡献
  The repo is maintained by
