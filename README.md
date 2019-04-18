@@ -63,7 +63,7 @@
      - [SpringBoot1.x学习目录](http://blog.didispace.com/spring-boot-learning-1x/)
      - [SpringBoot2.x学习目录](http://blog.didispace.com/spring-boot-learning-2x/)
      - [SpringBoot非官方教程](https://blog.csdn.net/forezp/column/info/15397)
-   - SpringCloud(https://spring.io/projects/spring-cloud)
+   - [SpringCloud](https://spring.io/projects/spring-cloud)
      - [SpringCloud学习目录](http://blog.didispace.com/spring-cloud-learning/)
  - 项目
    - [LeYou商城](https://space.bilibili.com/248011590/video) 
