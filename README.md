@@ -56,6 +56,7 @@
  - [分布式系统理论及进阶](http://www.cnblogs.com/bangerlee/tag/%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F/)
 ## :hammer: 工具
  - [Git](/notes/工具及组件/Git.md)
+ - [Maven](https://www.cnblogs.com/xdp-gacl/tag/Maven%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93/)
  - [Java-Xmind 思维脑图](https://github.com/553899811/Java-Xmind)
 ## :speak_no_evil: 框架及实战
  - 框架
