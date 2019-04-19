@@ -46,7 +46,7 @@
 ## :art: Java虚拟机
  - [Java虚拟机（JVM）你只要看这一篇就够了！](https://blog.csdn.net/qq_41701956/article/details/81664921)
  - [Java虚拟机原理图解](https://blog.csdn.net/u010349169/column/info/jvm-principle)
- - [Java虚拟机系列文章](http://www.ityouknow.com/java.html)
+ - [Java虚拟机阶段性学习](http://www.ityouknow.com/java.html)
 ## :couple: Java多线程
  - [死磕Java并发](http://cmsblogs.com/?p=2611)
  - [Java并发性与多线程介绍目录](http://ifeve.com/java-concurrency-thread-directory/)
