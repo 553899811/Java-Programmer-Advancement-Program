@@ -56,7 +56,7 @@
  - [分布式系统理论及进阶](http://www.cnblogs.com/bangerlee/tag/%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F/)
 ## :hammer: 工具
  - [Git](/notes/工具及组件/Git.md)
- - [Maven](https://www.cnblogs.com/xdp-gacl/tag/Maven%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93/)
+ - []()
  - [Java-Xmind 思维脑图](https://github.com/553899811/Java-Xmind)
 ## :speak_no_evil: 框架及实战
  - 框架
@@ -66,6 +66,8 @@
      - [SpringBoot非官方教程](https://blog.csdn.net/forezp/column/info/15397)
    - [SpringCloud](https://spring.io/projects/spring-cloud)
      - [SpringCloud学习目录](http://blog.didispace.com/spring-cloud-learning/)
+   - [Maven](http://maven.apache.org/)
+     - [Maven](https://www.cnblogs.com/xdp-gacl/tag/Maven%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93/)
  - 项目
    - [LeYou商城](https://space.bilibili.com/248011590/video) 
    - [Java秒杀系统方案优化](https://pan.baidu.com/s/1Vo1t9tXm9ZAstxuvauQpIw#list/path=%2F)
