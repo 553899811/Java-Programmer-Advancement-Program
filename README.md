@@ -25,7 +25,7 @@
     - [深度剖析Stack原理](/notes/Java基础/Java-容器/Collection集合/基础知识/Stack.md)
   - Queue
     - [深度剖析PriorityQueue原理](https://blog.csdn.net/qq_35326718/article/details/72866180)
-  - [Java 集合原理](https://www.cnblogs.com/skywang12345/p/3323085.html)
+    
 ### 数据类型
  - [深度剖析String原理](/notes/Java基础/Java-数据类型/引用数据类型/String.md)
 ### 设计模式
