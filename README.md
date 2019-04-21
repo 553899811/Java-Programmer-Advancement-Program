@@ -15,11 +15,16 @@
 ## 目录
 ## :coffee: Java基础
 #### 容器
-  - [深度剖析HashMap原理](/notes/Java基础/Java-容器/Map/HashMap.md)<br>
-  - [深度剖析ArrayList原理](/notes/Java基础/Java-容器/Collection集合/基础知识/ArrayList.md)<br>
-  - [深度剖析LinkedList原理](/notes/Java基础/Java-容器/Collection集合/基础知识/LinkedList.md)<br>
-  - [深度剖析Stack原理](/notes/Java基础/Java-容器/Collection集合/基础知识/Stack.md)
-  - [深度剖析ConcurrentHashMap原理](http://www.importnew.com/28263.html)
+  - Map
+    - [深度剖析HashMap原理](/notes/Java基础/Java-容器/Map/HashMap.md)<br>
+    - [深度剖析ConcurrentHashMap原理](http://www.importnew.com/28263.html)
+  - List  
+    - [深度剖析ArrayList原理](/notes/Java基础/Java-容器/Collection集合/基础知识/ArrayList.md)<br>
+    - [深度剖析LinkedList原理](/notes/Java基础/Java-容器/Collection集合/基础知识/LinkedList.md)<br>
+  - Stack
+    - [深度剖析Stack原理](/notes/Java基础/Java-容器/Collection集合/基础知识/Stack.md)
+  - Queue
+    - [深度剖析PriorityQueue原理](https://blog.csdn.net/qq_35326718/article/details/72866180)
   - [Java 集合原理](https://www.cnblogs.com/skywang12345/p/3323085.html)
 ### 数据类型
  - [深度剖析String原理](/notes/Java基础/Java-数据类型/引用数据类型/String.md)
