@@ -18,6 +18,7 @@
   - Map
     - [深度剖析HashMap原理](/notes/Java基础/Java-容器/Map/HashMap.md)<br>
     - [深度剖析ConcurrentHashMap原理](http://www.importnew.com/28263.html)
+    - [深度剖析LinkedHashMap原理](https://www.jianshu.com/p/8f4f58b4b8ab)
   - List  
     - [深度剖析ArrayList原理](/notes/Java基础/Java-容器/Collection集合/基础知识/ArrayList.md)<br>
     - [深度剖析LinkedList原理](/notes/Java基础/Java-容器/Collection集合/基础知识/LinkedList.md)<br>
