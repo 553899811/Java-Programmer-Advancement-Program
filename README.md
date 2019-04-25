@@ -17,7 +17,6 @@
 #### 容器
   - Map
     - [深度剖析HashMap原理](/notes/Java基础/Java-容器/Map/HashMap.md)<br>
-    - [深度剖析ConcurrentHashMap原理](http://www.importnew.com/28263.html)
     - [深度剖析LinkedHashMap原理](https://www.jianshu.com/p/8f4f58b4b8ab)
   - List  
     - [深度剖析ArrayList原理](/notes/Java基础/Java-容器/Collection集合/基础知识/ArrayList.md)<br>
@@ -58,6 +57,11 @@
  - [死磕Java并发](http://cmsblogs.com/?p=2611)
  - [Java并发性与多线程介绍目录](http://ifeve.com/java-concurrency-thread-directory/)
  - [Java并发之AQS详解](https://www.cnblogs.com/waterystone/p/4920797.html) 
+ - 并发数据结构
+   - Map
+     - [深度剖析ConcurrentHashMap原理](http://www.importnew.com/28263.html)
+   - Queue
+     - [深度剖析ArrayBlockingQueue原理](https://blog.csdn.net/zzp_403184692/article/details/8021615)
 ## :bulb: 分布式
  - [分布式理论基础](https://github.com/xingshaocheng/architect-awesome/blob/master/README.md#%E5%88%86%E5%B8%83%E5%BC%8F%E4%B8%80%E8%87%B4)
  - [分布式系统理论及进阶](http://www.cnblogs.com/bangerlee/tag/%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F/)
