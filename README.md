@@ -26,9 +26,6 @@
     - [深度剖析Stack原理](/notes/Java基础/Java-容器/Collection集合/基础知识/Stack.md)
   - Queue
     - [深度剖析PriorityQueue原理](https://blog.csdn.net/qq_35326718/article/details/72866180)
-```
-   因并发数据结构的特性,故将其纳入Java多线程专题-并发数据结构中,望悉知。
-```
 
 ### 数据类型
  - String 
