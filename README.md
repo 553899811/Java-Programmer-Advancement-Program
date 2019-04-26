@@ -30,7 +30,9 @@
  - String 
    - [深度剖析String原理](/notes/Java基础/Java-数据类型/引用数据类型/String.md)
 ### 设计模式
- - [单例模式](/notes/设计模式/单例模式.md)
+ - [23种设计模式详细说明](http://c.biancheng.net/design_pattern/)
+    - [单例模式](/notes/设计模式/单例模式.md)
+ 
 ## :computer: 操作系统
  - [操作系统基础知识总结](https://blog.csdn.net/qq_35564813/article/details/80651259)
  - [操作系统阶段性学习](https://blog.csdn.net/qq_31278903/article/category/7954154)
