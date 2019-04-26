@@ -36,6 +36,7 @@
 ## :computer: 操作系统
  - [操作系统基础知识总结](https://blog.csdn.net/qq_35564813/article/details/80651259)
  - [操作系统阶段性学习](https://blog.csdn.net/qq_31278903/article/category/7954154)
+ - [Linux入门教程](http://c.biancheng.net/linux_tutorial/)
 ## :cloud: 计算机网络
  - [计算机网络基础知识总结](https://blog.csdn.net/qq_34337272/article/details/81776275)
  - [计算机网络阶段性学习](https://blog.csdn.net/qq_35533401/article/category/7507100/)
