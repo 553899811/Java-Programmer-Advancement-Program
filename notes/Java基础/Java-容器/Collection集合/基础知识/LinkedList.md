@@ -6,9 +6,11 @@
          * [1.1.2 底层实现](#112-底层实现)
            * [1.1.2.1 主要成员](#1121-主要成员)
            * [1.1.2.2 方法分类](#1122-方法分类)
+       
     * [2. LinkedList 高级特性](#2-linkedlist-高级特性)
-           
-<!-- GFM-TOC -->
+    
+       <!-- GFM-TOC -->
+
 # LinkedList介绍
 ## 1. LinkedList 简介
 ```
@@ -28,7 +30,7 @@
    - **实现** Cloneable接口,即覆盖了clone()方法,能被克隆;
    - **实现** java.io.Serializable 接口,支持序列化,能通过序列化去传输;
    - **实现** Deque 接口，即能将LinkedList当作双端队列使用
- 
+
 ```
  [继承关系]
  java.lang.Object
@@ -152,7 +154,6 @@
           <td>非空判断</td>
      </tr>
 </thead>
-
 <tbody>
     <tr>
         <td>push(e)</td>
