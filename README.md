@@ -89,7 +89,7 @@
      - [Maven](https://www.cnblogs.com/xdp-gacl/tag/Maven%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93/)
  - 项目
    - [LeYou商城](https://space.bilibili.com/248011590/video) 
-   - [Java秒杀系统方案优化](https://pan.baidu.com/s/1Vo1t9tXm9ZAstxuvauQpIw#list/path=%2F)
+   - [Java秒杀系统方案优化](https://pan.baidu.com/s/1W-cMJT0Q7BDiwrywI9VucQ)
 ## :memo: 后记
 ### 贡献
  The repo is maintained by
