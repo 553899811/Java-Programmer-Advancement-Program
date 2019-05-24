@@ -9,7 +9,6 @@
  Student(SId,Sname,Sage,Ssex)
 --SId 学生编号,Sname 学生姓名,Sage 出生年月,Ssex 学生性别
  ```
- Wj#osR/:.6*O
  ```
 create table Student(SId varchar(10),Sname varchar(10),Sage datetime,Ssex varchar(10));
 insert into Student values('01' , '赵雷' , '1990-01-01' , '男');
