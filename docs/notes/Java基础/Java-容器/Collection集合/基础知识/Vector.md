@@ -12,7 +12,7 @@
 
 # Vector介绍
 ## 1. Vector 简介
-```
+```java
   Vector 和 ArrayList 极度相似,都是一个动态数组队列;
 ```
 ### 1.1 实现细节
@@ -26,7 +26,7 @@ public class Vector<E>
    - **实现** RandomAccess接口,即提供了随机访问功能;RandmoAccess 是 java 中用来被 List 实现，为 List 提供快速访问功能的。在 ArrayList 中，我们即可以通过元素的序号快速获取元素对象；这就是快速随机访问。
    - **实现** Cloneable接口,即覆盖了clone()方法,能被克隆;
    - **实现** java.io.Serializable 接口,支持序列化,能通过序列化去传输;
-   
+
 ## 2. Vector和Arraylist对比
   - 分析
 ```
