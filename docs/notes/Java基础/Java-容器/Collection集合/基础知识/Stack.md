@@ -11,7 +11,7 @@
 # Stack介绍
 ## 1. Stack简介
 ```
-  Stack是一种具有先进先出特性的数据结构
+  Stack是一种具有先进后出特性的数据结构
 ```
 ![](https://mmbiz.qpic.cn/mmbiz_jpg/6fuT3emWI5LkeM7Tv8xW0tnI4yibWAOicgTYfab3IIOK5ibgOWZCibYQAn7Ix1bSichic1zaxAaIegoibojyfs343F4KQ/640?tp=webp&wxfrom=5&wx_lazy=1)
 ### 1.1 实现细节
@@ -21,7 +21,7 @@ class Stack<E> extends Vector<E>
 ```
 #### 1.1.1 实现和继承关系
 
- - 继承Vector类, 基于数组操作的方法全部继承与父类(重点操作在[Vector](https://github.com/553899811/NewBie-Plan/blob/master/Java%E5%9F%BA%E7%A1%80/Java-%E5%AE%B9%E5%99%A8/Collection%E9%9B%86%E5%90%88/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/5.Vector.md)类中讲解);
+ - 继承Vector类, 基于数组操作的方法全部继承与父类(重点操作在[Vector](Vector.md)类中讲解);
 
 ### 1.1.2 底层实现
 #### 1.1.2.1 主要成员
