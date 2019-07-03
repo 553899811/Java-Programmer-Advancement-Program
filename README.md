@@ -43,7 +43,7 @@
  - [计算机网络阶段性学习](https://blog.csdn.net/qq_35533401/article/category/7507100/)
 ## :pencil2: 算法
  - [剑指Offer](http://www.zhenganwen.top/posts/72fb66ce/)
- - [LeetCode刷题记录](https://github.com/h2pl/leetcode)
+ - [LeetCode刷题记录](https://github.com/553899811/LeetCode)
  - [算法与数据结构阶段性学习](https://www.geeksforgeeks.org/fundamentals-of-algorithms/)
 ## :floppy_disk: 数据库
  - MySQL
