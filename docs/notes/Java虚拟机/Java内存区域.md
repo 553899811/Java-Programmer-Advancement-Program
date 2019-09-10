@@ -3,6 +3,7 @@
  **JDK 1.8之前**
 ![](/about/media/pic/java_memory_area.jpeg)
 ![](/about/media/pic/java_memory_area_old.jpg)
+</br>
 **JDK 1.8之后**
 ![](/about/media/pic/java_memory_area_new.jpg)
 
@@ -24,5 +25,5 @@
 因此,我们可以看出程序计数器的**作用**:
  - 1.字节码解释器通过改变计数器来依次读取指令,从而实现代码的流程控制, 如: 顺序执行、选择、循环、异常处理。
  - 2.在多线程的情况下,程序计数器用于记录当前线程执行的位置,从而当线程被切换回来的时候能够知道该线程上次运行到哪儿了。
-  
+
 

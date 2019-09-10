@@ -54,9 +54,7 @@
  - Redis
    - [Redis从入门到高可用](https://www.bilibili.com/video/av48611210)
 ## :art: Java虚拟机
- - [Java虚拟机（JVM）你只要看这一篇就够了！](https://blog.csdn.net/qq_41701956/article/details/81664921)
- - [Java虚拟机原理图解](https://blog.csdn.net/u010349169/column/info/jvm-principle)
- - [Java虚拟机阶段性学习](http://www.ityouknow.com/java.html)
+ - [Java虚拟机-内存区域](docs/notes/Java虚拟机/Java内存区域.md)
 ## :couple: Java多线程
  - [死磕Java并发](http://cmsblogs.com/?p=2611)
  - [Java并发性与多线程介绍目录](http://ifeve.com/java-concurrency-thread-directory/)
@@ -68,6 +66,7 @@
      - [深度剖析ArrayBlockingQueue原理](https://blog.csdn.net/zzp_403184692/article/details/8021615)
      - [深度剖析LinkedBlockingQueue原理](https://blog.csdn.net/tonywu1992/article/details/83419448)
 ## :bulb: 分布式
+ - [ZooKeeper专题]()
  - [分布式理论基础](https://github.com/xingshaocheng/architect-awesome/blob/master/README.md#%E5%88%86%E5%B8%83%E5%BC%8F%E4%B8%80%E8%87%B4)
  - [分布式一致性算法](https://www.cnblogs.com/bangerlee/tag/%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F/)
    - [2PC与3PC及一致性概念](https://www.cnblogs.com/bangerlee/p/5268485.html)
