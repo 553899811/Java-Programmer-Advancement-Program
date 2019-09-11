@@ -81,7 +81,7 @@
    - [Paxos](https://www.cnblogs.com/bangerlee/p/5655754.html)
    - [Raft与Zab](https://www.cnblogs.com/bangerlee/p/5991417.html)
 ## :hammer: 工具
- - [Git](/notes/工具及组件/Git.md)
+ - [Git](docs/notes/工具及组件/Git.md)
  - [Java-Xmind 思维脑图](https://github.com/553899811/Java-Xmind)
 ## :speak_no_evil: 框架及实战
  - 框架
