@@ -56,6 +56,7 @@
    - [MySQL优化](http://www.zhenganwen.top/posts/62645e84/)
    - [MySQL索引原理](https://blog.csdn.net/u013967628/article/details/84305511)
  - Redis
+   - [Redis命令](http://redisdoc.com/)
    - [Redis分布式锁原理]()
 ## :art: Java虚拟机
  - [Java内存结构](docs/notes/Java虚拟机/Java内存区域.md)
