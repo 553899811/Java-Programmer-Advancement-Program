@@ -87,14 +87,14 @@
 ## :speak_no_evil: 框架及实战
  - 框架
    - [SpringBoot](https://spring.io/projects/spring-boot)
-     - [SpringBoot1.x学习目录](http://blog.didispace.com/spring-boot-learning-1x/)
-     - [SpringBoot2.x学习目录](http://blog.didispace.com/spring-boot-learning-2x/)
-     - [SpringBoot非官方教程](https://blog.csdn.net/forezp/column/info/15397)
+     - [SpringBoot学习教程](http://cmsblogs.com/?p=2919)
+     - [SpringBoot常见面试题](/docs/notes/基础框架/Spring/SpringBoot常见面试题.md)
    - [SpringCloud](https://spring.io/projects/spring-cloud)
      - [SpringCloud学习目录](http://blog.didispace.com/spring-cloud-learning/)
-   - [Maven](http://maven.apache.org/)
-     - [Maven](https://www.cnblogs.com/xdp-gacl/tag/Maven%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93/)
- - 项目
+   - [MyBatis]()
+     - [MyBatis底层原理]()
+   - [自定义注解原理及实现]()
+ - 项目实战
    - [LeYou商城](https://space.bilibili.com/248011590/video) 
    - [Java秒杀系统方案优化](https://pan.baidu.com/s/1W-cMJT0Q7BDiwrywI9VucQ)
 ## :memo: 后记
@@ -108,7 +108,7 @@
     
 ### 公众号
 ```
-  记录个人成长感悟：
+  记录个人成长感悟:
 ```
 <center>
 <img src="about/_media/conghuajidan.jpg" width="20%" height="20%"/>
