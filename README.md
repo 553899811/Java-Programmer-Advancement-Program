@@ -44,9 +44,9 @@
  - [计算机网络阶段性学习](https://blog.csdn.net/qq_35533401/article/category/7507100/)
 ## :pencil2: 算法
  - 基础算法
-   - [自我总结-算法与数据结构]()
+   - [自我总结-算法与数据结构](https://github.com/553899811/Algorithm-And-DataStructure)
    - [LeetCode刷题记录](https://github.com/553899811/LeetCode)
-   - [剑指Offer]()
+   - [剑指Offer](https://github.com/553899811/LeetCode)
    - [算法与数据结构阶段性学习](https://www.geeksforgeeks.org/fundamentals-of-algorithms/)
  - 算法应用
    - [LRU缓存淘汰策略]()
