@@ -53,11 +53,11 @@
 ## :floppy_disk: 数据库
  - MySQL
    - [MySQL阶段性学习](https://guobinhit.blog.csdn.net/column/info/16138/)
-   - [MySQL优化](http://www.zhenganwen.top/posts/62645e84/)
-   - [MySQL索引原理](https://blog.csdn.net/u013967628/article/details/84305511)
+   - [MySQL索引原理](/docs/notes/数据库/MySQL/索引原理分析.md)
+   - [MySQL索引失效及优化策略](/docs/notes/数据库/MySQL/索引失效及优化策略.md)
  - Redis
    - [Redis命令](http://redisdoc.com/)
-   - [Redis分布式锁原理]()
+   - [Redis分布式锁原理](/docs/notes/分布式/分布式锁/分布式锁的实现.md)
 ## :art: Java虚拟机
  - [Java内存结构](docs/notes/Java虚拟机/Java内存区域.md)
  - [HotSpot 虚拟机对象探秘]()
@@ -91,9 +91,13 @@
      - [SpringBoot常见面试题](/docs/notes/基础框架/Spring/SpringBoot常见面试题.md)
    - [SpringCloud](https://spring.io/projects/spring-cloud)
      - [SpringCloud学习目录](http://blog.didispace.com/spring-cloud-learning/)
+     - [SpringCloud组件原理](/docs/notes/基础框架/Spring/SpringCloud组件原理.md)
    - [MyBatis]()
      - [MyBatis底层原理]()
-   - [自定义注解原理及实现]()
+   - [SpringMVC]
+     - [SpringMVC原理](/docs/notes/基础框架/Spring/SpringMVC原理.md)
+   - 其他应用
+     - [自定义注解原理及实现](/docs/notes/基础框架/自定义注解原理及实现.md)
  - 项目实战
    - [LeYou商城](https://space.bilibili.com/248011590/video) 
    - [Java秒杀系统方案优化](https://pan.baidu.com/s/1W-cMJT0Q7BDiwrywI9VucQ)
