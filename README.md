@@ -19,19 +19,19 @@
 #### 容器
 
   - Map
-    - [深度剖析HashMap原理](/docs/notes/Java基础/Java-容器/Map/HashMap.md)<br>
-    - [深度剖析LinkedHashMap原理](https://www.jianshu.com/p/8f4f58b4b8ab)
+    - [HashMap原理](/docs/notes/Java基础/Java-容器/Map/HashMap.md)<br>
+    - [LinkedHashMap原理](https://www.jianshu.com/p/8f4f58b4b8ab)
   - List  
-    - [深度剖析ArrayList原理](/docs/notes/Java基础/Java-容器/Collection集合/基础知识/ArrayList.md)<br>
-    - [深度剖析LinkedList原理](/docs/notes/Java基础/Java-容器/Collection集合/基础知识/LinkedList.md)<br>
+    - [ArrayList原理](/docs/notes/Java基础/Java-容器/Collection集合/基础知识/ArrayList.md)<br>
+    - [LinkedList原理](/docs/notes/Java基础/Java-容器/Collection集合/基础知识/LinkedList.md)<br>
   - Stack
-    - [深度剖析Stack原理](/docs/notes/Java基础/Java-容器/Collection集合/基础知识/Stack.md)
+    - [Stack原理](/docs/notes/Java基础/Java-容器/Collection集合/基础知识/Stack.md)
   - Queue
-    - [深度剖析PriorityQueue原理](https://blog.csdn.net/qq_35326718/article/details/72866180)
+    - [PriorityQueue原理](https://blog.csdn.net/qq_35326718/article/details/72866180)
 
 ### 数据类型
  - String 
-   - [深度剖析String原理](/docs/notes/Java基础/Java-数据类型/引用数据类型/String.md)
+   - [String原理](/docs/notes/Java基础/Java-数据类型/引用数据类型/String.md)
 ### 设计模式
  - [23种设计模式详细说明](http://c.biancheng.net/design_pattern/)
     - [单例模式](/notes/设计模式/单例模式.md)

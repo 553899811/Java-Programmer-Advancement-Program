@@ -17,8 +17,8 @@
              * [1.1.2.3.4 get()方法](#11234-get方法)
     * [2. HashMap 高级特性](#2-hashmap-高级特性)
       * [2.1 扩容机制](#21-扩容机制)
-        * [2.1.1 HashMap的容量为什么一定是2的n次方](#211-HashMap的容量为什么一定是2的n次方)
-        * [2.1.2 扩容后位置变化](#212-扩容后位置变化) 
+        * [2.1.1 扩容后位置变化](#211-扩容后位置变化)
+        * [2.1.2 HashMap扩容为啥是2倍扩展](#212-hashmap扩容为啥是2倍扩展) 
       * [2.2 负载因子为什么是0.75](#22-负载因子为什么是0.75)  
       * [2.3 线程安全问题](#23-线程安全问题)
         * [2.3.1 线程不安全的表现](#231-线程不安全的表现)
@@ -341,7 +341,7 @@ public class HashMap<K,V> extends AbstractMap<K,V>
     - [5]遍历table[i](第i+1个桶),判断链表长度是否大于8,大于8的话将链表转换为红黑树,在红黑树中执行插入操作,否则进行链表的插入操作;遍历过程中若发现key已经存在直接覆盖value即可;
     - [6]插入成功,判断实际存在的键值对size是否超过了最大容量(阈值),如果超过,进行扩容;
 >
-   [1]这里重点说明下,在JDK1.7中index = hash % len 做与运算 ,在JDK 1.8中 变为了 i =(len-1) & hash,两者的作用是相同的;</br>
+   [1]这里重点说明下,在JDK1.6中index = hash % len 做与运算 ,在JDK 1.7/1.8中 变为了 i =(len-1) & hash,两者的作用是相同的;</br>
    [2]Put时如果key为null，存储位置为table[0]或table[0]的冲突链上(table为HashMap中存的数组),</br>
    如果该对应数据已存在，执行覆盖操作。用新value替换旧value，并返回旧value，如果对应数据不存在,则添加到链表的头上(保证插入O(1));
     put：首先判断key是否为null，若为null，则直接调用putForNullKey方法。若不为空则先计算key的hash值，
@@ -374,115 +374,6 @@ public class HashMap<K,V> extends AbstractMap<K,V>
 ### 2.1 扩容机制
 ```
  resize() 方法用于初始化数组(初始化数组过程由于涉及到类加载过程,将会放到JVM模块中进一步解释)或数组扩容，每次扩容后，容量为原来的 2 倍,并进行数据迁移。
-```
- - 代码分析:
-```java
-  final Node<K,V>[] resize() {
-      //获取现阶段的桶
-        Node<K,V>[] oldTab = table;
-        // 旧容量
-        int oldCap = (oldTab == null) ? 0 : oldTab.length;
-        // 旧阈值
-        int oldThr = threshold;
-        int newCap, newThr = 0;
-        if (oldCap > 0) {
-            //如果旧容量达到了2^30;
-            if (oldCap >= MAXIMUM_CAPACITY) {
-              //将阈值扩容到Integer的最大值,也就是2^31 - 1;该阈值要大于旧容量。
-                threshold = Integer.MAX_VALUE;
-                return oldTab;
-            }       
-            else if ((newCap = oldCap << 1) < MAXIMUM_CAPACITY &&
-                     oldCap >= DEFAULT_INITIAL_CAPACITY)
-              //正常扩容,新的阈值为之前的2倍;
-                newThr = oldThr << 1; // double threshold
-        }
-        else if (oldThr > 0) // initial capacity was placed in threshold
-        
-            // 不是很理解 TODO
-            newCap = oldThr;
-        else {               // zero initial threshold signifies using defaults
-          
-            newCap = DEFAULT_INITIAL_CAPACITY;
-            newThr = (int)(DEFAULT_LOAD_FACTOR * DEFAULT_INITIAL_CAPACITY);
-        }
-        if (newThr == 0) {
-            float ft = (float)newCap * loadFactor;
-            newThr = (newCap < MAXIMUM_CAPACITY && ft < (float)MAXIMUM_CAPACITY ?
-                      (int)ft : Integer.MAX_VALUE);
-        }
-        threshold = newThr;
-        @SuppressWarnings({"rawtypes","unchecked"})
-        //如果原来的table有数据,则将数据复制到新的table中;
-            Node<K,V>[] newTab = (Node<K,V>[])new Node[newCap];
-        table = newTab;
-        if (oldTab != null) {
-            // 根据容量的大小循环整个数组,将非空元素进行复制;
-            for (int j = 0; j < oldCap; ++j) {
-                Node<K,V> e;
-                // 获取数组的第j个元素(即第j个桶元素);
-                // 辅助GC 将旧表逐步垃圾回收掉[引用];
-                if ((e = oldTab[j]) != null) {
-                    oldTab[j] = null;
-                    // 如果桶位置元素只有一个没有next元素了,则进行直接赋值;
-                    if (e.next == null)
-                        newTab[e.hash & (newCap - 1)] = e;
-                    else if (e instanceof TreeNode)
-                        //红黑树部分之后讨论细节部分;
-                        ((TreeNode<K,V>)e).split(this, newTab, j, oldCap);
-                    else { // preserve order
-                      // 原桶位置上定义2个指针,一个指定头,一个指定尾，分别更新;
-                        Node<K,V> loHead = null, loTail = null;
-                        // index+OldCap 桶位置上定义2个指针,一个指定头,一个指定尾,分别更新;
-                        Node<K,V> hiHead = null, hiTail = null;
-                        Node<K,V> next;
-                        do {
-                            next = e.next;
-                            // 通过 if((e.hash&oldCap) == 0) 来判断hash的新增判断bit是1还是0,进而判断扩容之后它的位置是不变还是oldCap + index;
-                            if ((e.hash & oldCap) == 0) {
-                              // 如果位置不变化;
-                                if (loTail == null)
-                                  // 首次向该桶位置放置元素,将loHead指向e;
-                                    loHead = e;
-                                else
-                                  // 非首次添加元素后,loTail先是指向上一个被添加的元素节点, 
-                                  // 将上一个元素节点的next指针指向新添加的元素节点,使他们连接起来;(即loTail指针起连接新旧元素节点的作用)
-                                    loTail.next = e;
-
-                                /**
-                                 * [1]首次在向某一个桶位置放入元素的时候,loHead指向头结点元素,loTail也要指向头结点元素,之后loHead不会变动;
-                                 * [2]每次添加完新节点元素之后,loTail要指向尾节点元素;
-                                 */
-                                loTail = e;
-                            }
-                            else {
-                              // 同上
-                                if (hiTail == null)
-                                    hiHead = e;
-                                else
-                                    hiTail.next = e;
-                                hiTail = e;
-                            }
-                        } while ((e = next) != null);
-                        
-                        //原桶位置的节点放入Bucket中;
-                        if (loTail != null) {
-                            loTail.next = null;
-                            //桶位置指向头节点;
-                            newTab[j] = loHead;
-                        }
-                        //原桶位置+OldCap的节点放入新Bucket中;
-                        if (hiTail != null) {
-                            hiTail.next = null;
-                            // 新桶位置指向头节点;
-                            newTab[j + oldCap] = hiHead;
-                        }
-                    }
-                }
-            }
-        }
-        return newTab;
-    }
 ```
 #### 2.1.1 扩容后位置变化
 ```
@@ -531,9 +422,9 @@ hash2: 1111 1111 1111 1111 0000 1111 0001 0101
   是1 的话桶位置就会变成index+oldCap;</br>
   通过if((e.hash&oldCap)==0)来判断hash的新增判断bit是1还是0;
 
-#### 2.1.2 HashMap 扩容为啥是2倍扩展
+#### 2.1.2 HashMap扩容为啥是2倍扩展
 ```
-
+ 综上所述，根本原因为2进制数字;
 ```
 
 ### 2.2 负载因子为什么是0.75
@@ -568,7 +459,6 @@ hash2: 1111 1111 1111 1111 0000 1111 0001 0101
      * more: less than 1 in ten million
 
 ```
-[负载因子为什么是0.75](https://blog.csdn.net/zz18435842675/article/details/80928805)</br>
 [泊松分布](http://www.ruanyifeng.com/blog/2015/06/poisson-distribution.html#comment-356111)</br>
 [Stackoverflow-老外的牛顿二项式](https://stackoverflow.com/questions/10901752/what-is-the-significance-of-load-factor-in-hashmap)
 ![](https://upload-images.jianshu.io/upload_images/9402357-7a38574a79fa9c28.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/700)
@@ -577,29 +467,31 @@ hash2: 1111 1111 1111 1111 0000 1111 0001 0101
   虽然由于粒度调整会产生较大的方差,桶中的Node的分布频率服从参数为0.5的泊松分布;
 
     一个bucket空和非空的概率为0.5，通过牛顿二项式等数学计算，得到这个loadfactor的值为log（2），约等于0.693.
-  同回答者所说，可能小于0.75 大于等于log（2）的factor都能提供更好的性能，0.75这个数说不定是 pulled out of a hat。
+  同回答者所说，可能小于0.75 大于等于log（2）的factor都能提供更好的性能，0.75这个数说不定是 pulled out of a hat
 ```
 
 ### 2.3 线程安全问题
 #### 2.3.1 线程不安全的表现
-- 在JDK1.7中并发情况下HashMap在扩容时会出现死环现象(原因在于扩容之后链表会倒置呈现);
-- 在JDK1.8中扩容之后链表顺序保持不变,避免了死环现象的出现;
+- JDK 1.7: **并发死环，丢数据**
+- JDK 1.8: **并发丢数据**
+
 #### 2.3.2 源码分析
 ##### 2.3.2.1 新增节点顺序
- - JDK 1.6/1.7
+ - JDK 1.7
    - **<font color='red'>头插法</font>** : 新增节点插入链表头部
-   - 源码分析
-
  - JDK 1.8
    - **<font color='red'>尾插法</font>** : 新增节点插入链表尾部
 - <b>源码分析与参考</b>:
    - [HashMap到底是插入链表头部还是尾部](https://blog.csdn.net/qq_33256688/article/details/79938886)
-##### 2.3.2.2 JDK1.7死环现象分析
+##### 2.3.2.2 JDK1.7死环源码分析
 ```
    说到根本就是扩容之后,链表元素顺序发生变化导致的;
-   在分析HashMap的线程不安全之前,我们先看一下上面扩容重组过程中的一段扩容后重新分配bucket的代码:
+   JDK 1.7 中扩容之后 链表顺序会倒置（采用头插法）;
 ```
+
 ``` java
+    JDK 1.7 扩容中重新安排Entry操作:
+
     void transfer(Entry[] newTable, boolean rehash) {
     int newCapacity = newTable.length;
     for (Entry<K,V> e : table) {
@@ -616,9 +508,59 @@ hash2: 1111 1111 1111 1111 0000 1111 0001 0101
     }
 }              
 ```
- - 源码分析与参考:</br>
-   - [1. JDK 1.7中HashMap出现死环现象的分析](https://juejin.im/post/5a255bbd6fb9a0450c493f4d)
-   - [2. JDK1.7 HashMap扩容：多线程下的死循环和丢失](https://www.jianshu.com/p/61a829fa4e49)
+###### 2.3.2.2.1 扩容后节点顺序反向存储
+
+```
+   在分析HashMap的线程不安全之前,我们先看一下上面扩容重组过程中的一段扩容后重新分配bucket的代码,并结合一小段自定义代码来理解这个过程
+```
+``` 
+   我最开始看上面那段代码的时候，死活看不懂,最后自己模拟了这个过程才明白。咱们先看下 我的模拟代码:
+```
+  - Entry :
+```
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Data
+public class Entry<T> {
+    int val;
+    Entry next;
+
+    public Entry(int val) {
+        this.next = null;
+        this.val = val;
+    }
+}
+
+ public static void main(String[] args) {
+        Entry e = new Entry(1);
+        e.next = new Entry(2);
+        e.next.next = new Entry(3);
+        e.next.next.next = new Entry(4);
+        Entry[] newTable = new Entry[6];
+        while (e != null) {
+            // [1]
+            Entry next = e.next;
+            // [2]
+            e.next = newTable[5];
+            // [3]
+            newTable[5] = e;
+            // [4]
+            e = next;
+        }
+    }
+```
+![](/about/media/pic/hashmap-1.7-resize-01.png)
+![](/about/media/pic/hashmap-1.7-resize-02.png)
+![](/about/media/pic/hashmap-1.7-resize-03.png)
+![](/about/media/pic/hashmap-1.7-resize-04.png)
+![](/about/media/pic/hashmap-1.7-resize-05.png)
+![](/about/media/pic/hashmap-1.7-resize-06.png)
+![](/about/media/pic/hashmap-1.7-resize-07.png)
+![](/about/media/pic/hashmap-1.7-resize-08.png)
+
+###### 2.3.2.2.2 并发请求
+
 ##### 2.3.2.3 JDK1.8扩容过程分析
 ``` 
   JDK 1.8扩容时保持链表顺序不变,避免了死环现象的发生;
