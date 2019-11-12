@@ -42,7 +42,7 @@ DEVICE=ens33
 ONBOOT=yes #开机自启
 IPADDR=192.168.68.130  #ip不能超出起止IP，查看起止IP请看下文
 NETMASK=255.255.55.0 
-GATEWAY=192.168.68.2   #参照虚拟机上的  虚拟网络编辑器-VMnet8-NAT设置
+GATEWAY=X.X.X.X   #参照虚拟机上的  虚拟网络编辑器-VMnet8-NAT设置（若配置错误，无法连接网络）
 DNS1=114.114.114.114   #可设置为真机电脑上的DNS  
 ZONE=public
 
