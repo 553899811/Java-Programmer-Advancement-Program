@@ -86,28 +86,32 @@
    - [SpringCloud](https://spring.io/projects/spring-cloud)
      - [SpringCloud学习目录](http://blog.didispace.com/spring-cloud-learning/)
      - [SpringCloud组件原理](/docs/notes/基础框架/Spring/SpringCloud组件原理.md)
-   - [MyBatis]()
-     - [MyBatis底层原理]()
    - [SpringMVC]
      - [SpringMVC原理](/docs/notes/基础框架/Spring/SpringMVC原理.md)
    - 其他应用
      - [自定义注解原理及实现](/docs/notes/基础框架/自定义注解原理及实现.md)
  - 项目实战
    - [LeYou商城](https://space.bilibili.com/248011590/video) 
-   - [Java秒杀系统方案优化](https://pan.baidu.com/s/1W-cMJT0Q7BDiwrywI9VucQ)
-## :memo: 后记
-### 贡献
- The repo is maintained by
-
- - [pengp](https://github.com/pengp)</br>
- - [songsir01](https://github.com/songsir01)</br>
- - [liulukuan](https://github.com/liulukuan)</br>
- - [mySohGit](https://github.com/mySohGit)
-    
-### 公众号
-```
-  记录个人成长感悟:
-```
-<center>
-<img src="about/_media/conghuajidan.jpg" width="20%" height="20%"/>
-</center>
+## 鸣谢列表
+ 
+<a href="https://github.com/pengp">
+    <img src="https://avatars3.githubusercontent.com/u/5467417?s=400&v=4" width="45px">
+</a>
+<a href="https://github.com/songsir01">  
+    <img src="https://avatars3.githubusercontent.com/u/31086591?s=400&v=4" width="45px">
+</a>
+<a href="https://github.com/liulukuan">  
+    <img src="https://avatars3.githubusercontent.com/u/31087300?s=400&v=4" width="45px">
+</a>
+<a href="https://github.com/mySohGit">
+    <img src="https://avatars3.githubusercontent.com/u/31137935?s=400&v=4" width="45px">
+</a>
+<a href="https://github.com/553899811">
+    <img src="https://avatars3.githubusercontent.com/u/10486496?s=400&v=4" width="45px">
+</a>
+<a href="https://github.com/Little-dream">
+    <img src="https://avatars3.githubusercontent.com/u/16574694?s=400&v=4" width="45px">
+</a>
+<a href="https://github.com/AhianZhang">
+    <img src="https://avatars3.githubusercontent.com/u/15721697?s=400&v=4" width="45px">
+</a>
