@@ -92,59 +92,11 @@
      - [自定义注解原理及实现](/docs/notes/基础框架/自定义注解原理及实现.md)
  - 项目实战
    - [LeYou商城](https://space.bilibili.com/248011590/video) 
-## 鸣谢列表
- 
-<a href="https://github.com/pengp">
-    <img src="https://avatars3.githubusercontent.com/u/5467417?s=400&v=4" width="45px">
-</a>
-<a href="https://github.com/songsir01">  
-    <img src="https://avatars3.githubusercontent.com/u/31086591?s=400&v=4" width="45px">
-</a>
-<a href="https://github.com/liulukuan">  
-    <img src="https://avatars3.githubusercontent.com/u/31087300?s=400&v=4" width="45px">
-</a>
-<a href="https://github.com/mySohGit">
-    <img src="https://avatars3.githubusercontent.com/u/31137935?s=400&v=4" width="45px">
-</a>
-<a href="https://github.com/553899811">
-    <img src="https://avatars3.githubusercontent.com/u/10486496?s=400&v=4" width="45px">
-</a>
-<a href="https://github.com/Little-dream">
-    <img src="https://avatars3.githubusercontent.com/u/16574694?s=400&v=4" width="45px">
-</a>
-<a href="https://github.com/AhianZhang">
-    <img src="https://avatars3.githubusercontent.com/u/15721697?s=400&v=4" width="45px">
-</a>
-<a href="https://github.com/xiaozhanghexiaozhao">
-    <img src="https://avatars3.githubusercontent.com/u/52920821?s=400&v=4" width="45px">
-</a>
 
-## Contributors
+## 鸣谢列表
 
 ### Code Contributors
 
 This project exists thanks to all the people who contribute. [[Contribute](CONTRIBUTING.md)].
 <a href="https://github.com/553899811/NewBie-Plan/graphs/contributors"><img src="https://opencollective.com/NewBie-Plan/contributors.svg?width=890&button=false" /></a>
 
-### Financial Contributors
-
-Become a financial contributor and help us sustain our community. [[Contribute](https://opencollective.com/NewBie-Plan/contribute)]
-
-#### Individuals
-
-<a href="https://opencollective.com/NewBie-Plan"><img src="https://opencollective.com/NewBie-Plan/individuals.svg?width=890"></a>
-
-#### Organizations
-
-Support this project with your organization. Your logo will show up here with a link to your website. [[Contribute](https://opencollective.com/NewBie-Plan/contribute)]
-
-<a href="https://opencollective.com/NewBie-Plan/organization/0/website"><img src="https://opencollective.com/NewBie-Plan/organization/0/avatar.svg"></a>
-<a href="https://opencollective.com/NewBie-Plan/organization/1/website"><img src="https://opencollective.com/NewBie-Plan/organization/1/avatar.svg"></a>
-<a href="https://opencollective.com/NewBie-Plan/organization/2/website"><img src="https://opencollective.com/NewBie-Plan/organization/2/avatar.svg"></a>
-<a href="https://opencollective.com/NewBie-Plan/organization/3/website"><img src="https://opencollective.com/NewBie-Plan/organization/3/avatar.svg"></a>
-<a href="https://opencollective.com/NewBie-Plan/organization/4/website"><img src="https://opencollective.com/NewBie-Plan/organization/4/avatar.svg"></a>
-<a href="https://opencollective.com/NewBie-Plan/organization/5/website"><img src="https://opencollective.com/NewBie-Plan/organization/5/avatar.svg"></a>
-<a href="https://opencollective.com/NewBie-Plan/organization/6/website"><img src="https://opencollective.com/NewBie-Plan/organization/6/avatar.svg"></a>
-<a href="https://opencollective.com/NewBie-Plan/organization/7/website"><img src="https://opencollective.com/NewBie-Plan/organization/7/avatar.svg"></a>
-<a href="https://opencollective.com/NewBie-Plan/organization/8/website"><img src="https://opencollective.com/NewBie-Plan/organization/8/avatar.svg"></a>
-<a href="https://opencollective.com/NewBie-Plan/organization/9/website"><img src="https://opencollective.com/NewBie-Plan/organization/9/avatar.svg"></a>
