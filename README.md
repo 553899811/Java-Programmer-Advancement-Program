@@ -94,9 +94,6 @@
    - [LeYou商城](https://space.bilibili.com/248011590/video) 
 
 ## 鸣谢列表
-
 ### Code Contributors
-
-This project exists thanks to all the people who contribute. [[Contribute](CONTRIBUTING.md)].
 <a href="https://github.com/553899811/NewBie-Plan/graphs/contributors"><img src="https://opencollective.com/NewBie-Plan/contributors.svg?width=890&button=false" /></a>
 
