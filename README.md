@@ -40,7 +40,7 @@
  - 基础算法
    - [自我总结-算法与数据结构](https://github.com/553899811/Algorithm-And-DataStructure)
    - [LeetCode刷题记录](https://github.com/553899811/LeetCode)
-   - [剑指Offer](https://github.com/553899811/LeetCode)
+   - [剑指Offer](https://liweiwei1419.github.io/sword-for-offer/)
    - [算法与数据结构阶段性学习](https://www.geeksforgeeks.org/fundamentals-of-algorithms/)
  - 算法应用
    - [LRU缓存淘汰策略]()
