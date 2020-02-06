@@ -52,7 +52,7 @@ public class HashMap<K,V> extends AbstractMap<K,V>
 
 >    存储位置 = f(关键字)
 >        其中这个函数f()一般就称之为【哈希函数】,这个函数的设计好坏会直接影响到哈希表的优劣.举个栗子,比如我们要在哈希表中执行插入操作:
->    ![hash.png](https://cdn.nlark.com/yuque/0/2020/png/177460/1581002469233-182b06a6-70da-4def-96dc-71685778392d.png#align=left&display=inline&height=864&name=hash.png&originHeight=864&originWidth=1362&size=81064&status=done&style=none&width=1362)
+> ![](https://cdn.nlark.com/yuque/0/2020/png/177460/1581002469233-182b06a6-70da-4def-96dc-71685778392d.png#align=left&display=inline&height=864&name=hash.png&originHeight=864&originWidth=1362&size=81064&status=done&style=none&width=1362)
 >        查找操作:同理,先通过哈希函数计算 出实际存储地址,然后从数组中对应位置取出即可;
 >
 >     -  **哈希冲突** 
