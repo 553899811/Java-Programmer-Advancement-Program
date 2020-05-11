@@ -32,6 +32,10 @@
     - [单例模式](/notes/设计模式/单例模式.md)
 ## :computer: 操作系统
  - [操作系统基础知识](https://github.com/553899811/NewBie-Plan/tree/master/docs/notes/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86)
+   - [1.操作系统的基本感念](/docs/notes/操作系统/基础知识/1.操作系统的基本概念.md)
+   - [2.操作系统的发展和分类](/docs/notes/操作系统/基础知识/2.操作系统的发展与分类.md)
+   - [3.操作系统的运行环境](/docs/notes/操作系统/基础知识/3.操作系统的运行环境.md)
+   - [4.操作系统的体系结构](/docs/notes/操作系统/基础知识/4.操作系统的体系结构.md)
  - [操作系统阶段性学习](https://blog.csdn.net/qq_31278903/article/category/7954154)
  - [Linux入门教程](http://c.biancheng.net/linux_tutorial/)
 ## :cloud: 计算机网络
