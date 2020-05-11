@@ -5,8 +5,9 @@
 | [:coffee:](#coffee-Java基础)    | [:computer:](#computer-操作系统)      | [:cloud:](#cloud-计算机网络)     | [:pencil2:](#pencil2-算法)        | [:floppy_disk:](#floppy_disk-数据库)  |[:art:](#art-Java虚拟机)         | [:couple:](#coffee-Java多线程) | [:bulb:](#bulb-分布式) | [:hammer:](#hammer-工具) | [:speak_no_evil:](#speak_no_evil-框架及实战) | [:memo:](#memo-后记) |
 ## 概述
 ```
-  不积跬步,无以至千里.
-  人类真正的强大是自我改变.
+要想练就绝世武功，就要忍受常人难忍受的痛。所有的经验都来自于你曾经遇到的错误。
+成体系化学习知识。锻炼独立，适合于自己的学习方法论，是我创建这个Project的目的。
+也希望自己能得到真正的成长。
 ```
 ## 目录
 ## :coffee: Java基础
