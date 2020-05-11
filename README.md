@@ -30,7 +30,7 @@
  - [23种设计模式详细说明](http://c.biancheng.net/design_pattern/)
     - [单例模式](/notes/设计模式/单例模式.md)
 ## :computer: 操作系统
- - [操作系统基础知识总结](https://blog.csdn.net/qq_35564813/article/details/80651259)
+ - [操作系统基础知识](https://github.com/553899811/NewBie-Plan/tree/master/docs/notes/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86)
  - [操作系统阶段性学习](https://blog.csdn.net/qq_31278903/article/category/7954154)
  - [Linux入门教程](http://c.biancheng.net/linux_tutorial/)
 ## :cloud: 计算机网络
