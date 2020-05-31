@@ -42,8 +42,6 @@
    - [LeetCode刷题记录](https://github.com/553899811/LeetCode)
    - [剑指Offer](https://liweiwei1419.github.io/sword-for-offer/)
    - [算法与数据结构阶段性学习](https://www.geeksforgeeks.org/fundamentals-of-algorithms/)
-   - [Online Judge 在线练习网站]
-     - [AcWing](https://www.acwing.com/problem/)
  - 算法应用
    - [LRU缓存淘汰策略]()
 ## :floppy_disk: 数据库
