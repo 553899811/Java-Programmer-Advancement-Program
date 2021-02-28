@@ -42,8 +42,6 @@
    - [LeetCode刷题记录](https://github.com/553899811/LeetCode)
    - [剑指Offer](https://liweiwei1419.github.io/sword-for-offer/)
    - [算法与数据结构阶段性学习](https://www.geeksforgeeks.org/fundamentals-of-algorithms/)
- - 算法应用
-   - [LRU缓存淘汰策略]()
 ## :floppy_disk: 数据库
  - MySQL
    - [MySQL阶段性学习](https://guobinhit.blog.csdn.net/column/info/16138/)
@@ -53,10 +51,8 @@
    - [Redis命令](http://redisdoc.com/)
    - [Redis分布式锁原理](/docs/notes/分布式/分布式锁/分布式锁的实现.md)
 ## :art: Java虚拟机
+ - [类加载器子系统](docs/notes/Java虚拟机/1.类加载器子系统.md)
  - [Java内存结构](docs/notes/Java虚拟机/Java内存区域.md)
- - [HotSpot 虚拟机对象探秘]()
- - [垃圾收集策略与算法]()
- - [HotSpot 垃圾收集器]()
 ## :couple: Java多线程
  - [死磕Java并发](http://cmsblogs.com/?p=2611)
  - [Java并发性与多线程介绍目录](http://ifeve.com/java-concurrency-thread-directory/)
