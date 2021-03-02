@@ -82,12 +82,8 @@
    - [SpringCloud](https://spring.io/projects/spring-cloud)
      - [SpringCloud学习目录](http://blog.didispace.com/spring-cloud-learning/)
      - [SpringCloud组件原理](/docs/notes/基础框架/Spring/SpringCloud组件原理.md)
-   - [SpringMVC]
-     - [SpringMVC原理](/docs/notes/基础框架/Spring/SpringMVC原理.md)
    - 其他应用
-     - [自定义注解原理及实现](/docs/notes/基础框架/自定义注解原理及实现.md)
- - 项目实战
-   - [LeYou商城](https://space.bilibili.com/248011590/video) 
+     - [自定义注解原理及实现](/docs/notes/基础框架/自定义注解原理及实现.md) 
 
 ## 鸣谢列表
 ### Code Contributors
