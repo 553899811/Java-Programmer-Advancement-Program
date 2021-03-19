@@ -52,9 +52,12 @@
    - [Redis分布式锁原理](/docs/notes/分布式/分布式锁/分布式锁的实现.md)
 ## :art: Java虚拟机
  - [1.类加载器子系统](docs/notes/Java虚拟机/1.类加载器子系统.md)
- - [2.运行时数据区与内存](docs/notes/Java虚拟机/2.0 运行时数据区与内存)
+ - [2.运行时数据区与内存](/docs/notes/Java虚拟机/2.0%20运行时数据区与内存/2.1%20程序计数器.md)
    - [2.1 程序计数器](/docs/notes/Java虚拟机/2.0%20运行时数据区与内存/2.1%20程序计数器.md)
    - [2.2 虚拟机栈](/docs/notes/Java虚拟机/2.0%20运行时数据区与内存/2.2%20虚拟机栈.md)
+   - [2.3 本地方法接口](/docs/notes/Java虚拟机/2.0%20运行时数据区与内存/2.3%20本地方法接口.md)
+   - [2.4 本地方法栈](/docs/notes/Java虚拟机/2.0%20运行时数据区与内存/2.4%20本地方法栈.md)
+   - [2.5 堆](/docs/notes/Java虚拟机/2.0%20运行时数据区与内存/2.5%20堆.md)
 ## :couple: Java多线程
  - [死磕Java并发](http://cmsblogs.com/?p=2611)
  - [Java并发性与多线程介绍目录](http://ifeve.com/java-concurrency-thread-directory/)
