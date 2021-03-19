@@ -39,8 +39,8 @@
 ## :pencil2: 算法
  - 基础算法
    - [自我总结-算法与数据结构](https://github.com/553899811/Algorithm-And-DataStructure)
-   - [LeetCode刷题记录](https://github.com/553899811/LeetCode)
-   - [剑指Offer](https://liweiwei1419.github.io/sword-for-offer/)
+   - [LeetCode研发类面试专题](/docs/notes/算法与数据结构/LeetCode%20笔记汇总)
+   - [剑指Offer](/docs/notes/算法与数据结构/剑指Offer%20笔记汇总)
    - [算法与数据结构阶段性学习](https://www.geeksforgeeks.org/fundamentals-of-algorithms/)
 ## :floppy_disk: 数据库
  - MySQL
@@ -51,8 +51,10 @@
    - [Redis命令](http://redisdoc.com/)
    - [Redis分布式锁原理](/docs/notes/分布式/分布式锁/分布式锁的实现.md)
 ## :art: Java虚拟机
- - [类加载器子系统](docs/notes/Java虚拟机/1.类加载器子系统.md)
- - [Java内存结构](docs/notes/Java虚拟机/Java内存区域.md)
+ - [1.类加载器子系统](docs/notes/Java虚拟机/1.类加载器子系统.md)
+ - [2.0 运行时数据区与内存](/docs/notes/Java虚拟机/2.0 运行时数据区与内存)
+   - [2.1 程序计数器](/docs/notes/Java虚拟机/2.0%20运行时数据区与内存/2.1%20程序计数器.md)
+   - [2.2 虚拟机栈](/docs/notes/Java虚拟机/2.0%20运行时数据区与内存/2.2%20虚拟机栈.md)
 ## :couple: Java多线程
  - [死磕Java并发](http://cmsblogs.com/?p=2611)
  - [Java并发性与多线程介绍目录](http://ifeve.com/java-concurrency-thread-directory/)
