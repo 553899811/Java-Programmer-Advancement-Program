@@ -29,9 +29,17 @@
    - [String原理](/docs/notes/Java基础/Java-数据类型/引用数据类型/String.md)
 ### 设计模式
  - [23种设计模式详细说明](http://c.biancheng.net/design_pattern/)
-    - [单例模式](/notes/设计模式/单例模式.md)
+    - [单例模式](/docs/notes/设计模式/单例模式.md)
 ## :computer: 操作系统
  - [操作系统基础知识](https://github.com/553899811/NewBie-Plan/tree/master/docs/notes/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86)
+   - [1.1 操作系统的基本概念](/docs/notes/操作系统/基础知识/1.1操作系统的基本概念.md)
+   - [1.2 操作系统的发展与分类](/docs/notes/操作系统/基础知识/1.2.操作系统的发展与分类.md)
+   - [1.3 操作系统的运行环境](/docs/notes/操作系统/基础知识/1.3.操作系统的运行环境.md)
+   - [1.4 操作系统的体系结构](/notes/操作系统/基础知识/1.4.操作系统的体系结构.md)
+   - [2.1 进程概论](/docs/notes/操作系统/基础知识/2.1进程概论.md)
+   - [2.2 线程概论](/docs/notes/操作系统/基础知识/2.2线程概论.md)
+   - [2.3 处理机调度](/docs/notes/操作系统/基础知识/2.3处理机调度.md)
+   - [2.4 内存管理](/docs/notes/操作系统/基础知识/3.1内存管理.md)
  - [Linux入门教程](http://c.biancheng.net/linux_tutorial/)
 ## :cloud: 计算机网络
  - [计算机网络基础知识总结](https://blog.csdn.net/qq_34337272/article/details/81776275)
@@ -39,7 +47,10 @@
 ## :pencil2: 算法
  - 基础算法
    - [自我总结-算法与数据结构](https://github.com/553899811/Algorithm-And-DataStructure)
-   - [LeetCode研发类面试专题](/docs/notes/算法与数据结构/LeetCode%20笔记汇总)
+   - [LeetCode研发类面试专题](/docs/notes/算法与数据结构/LeetCode%20研发类面试专题)
+     - [一、深度优先搜索](/docs/notes/算法与数据结构/LeetCode%20研发类面试专题/1.深度优先搜索.md)
+     - [二、广度优先搜索](/docs/notes/算法与数据结构/LeetCode%20研发类面试专题/2.广度优先搜索.md)
+     - [三、链表](/docs/notes/算法与数据结构/LeetCode%20研发类面试专题/3.链表.md)
    - [剑指Offer](/docs/notes/算法与数据结构/剑指Offer%20笔记汇总)
    - [算法与数据结构阶段性学习](https://www.geeksforgeeks.org/fundamentals-of-algorithms/)
 ## :floppy_disk: 数据库
