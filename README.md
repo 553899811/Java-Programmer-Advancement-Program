@@ -59,7 +59,10 @@
    - [MySQL索引原理](/docs/notes/数据库/MySQL/索引原理分析.md)
    - [MySQL索引失效及优化策略](/docs/notes/数据库/MySQL/索引失效及优化策略.md)
  - Redis
-   - [Redis命令](http://redisdoc.com/)
+   - [Redis数据类型](/docs/notes/缓存/Redis/1.Redis数据类型)
+     - [1.1 string](/docs/notes/缓存/Redis/1.Redis数据类型/1.1%20string.md)
+     - [1.2 list](/docs/notes/缓存/Redis/1.Redis数据类型/1.2%20list.md)
+     - [1.3 hash](/docs/notes/缓存/Redis/1.Redis数据类型/1.3%20hash.md) 
    - [Redis分布式锁原理](/docs/notes/分布式/分布式锁/分布式锁的实现.md)
 ## :art: Java虚拟机
  - [1.类加载器子系统](docs/notes/Java虚拟机/1.类加载器子系统.md)
@@ -97,9 +100,12 @@
    - [SpringBoot](https://spring.io/projects/spring-boot)
      - [SpringBoot学习教程](http://cmsblogs.com/?p=2919)
      - [SpringBoot常见面试题](/docs/notes/基础框架/Spring/SpringBoot常见面试题.md)
+   - [SpringCloud](https://spring.io/projects/spring-cloud)
+     - [SpringCloud学习目录](http://blog.didispace.com/spring-cloud-learning/)
+     - [SpringCloud组件原理](/docs/notes/基础框架/Spring/SpringCloud组件原理.md)
    - 其他应用
      - [自定义注解原理及实现](/docs/notes/基础框架/自定义注解原理及实现.md) 
-     
+
 ## 鸣谢列表
 ### Code Contributors
 <a href="https://github.com/553899811/NewBie-Plan/graphs/contributors"><img src="https://opencollective.com/NewBie-Plan/contributors.svg?width=890&button=false" /></a>
