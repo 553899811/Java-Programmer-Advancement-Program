@@ -62,7 +62,9 @@
    - [Redis数据类型](/docs/notes/缓存/Redis/1.Redis数据类型)
      - [1.1 string](/docs/notes/缓存/Redis/1.Redis数据类型/1.1%20string.md)
      - [1.2 list](/docs/notes/缓存/Redis/1.Redis数据类型/1.2%20list.md)
-     - [1.3 hash](/docs/notes/缓存/Redis/1.Redis数据类型/1.3%20hash.md) 
+     - [1.3 hash](/docs/notes/缓存/Redis/1.Redis数据类型/1.3%20hash.md)
+     - [1.4 set](/docs/notes/缓存/Redis/1.Redis数据类型/1.4%20set.md)
+     - [1.5 zset](/docs/notes/缓存/Redis/1.Redis数据类型/1.5%20zset.md) 
    - [Redis分布式锁原理](/docs/notes/分布式/分布式锁/分布式锁的实现.md)
 ## :art: Java虚拟机
  - [1.类加载器子系统](docs/notes/Java虚拟机/1.类加载器子系统.md)
