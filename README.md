@@ -75,8 +75,11 @@
    - [2.4 本地方法栈](/docs/notes/Java虚拟机/2.0%20运行时数据区与内存/2.4%20本地方法栈.md)
    - [2.5 堆](/docs/notes/Java虚拟机/2.0%20运行时数据区与内存/2.5%20堆.md)
    - [2.6 方法区](/docs/notes/Java虚拟机/2.0%20运行时数据区与内存/2.6%20方法区.md)
- - [5.垃圾回收算法](/docs/notes/Java虚拟机/5.垃圾回收算法.md)    
- - [6.垃圾回收期](/docs/notes/Java虚拟机/6.垃圾回收器.md)  
+ - [3.对象实例化内存布局与访问定位](/docs/notes/Java虚拟机/3.对象实例化内存布局与访问定位.md)
+ - [4.直接内存](/docs/notes/Java虚拟机/4.直接内存.md)
+ - [5.执行引擎](/docs/notes/Java虚拟机/5.执行引擎.md)  
+ - [6.垃圾回收算法](/docs/notes/Java虚拟机/6.垃圾回收算法.md)    
+ - [7.垃圾回收器](/docs/notes/Java虚拟机/7.垃圾回收器.md)  
 ## :couple: Java多线程
  - [死磕Java并发](http://cmsblogs.com/?p=2611)
  - [Java并发性与多线程介绍目录](http://ifeve.com/java-concurrency-thread-directory/)
