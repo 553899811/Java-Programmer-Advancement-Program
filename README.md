@@ -91,13 +91,14 @@
      - [深度剖析ArrayBlockingQueue原理](https://blog.csdn.net/zzp_403184692/article/details/8021615)
      - [深度剖析LinkedBlockingQueue原理](https://blog.csdn.net/tonywu1992/article/details/83419448)
 ## :bulb: 分布式
- - [ZooKeeper专题](docs/notes/分布式/ZooKeeper/)
  - [分布式理论基础](https://github.com/xingshaocheng/architect-awesome/blob/master/README.md#%E5%88%86%E5%B8%83%E5%BC%8F%E4%B8%80%E8%87%B4)
- - [分布式一致性算法](https://www.cnblogs.com/bangerlee/tag/%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F/)
+   - [分布式一致性算法](https://www.cnblogs.com/bangerlee/tag/%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F/)
    - [2PC与3PC及一致性概念](https://www.cnblogs.com/bangerlee/p/5268485.html)
    - [CAP](https://www.cnblogs.com/bangerlee/p/5328888.html)
    - [Paxos](https://www.cnblogs.com/bangerlee/p/5655754.html)
    - [Raft与Zab](https://www.cnblogs.com/bangerlee/p/5991417.html)
+ - [分布式锁专题](/docs/notes/分布式/分布式锁/分布式锁的实现.md)
+ - [分布式事务专题](/docs/notes/分布式/分布式事务/分布式事务基础概念.md)  
 ## :hammer: 工具
  - [Git](docs/notes/工具及组件/Git.md)
 ## :speak_no_evil: 框架及实战
