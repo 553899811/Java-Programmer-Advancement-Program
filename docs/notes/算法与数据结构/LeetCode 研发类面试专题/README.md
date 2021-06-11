@@ -22,62 +22,133 @@
 # C++ 刷题模板
 ```cpp
 #include <bits/stdc++.h>
-
+#include <ext/pb_ds/assoc_container.hpp>
+#include <ext/pb_ds/trie_policy.hpp>
 using namespace std;
 using ll = long long;
 using db = long double;
-
+using gragh = vector<vector<ll>>;
 #define PI acos(-1)
 
+struct Point {
+  int x, y;
+  Point(int _x, int _y) : x(_x), y(_y) {}
+};
 struct ListNode {
-    int val;
-    ListNode *next;
-
-    ListNode() : val(0), next(nullptr) {}
-
-    ListNode(int val) : val(val), next(nullptr) {}
-
-    ListNode(int x, ListNode *next) : val(x), next(next) {}
+  /* data */
+  int val;
+  ListNode *next;
+  ListNode() : val(0), next(nullptr) {}
+  ListNode(int val) : val(val), next(nullptr) {}
+  ListNode(int val, ListNode *next) : val(val), next(next) {}
 };
-
 struct TreeNode {
-    int val;
-    struct TreeNode *left;
-    struct TreeNode *right;
-
-    TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+  int val;
+  TreeNode *left;
+  TreeNode *right;
+  TreeNode(int val) : val(val), left(nullptr), right(nullptr) {}
 };
-
 struct DLinkedListNode {
-    DLinkedListNode *next, *prev;
-    int key, val;
-
-    DLinkedListNode() : key(0), val(0), next(nullptr), prev(nullptr) {}
-
-    DLinkedListNode(int key, int val) : key(key), val(val), next(nullptr), prev(nullptr) {}
+  DLinkedListNode *next, *prev;
+  int key, val;
+  DLinkedListNode() : key(0), val(0), next(nullptr), prev(nullptr) {}
+  DLinkedListNode(int key, int val)
+      : key(key), val(val), next(nullptr), prev(nullptr) {}
 };
+
+template <typename T> inline void read(T &t) {
+  int f = 0, c = getchar();
+  t = 0;
+  while (!isdigit(c))
+    f |= c == '-', c = getchar();
+  while (isdigit(c))
+    t = t * 10 + c - 48, c = getchar();
+  if (f)
+    t = -t;
+}
+
+template <typename T> void print(T x) {
+  if (x < 0)
+    x = -x, putchar('-');
+  if (x > 9)
+    print(x / 10);
+  putchar(x % 10 + 48);
+}
 
 class Solution {
 public:
-    ListNode* reverseKGroup(ListNode* head, int k) {
+  void solve() {
+    ll N;
+    cin >> N;
+    ll sum = (N + 1) * N;
+    if (sum % 4 != 0) {
+      cout << "NO" << endl;
+    } else {
+      cout << "YES" << endl;
+      vector<ll> left, right;
+      if ((N & 1) == 0) { // even
+        cout << N / 2 << endl;
+        // 8
+        // YES
+        // 4
+        // 1 4 5 8
+        // 4
+        // 2 3 6 7
 
+        int begin = 1;
+        while (begin <= N) {
+          if (begin == N) {
+            cout << begin << endl;
+            break;
+          }
+          cout << begin << " ";
+          if (begin % 2 == 0) {
+            begin += 1;
+            cout << begin << " ";
+          }
+          if (begin % 2 != 0) {
+            begin += 3;
+          }
+        }
+
+        cout << N / 2 << endl;
+        int start = 2;
+        while (start <= N - 1) {
+          if (start == N - 1) {
+            cout << start << "\n";
+            break;
+          }
+          cout << start << " ";
+          if (start % 2 == 0) {
+            start += 1;
+            cout << start << " ";
+          }
+          if (start % 2 != 0) {
+            start += 3;
+          }
+        }
+
+      } else { 
+        // odd
+               // 7
+               // YES
+               // 4
+               // 2 3 4 5
+               // 3
+               // 1 6 7
+      }
     }
+  }
 };
 
 int main() {
-    ios_base::sync_with_stdio(false);
-    cin.tie(0);
-    Solution slu;
-    string str = "helloworld";
-    string str2 = str;
-    str[0] = 'q';
-    str2[0] = 'w';
-    cout << str << endl;
-    cout << str2 << endl;
-    return 0;
+  ios_base::sync_with_stdio(false);
+  cin.tie(NULL);
+
+  Solution slu;
+  slu.solve();
+  return 0;
 }
-
-
 ```
 <a name="bJkYB"></a>
 # 建议
