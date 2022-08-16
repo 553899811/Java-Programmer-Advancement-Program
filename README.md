@@ -21,6 +21,7 @@
     - [LinkedList原理](/docs/notes/Java基础/Java-容器/Collection集合/基础知识/LinkedList.md)<br>
   - Stack
     - [Stack原理](/docs/notes/Java基础/Java-容器/Collection集合/基础知识/Stack.md)
+    - [Stack and Queue](https://www.scaler.com/topics/java/stack-and-queue-in-java/)
   - Queue
     - [PriorityQueue原理](https://blog.csdn.net/qq_35326718/article/details/72866180)
 
