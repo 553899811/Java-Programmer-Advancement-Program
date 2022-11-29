@@ -56,17 +56,23 @@
    - [算法与数据结构阶段性学习](https://www.geeksforgeeks.org/fundamentals-of-algorithms/)
 ## :floppy_disk: 数据库
  - MySQL
-   - [MySQL阶段性学习](https://guobinhit.blog.csdn.net/column/info/16138/)
-   - [MySQL索引原理](/docs/notes/数据库/MySQL/索引原理分析.md)
-   - [MySQL索引失效及优化策略](/docs/notes/数据库/MySQL/索引失效及优化策略.md)
+   - [MySQL存储引擎](/docs/notes/数据库/MySQL/MySQL存储引擎.md)
+   - [MySQL事务](/docs/notes/数据库/MySQL/MySQL事务.md)
+   - [MySQL索引](/docs/notes/数据库/MySQL/MySQL索引.md)
+   - [MySQL锁机制](/docs/notes/数据库/MySQL/MySQL锁机制.md)
  - Redis
+   - [Redis对象机制](/docs/notes/缓存/Redis/Redis对象机制.md)
    - [Redis数据类型](/docs/notes/缓存/Redis/1.Redis数据类型)
      - [1.1 string](/docs/notes/缓存/Redis/1.Redis数据类型/1.1%20string.md)
      - [1.2 list](/docs/notes/缓存/Redis/1.Redis数据类型/1.2%20list.md)
      - [1.3 hash](/docs/notes/缓存/Redis/1.Redis数据类型/1.3%20hash.md)
      - [1.4 set](/docs/notes/缓存/Redis/1.Redis数据类型/1.4%20set.md)
      - [1.5 zset](/docs/notes/缓存/Redis/1.Redis数据类型/1.5%20zset.md) 
-   - [Redis分布式锁原理](/docs/notes/分布式/分布式锁/分布式锁的实现.md)
+   - [Redis持久化](/docs/notes/缓存/Redis/Redis对象机制.md)
+   - [Redis过期策略及内存淘汰机制](/docs/notes/缓存/Redis/Redis过期策略及内存淘汰机制.md)
+   - [Redis缓存穿透/击穿/雪崩](/docs/notes/缓存/Redis/Redis缓存穿透_击穿_雪崩.md)
+   - [Redis缓存一致性问题](/docs/notes/缓存/Redis/Redis缓存一致性问题.md)
+
 ## :art: Java虚拟机
  - [1.类加载器子系统](docs/notes/Java虚拟机/1.类加载器子系统.md)
  - [2.运行时数据区与内存](/docs/notes/Java虚拟机/2.0%20运行时数据区与内存/2.1%20程序计数器.md)
@@ -107,11 +113,6 @@
    - [SpringBoot](https://spring.io/projects/spring-boot)
      - [SpringBoot学习教程](http://cmsblogs.com/?p=2919)
      - [SpringBoot常见面试题](/docs/notes/基础框架/Spring/SpringBoot常见面试题.md)
-   - [SpringCloud](https://spring.io/projects/spring-cloud)
-     - [SpringCloud学习目录](http://blog.didispace.com/spring-cloud-learning/)
-     - [SpringCloud组件原理](/docs/notes/基础框架/Spring/SpringCloud组件原理.md)
-   - 其他应用
-     - [自定义注解原理及实现](/docs/notes/基础框架/自定义注解原理及实现.md) 
 
 ## 鸣谢列表
 ### Code Contributors
